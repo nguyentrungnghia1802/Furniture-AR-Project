@@ -12,10 +12,13 @@
                 $currentSort = request()->get('sort');
                 $keyword = request()->get('q');
                 $selectedCategoryName = request()->get('category_name');
+                $arOnly = request()->get('ar_only');
+                $minPrice = request()->get('min_price');
+                $maxPrice = request()->get('max_price');
             @endphp
 
             <!-- Search Status Banner -->
-            @if ($keyword || $selectedCategoryName)
+            @if ($keyword || $selectedCategoryName || $arOnly || $minPrice || $maxPrice)
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                     <div class="flex items-center text-blue-800">
                         <i class="fas fa-info-circle mr-2"></i>
@@ -29,6 +32,14 @@
                             @elseif($selectedCategoryName)
                                 {{ __('product.showing_products_in_category') }}
                                 "<strong>{{ ucfirst(str_replace('-', ' ', $selectedCategoryName)) }}</strong>"
+                            @endif
+                            @if($arOnly)
+                                <span class="ml-2 px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">AR Only</span>
+                            @endif
+                            @if($minPrice || $maxPrice)
+                                <span class="ml-2 px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                                    ${{ $minPrice ?? '0' }} - ${{ $maxPrice ?? '∞' }}
+                                </span>
                             @endif
                         </span>
                         <a href="{{ route('user.products.index') }}"
@@ -65,31 +76,66 @@
                     </button>
                 </div>
 
+                <!-- Filters Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- AR Filter -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">AR Products</label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" name="ar_only" value="1" {{ $arOnly ? 'checked' : '' }}
+                                class="rounded border-gray-300 text-purple-600 focus:ring-purple-500">
+                            <span class="text-sm text-gray-600">Show AR-enabled only</span>
+                        </label>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Price Range</label>
+                        <div class="flex gap-2">
+                            <input type="number" name="min_price" value="{{ $minPrice }}" placeholder="Min"
+                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-pink-300">
+                            <input type="number" name="max_price" value="{{ $maxPrice }}" placeholder="Max"
+                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-pink-300">
+                        </div>
+                    </div>
+
+                    <!-- Apply Filters Button -->
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-700 transition-colors">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Sort Options Row - Mobile Responsive -->
                 <div class="space-y-3">
                     <span class="block text-sm sm:text-lg font-bold text-gray-700">{{ __('product.sort_by') }}:</span>
                     <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'desc', 'q' => $keyword, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'desc', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'desc' ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.price_high_to_low') }}
                         </a>
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'asc', 'q' => $keyword, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'asc', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'asc' ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.price_low_to_high') }}
                         </a>
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'sale', 'q' => $keyword, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'sale', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'sale' ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.on_sale') }}
                         </a>
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'views', 'q' => $keyword, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'views', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'views' ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.most_viewed') }}
                         </a>
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'bestseller', 'q' => $keyword, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'bestseller', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'bestseller' ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.best_selling') }}
                         </a>
-                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'latest', 'q' => $keyword, 'category' => $selectedCategory, 'category_name' => $selectedCategoryName])) }}"
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'ar_first', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
+                            class="bg-purple-600 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-purple-700 transition text-center {{ $currentSort === 'ar_first' ? 'bg-purple-700 font-bold' : '' }}">
+                            AR First
+                        </a>
+                        <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'latest', 'q' => $keyword, 'category' => $selectedCategory, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
                             class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'latest' || !$currentSort ? 'bg-pink-600 font-bold' : '' }}">
                             {{ __('product.latest') }}
                         </a>
@@ -171,6 +217,17 @@
                                     -{{ $productItem->discount_percent }}%
                                 </span>
                             @endif
+                            
+                            <!-- AR Badge -->
+                            @if ($productItem->ar_enabled)
+                                <span class="absolute top-2 left-2 {{ $productItem->discount_percent > 0 ? 'mt-8' : '' }} bg-purple-600 text-white text-xs px-2 py-1 rounded-full font-semibold flex items-center gap-1">
+                                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9 3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                    AR
+                                </span>
+                            @endif
+                            
                             <button
                                 class="absolute top-2 right-2 bg-white bg-opacity-80 text-gray-600 hover:text-red-500 p-2 rounded-full transition-colors">
                                 <i class="far fa-heart text-sm"></i>
@@ -240,9 +297,21 @@
                             </div>
 
                             <!-- Button pushes to bottom -->
-                            <div class="mt-auto">
+                            <div class="mt-auto space-y-2">
+                                <!-- AR Button (if available) -->
+                                @if ($productItem->ar_enabled)
+                                    <a href="{{ route('products.ar', $productItem->id) }}"
+                                        class="block text-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition-colors duration-300 text-sm">
+                                        <svg class="inline w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9 3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                        </svg>
+                                        View in AR
+                                    </a>
+                                @endif
+                                
+                                <!-- Regular View Button -->
                                 <a href="{{ route('user.products.show', $productItem->id) }}"
-                                    class="block text-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 sm:py-3 rounded-lg transition-colors duration-300 text-sm">
+                                    class="block text-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 {{ $productItem->ar_enabled ? 'sm:py-2' : 'sm:py-3' }} rounded-lg transition-colors duration-300 text-sm">
                                     <i class="fas fa-eye mr-2"></i>{{ __('product.view_details') }}
                                 </a>
                             </div>

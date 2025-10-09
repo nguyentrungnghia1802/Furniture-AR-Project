@@ -44,14 +44,28 @@ class ProductController extends Controller
      *
      * This method handles the main product catalog page with comprehensive
      * filtering, searching, and sorting capabilities. It includes category
-     * filtering, keyword search across multiple fields, and various sorting
-     * options including best sellers and price ranges.
+     * filtering, keyword search across multiple fields, various sorting
+     * options including best sellers and price ranges, and AR product filtering.
      *
      * Performance is optimized through intelligent caching based on query parameters.
      * The method supports both category ID and category name filtering for
-     * SEO-friendly URLs and multilingual support.
+     * maximum flexibility and user experience.
      *
-     * @param  Request  $request  HTTP request containing query parameters for filtering/sorting
+     * Filtering Options:
+     * - Category filtering (by ID or name)
+     * - Keyword search (name, description)
+     * - Price range filtering
+     * - AR-enabled product filtering
+     * - Stock availability filtering
+     *
+     * Sorting Options:
+     * - Newest products first
+     * - Price: low to high / high to low
+     * - Best sellers (by order count)
+     * - Best rated products
+     * - AR products first
+     *
+     * @param  \Illuminate\Http\Request  $request  HTTP request with filter parameters
      * @return \Illuminate\View\View Product listing view with filtered results
      */
     public function index(Request $request)
@@ -83,6 +97,17 @@ class ProductController extends Controller
          */
         $categoryName = $request->query('category_name');
 
+        /**
+         * AR Filter Parameter - Filter for AR-enabled products only
+         */
+        $arOnly = $request->query('ar_only');
+
+        /**
+         * Price Range Parameters - Filter by min/max price
+         */
+        $minPrice = $request->query('min_price');
+        $maxPrice = $request->query('max_price');
+
         // Cache Key Generation
         /**
          * Dynamic Cache Key - Creates unique cache identifier based on query parameters
@@ -94,6 +119,9 @@ class ProductController extends Controller
             'keyword' => $keyword,
             'categoryId' => $categoryId,
             'categoryName' => $categoryName,
+            'arOnly' => $arOnly,
+            'minPrice' => $minPrice,
+            'maxPrice' => $maxPrice,
             'page' => $request->query('page', 1),
         ]));
 
@@ -103,7 +131,7 @@ class ProductController extends Controller
          * Balances performance improvements with data freshness requirements
          * Cache invalidation occurs automatically after timeout period
          */
-        $result = Cache::remember($cacheKey, 900, function () use ($sort, $keyword, $categoryId, $categoryName) {
+        $result = Cache::remember($cacheKey, 900, function () use ($sort, $keyword, $categoryId, $categoryName, $arOnly, $minPrice, $maxPrice) {
 
             // Base Query Construction
             /**
@@ -176,6 +204,27 @@ class ProductController extends Controller
                 });
             }
 
+            // AR Products Filter
+            /**
+             * AR-Only Filter - Show only products with AR support
+             * Filters products that have AR models available for viewing
+             */
+            if ($arOnly) {
+                $query->where('ar_enabled', true);
+            }
+
+            // Price Range Filtering
+            /**
+             * Price Range Filter - Filter products by price range
+             * Supports minimum and maximum price constraints
+             */
+            if ($minPrice) {
+                $query->where('products.price', '>=', $minPrice);
+            }
+            if ($maxPrice) {
+                $query->where('products.price', '<=', $maxPrice);
+            }
+
             // Product Sorting Logic
             /**
              * Dynamic Sorting System - Multiple sorting options for different user needs
@@ -197,6 +246,10 @@ class ProductController extends Controller
                 case 'views':
                     // Most Viewed - Products with highest view count first
                     $query->orderBy('view_count', 'desc');
+                    break;
+                case 'ar_first':
+                    // AR Products First - AR-enabled products first, then by latest
+                    $query->orderBy('ar_enabled', 'desc')->orderBy('created_at', 'desc');
                     break;
                 case 'bestseller':
                     // Best Sellers - Products with highest total sales quantity
@@ -229,6 +282,9 @@ class ProductController extends Controller
                 'q' => $keyword,
                 'category' => $categoryId,
                 'category_name' => $categoryName,
+                'ar_only' => $arOnly,
+                'min_price' => $minPrice,
+                'max_price' => $maxPrice,
             ]);
 
             // Category Data for Filter Dropdown
@@ -380,6 +436,45 @@ class ProductController extends Controller
             'reviews',          // Paginated customer reviews
             'averageRating',    // Calculated average rating
             'totalReviews'      // Total number of reviews
+        ));
+    }
+
+    /**
+     * Display AR-enabled product details
+     * Shows product information with AR model viewing capabilities
+     */
+        public function showArProduct(Request $request, $id)
+    {
+        // Find product by ID with AR support (since slug column doesn't exist)
+        $product = Product::where('id', $id)
+            ->where('ar_enabled', true)
+            ->with(['category'])
+            ->firstOrFail();
+
+        // Increment view count
+        $product->increment('view_count');
+
+        // Get AR model URLs
+        $arModels = [
+            'glb' => $product->getArModelUrl('glb'),
+            'usdz' => $product->getArModelUrl('usdz'),
+        ];
+
+        // Get product dimensions for AR positioning
+        $dimensions = $product->getDimensions();
+
+        // Get related AR products
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->where('ar_enabled', true)
+            ->limit(4)
+            ->get();
+
+        return view('user.products.ar-details', compact(
+            'product',
+            'arModels',
+            'dimensions',
+            'relatedProducts'
         ));
     }
 }

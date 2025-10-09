@@ -25,6 +25,9 @@
  */
 
 use App\Http\Controllers\LocaleController;       // Laravel routing facade
+use Illuminate\Http\Request;                   // Request facade
+use Illuminate\Support\Facades\Auth;          // Auth facade
+use Illuminate\Support\Facades\Log;           // Logging facade
 // Chatbot functionality controller
 use Illuminate\Support\Facades\Route;  // Locale switching functionality controller
 
@@ -89,6 +92,34 @@ require __DIR__.'/auth.php';
  */
 Route::post('/chatbot', [App\Http\Controllers\ChatbotController::class, 'chat'])
     ->name('chatbot.chat');
+
+/**
+ * AR Analytics Route - Track AR usage for analytics
+ *
+ * Tracks AR model viewing and interaction analytics.
+ * Helps understand user engagement with AR features.
+ * Used for business intelligence and feature optimization.
+ */
+Route::post('/api/track-ar-usage', function (Request $request) {
+    // Validate incoming data
+    $validated = $request->validate([
+        'action' => 'required|string|in:model_loaded,ar_session_started,ar_object_placed,screenshot_taken,model_error',
+        'product_id' => 'required|integer|exists:products,id',
+        'timestamp' => 'required|date_format:Y-m-d\TH:i:s.v\Z'
+    ]);
+
+    // Log AR usage for analytics (could be stored in database or analytics service)
+    Log::info('AR Usage Tracked', [
+        'action' => $validated['action'],
+        'product_id' => $validated['product_id'],
+        'timestamp' => $validated['timestamp'],
+        'user_agent' => $request->userAgent(),
+        'ip' => $request->ip(),
+        'user_id' => Auth::check() ? Auth::id() : null
+    ]);
+
+    return response()->json(['status' => 'tracked']);
+})->name('ar.track');
 
 /**
  * Locale Switching Route - Multi-language Support

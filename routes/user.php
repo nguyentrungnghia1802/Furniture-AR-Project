@@ -16,6 +16,7 @@ Route::get('/', [UserDashboardController::class, 'index'])->name('dashboard');
 // Product routes available for both guests and authenticated users
 Route::get('/products', [ProductController::class, 'index'])->name('user.products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('user.products.show');
+Route::get('/products/{id}/ar', [ProductController::class, 'showArProduct'])->name('products.ar');
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
