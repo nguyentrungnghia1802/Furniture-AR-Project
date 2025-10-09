@@ -35,6 +35,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product\Category;         // HTTP request handling
 use App\Models\Product\Product;      // Product model for database operations
 use App\Models\Product\Review;     // Category model for product categorization
+use App\Services\ArModelService;     // AR model upload service
 use Illuminate\Http\Request;       // Review model for product reviews
 use Illuminate\Support\Facades\Cache; // Cache management for performance
 
@@ -175,6 +176,10 @@ class ProductsController extends Controller
      * - discount_percent: Optional numeric, 0-100 range
      * - view_count: Optional integer, minimum 0
      * - image_url: Optional image file with size and type restrictions
+     * - ar_enabled: Optional boolean for AR support
+     * - ar_model_glb: Optional GLB file for Android AR
+     * - ar_model_usdz: Optional USDZ file for iOS AR
+     * - width_cm, height_cm, depth_cm: Optional dimensions
      *
      * @param  \Illuminate\Http\Request  $request  HTTP request with product data
      * @return \Illuminate\Http\RedirectResponse Redirect to product list with success message
@@ -186,6 +191,7 @@ class ProductsController extends Controller
          * Product Data Validation - Comprehensive validation for all product fields
          * Ensures data integrity and security for product creation
          * Image validation includes file type and size restrictions
+         * AR model validation for supported file formats
          */
         $request->validate([
             'name' => 'required|string|max:255',                          // Product name validation
@@ -196,6 +202,16 @@ class ProductsController extends Controller
             'discount_percent' => 'nullable|numeric|min:0|max:100',       // Discount percentage validation
             'view_count' => 'nullable|integer|min:0',                     // View count validation
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Image file validation
+            
+            // AR-related validations
+            'ar_enabled' => 'nullable|boolean',                           // AR support flag
+            'ar_model_glb' => 'nullable|file|mimes:glb|max:51200',       // GLB model (50MB max)
+            'ar_model_usdz' => 'nullable|file|mimes:usdz|max:51200',     // USDZ model (50MB max)
+            'ar_model_size' => 'nullable|string|max:255',                // Model size description
+            'ar_placement_instructions' => 'nullable|string|max:1000',    // AR placement instructions
+            'width_cm' => 'nullable|numeric|min:0|max:10000',            // Width in centimeters
+            'height_cm' => 'nullable|numeric|min:0|max:10000',           // Height in centimeters
+            'depth_cm' => 'nullable|numeric|min:0|max:10000',            // Depth in centimeters
         ]);
 
         // Image Upload Handling
@@ -212,11 +228,54 @@ class ProductsController extends Controller
             $generatedFileName = $imageName;
         }
 
+        // AR Model Upload Handling
+        /**
+         * AR Model Upload Process - Handle AR model file uploads
+         * Processes GLB and USDZ files for AR functionality
+         * Uses ArModelService for secure upload and validation
+         */
+        $arModelService = new ArModelService();
+        $glbFileName = null;
+        $usdzFileName = null;
+
+        // Handle GLB model upload (Android AR)
+        if ($request->hasFile('ar_model_glb')) {
+            $glbResult = $arModelService->uploadArModel(
+                $request->file('ar_model_glb'),
+                'glb',
+                $request->input('name')
+            );
+            if ($glbResult['success']) {
+                $glbFileName = $glbResult['filename'];
+            } else {
+                return redirect()->back()->with('error', 'GLB upload failed: ' . $glbResult['error']);
+            }
+        }
+
+        // Handle USDZ model upload (iOS AR)
+        if ($request->hasFile('ar_model_usdz')) {
+            $usdzResult = $arModelService->uploadArModel(
+                $request->file('ar_model_usdz'),
+                'usdz',
+                $request->input('name')
+            );
+            if ($usdzResult['success']) {
+                $usdzFileName = $usdzResult['filename'];
+            } else {
+                // Cleanup GLB file if USDZ fails
+                if ($glbFileName) {
+                    $arModelService->deleteArModel($glbFileName);
+                }
+                return redirect()->back()->with('error', 'USDZ upload failed: ' . $usdzResult['error']);
+            }
+        }
+
         // Product Creation
         /**
          * Product Record Creation - Create new product with validated data
          * Assigns all form fields to product model
          * Includes default values for optional fields
+         * Includes AR-related fields and uploaded model files
          */
         $product = new Product;
         $product->name = $request->input('name');
@@ -227,6 +286,16 @@ class ProductsController extends Controller
         $product->category_id = $request->input('category_id');
         $product->discount_percent = $request->input('discount_percent', 0);
         $product->view_count = $request->input('view_count', 0);
+        
+        // AR-related fields
+        $product->ar_enabled = $request->has('ar_enabled') ? true : false;
+        $product->ar_model_glb = $glbFileName;
+        $product->ar_model_usdz = $usdzFileName;
+        $product->ar_model_size = $request->input('ar_model_size');
+        $product->ar_placement_instructions = $request->input('ar_placement_instructions');
+        $product->width_cm = $request->input('width_cm');
+        $product->height_cm = $request->input('height_cm');
+        $product->depth_cm = $request->input('depth_cm');
 
         // Save and Cache Management
         /**

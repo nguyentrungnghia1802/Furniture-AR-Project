@@ -74,6 +74,16 @@ class Product extends Model
         'category_id',      // Foreign key to categories table
         'discount_percent', // Percentage discount (0-100)
         'view_count',       // Number of times product has been viewed
+        
+        // AR-related fields
+        'ar_enabled',                // Boolean flag to enable/disable AR for this product
+        'ar_model_glb',             // Path to GLB model file (Android AR)
+        'ar_model_usdz',            // Path to USDZ model file (iOS AR)
+        'ar_model_size',            // String description of model size (e.g., "120x80x45 cm")
+        'ar_placement_instructions', // Text instructions for AR placement
+        'width_cm',                 // Physical width in centimeters
+        'height_cm',                // Physical height in centimeters
+        'depth_cm',                 // Physical depth in centimeters
     ];
 
     /**
@@ -233,5 +243,123 @@ class Product extends Model
     {
         // Count total reviews for this product
         return $this->reviews()->count();
+    }
+
+    // ===== AR-RELATED METHODS =====
+
+    /**
+     * Check if Product has AR Support
+     *
+     * Determines if this product supports Augmented Reality viewing.
+     * Checks both the AR enabled flag and the presence of at least one AR model file.
+     *
+     * @return bool True if product supports AR, false otherwise
+     */
+    public function hasArSupport()
+    {
+        return $this->ar_enabled && ($this->ar_model_glb || $this->ar_model_usdz);
+    }
+
+    /**
+     * Get AR Model URL for Platform
+     *
+     * Returns the appropriate AR model URL based on the user's platform.
+     * GLB format for Android/WebXR, USDZ format for iOS/Quick Look.
+     *
+     * @param string $platform Platform identifier ('ios', 'android', or 'web')
+     * @return string|null URL to the AR model file or null if not available
+     */
+    public function getArModelUrl($platform = 'web')
+    {
+        if (!$this->hasArSupport()) {
+            return null;
+        }
+
+        switch (strtolower($platform)) {
+            case 'ios':
+                return $this->ar_model_usdz ? asset('storage/ar_models/' . $this->ar_model_usdz) : null;
+            case 'android':
+            case 'web':
+            default:
+                return $this->ar_model_glb ? asset('storage/ar_models/' . $this->ar_model_glb) : null;
+        }
+    }
+
+    /**
+     * Get Physical Dimensions Array
+     *
+     * Returns an array of physical dimensions for AR scaling.
+     * Useful for ensuring accurate size representation in AR.
+     *
+     * @return array Array with width, height, depth in centimeters
+     */
+    public function getDimensions()
+    {
+        return [
+            'width' => $this->width_cm,
+            'height' => $this->height_cm,
+            'depth' => $this->depth_cm,
+            'unit' => 'cm'
+        ];
+    }
+
+    /**
+     * Get Formatted Dimensions String
+     *
+     * Returns a formatted string representation of product dimensions.
+     * Useful for display purposes in product listings and details.
+     *
+     * @return string|null Formatted dimensions or null if no dimensions set
+     */
+    public function getFormattedDimensions()
+    {
+        if (!$this->width_cm && !$this->height_cm && !$this->depth_cm) {
+            return null;
+        }
+
+        $parts = [];
+        if ($this->width_cm) $parts[] = $this->width_cm . 'W';
+        if ($this->height_cm) $parts[] = $this->height_cm . 'H';
+        if ($this->depth_cm) $parts[] = $this->depth_cm . 'D';
+
+        return implode(' × ', $parts) . ' cm';
+    }
+
+    // ===== QUERY SCOPES =====
+
+    /**
+     * Scope: AR Enabled Products
+     *
+     * Query scope to filter products that have AR support enabled.
+     * Useful for creating AR-specific product listings and features.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeArEnabled($query)
+    {
+        return $query->where('ar_enabled', true)
+                    ->where(function($q) {
+                        $q->whereNotNull('ar_model_glb')
+                          ->orWhereNotNull('ar_model_usdz');
+                    });
+    }
+
+    /**
+     * Scope: Has Dimensions
+     *
+     * Query scope to filter products that have physical dimensions set.
+     * Useful for AR scaling and size-based filtering.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeHasDimensions($query)
+    {
+        return $query->where(function($q) {
+            $q->whereNotNull('width_cm')
+              ->orWhereNotNull('height_cm')
+              ->orWhereNotNull('depth_cm');
+        });
     }
 }
