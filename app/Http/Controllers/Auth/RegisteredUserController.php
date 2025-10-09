@@ -3,7 +3,7 @@
 /**
  * Registered User Controller
  *
- * This controller handles user registration functionality for the Hanaya Shop e-commerce
+ * This controller handles user registration functionality for the Luna Shop e-commerce
  * application. It manages the complete registration process including form display,
  * validation, email verification, and account creation with comprehensive security
  * measures and user experience optimizations.
@@ -33,7 +33,7 @@
  * - Session-based pending registration storage
  * - Email verification before account activation
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */
@@ -65,7 +65,7 @@ class RegisteredUserController extends Controller
      * Display Registration Form
      *
      * Shows the user registration view where new customers can create
-     * accounts for the Hanaya Shop e-commerce platform.
+     * accounts for the Luna Shop e-commerce platform.
      *
      * @return \Illuminate\View\View Registration form view
      */

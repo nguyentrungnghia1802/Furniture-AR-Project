@@ -4,7 +4,7 @@
  * Email Verification Notification Controller
  *
  * This controller handles email verification notification functionality for the
- * Hanaya Shop e-commerce application. It manages the sending of email verification
+ * Luna Shop e-commerce application. It manages the sending of email verification
  * links to users who need to verify their email addresses during registration
  * or email change processes.
  *
@@ -28,7 +28,7 @@
  * - Prevention of unnecessary email sending
  * - Integration with authentication middleware
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

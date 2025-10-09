@@ -3,7 +3,7 @@
 /**
  * User Checkout Controller
  *
- * This controller handles the complete checkout process for customers in the Hanaya Shop
+ * This controller handles the complete checkout process for customers in the Luna Shop
  * e-commerce application. It manages the transition from shopping cart to completed order,
  * including order preview, validation, payment processing, and order confirmation.
  * The controller ensures data integrity through database transactions and provides
@@ -27,7 +27,7 @@
  * 3. store() → Order Processing & Payment
  * 4. success() → Order Confirmation Page
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

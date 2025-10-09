@@ -4,7 +4,7 @@ return [
     // Product Listing
     'title' => 'Products',
     'all_products' => 'All Products',
-    'hanaya_shop_products' => 'Hanaya Shop Products',
+    'hanaya_shop_products' => 'Luna Shop Products',
     'no_matching_products' => 'No matching products found.',
     'try_different_keywords' => 'Try searching with different keywords',
     'product_catalog' => 'Product Catalog',
@@ -44,11 +44,11 @@ return [
     'stock' => 'Stock',
 
     // Categories
-    'soap_flower' => 'Soap Flowers',
-    'souvenir' => 'Souvenirs',
-    'fresh_flower' => 'Fresh Flowers',
+    'soap_flower' => 'Seatings',
+    'souvenir' => 'Decors',
+    'fresh_flower' => 'Tables',
     'gift_set' => 'Gift Sets',
-    'special_flower' => 'Special Flowers',
+    'special_flower' => 'Storages',
 
     // Price & Stock
     'regular_price' => 'Regular Price',

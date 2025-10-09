@@ -3,7 +3,7 @@
 /**
  * Password Controller
  *
- * This controller handles password updates for authenticated users in the Hanaya Shop
+ * This controller handles password updates for authenticated users in the Luna Shop
  * e-commerce application. It manages secure password changes with comprehensive
  * validation, current password verification, and enhanced security requirements
  * to ensure strong password policies for customer accounts.
@@ -32,7 +32,7 @@
  * - Validation error separation
  * - Success status feedback
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

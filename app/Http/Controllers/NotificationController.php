@@ -3,7 +3,7 @@
 /**
  * Notification Management Controller
  *
- * This controller handles notification management functionality in the Hanaya Shop
+ * This controller handles notification management functionality in the Luna Shop
  * e-commerce application. It provides user notification management including
  * marking notifications as read and managing notification states.
  *
@@ -26,7 +26,7 @@
  * - Promotional notifications
  * - Real-time notification management
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

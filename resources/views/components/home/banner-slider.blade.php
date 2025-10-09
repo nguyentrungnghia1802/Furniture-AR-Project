@@ -26,11 +26,11 @@
                 <!-- Default banners if no banners provided -->
                 <div class="swiper-slide relative">
                     <img src="{{ asset('images/banner1.jpg') }}" 
-                         alt="Welcome to Hanaya Shop" 
+                         alt="Welcome to Luna Shop" 
                          class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                         <div class="text-center text-white p-4">
-                            <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4">Chào mừng đến với Hanaya Shop</h2>
+                            <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4">Chào mừng đến với Luna Shop</h2>
                             <p class="text-lg md:text-xl mb-6 max-w-2xl">Nơi mang đến những sản phẩm hoa sáp tuyệt đẹp và các quà tặng ý nghĩa</p>
                             <a href="{{ route('user.products.index') }}" 
                                class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="swiper-slide relative">
                     <img src="{{ asset('images/banner2.jpg') }}" 
-                         alt="Soap Flowers Collection" 
+                         alt="Seatings Collection" 
                          class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                         <div class="text-center text-white p-4">

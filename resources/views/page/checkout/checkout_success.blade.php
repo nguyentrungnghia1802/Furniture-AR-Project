@@ -70,7 +70,7 @@
             </div>
 
             <p class="text-gray-700 leading-relaxed mb-4">
-                {{ __('checkout.thank_you') }}<span class="font-semibold">Hanaya Shop</span>. 
+                {{ __('checkout.thank_you') }}<span class="font-semibold">Luna Shop</span>. 
                 @if($payment->payment_method == 'cash_on_delivery')
                     {{ __('checkout.thank_you_message') }}
                 @else

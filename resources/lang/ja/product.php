@@ -4,7 +4,7 @@ return [
     // Product Listing
     'title' => '商品',
     'all_products' => 'すべての商品',
-    'hanaya_shop_products' => 'Hanaya Shop商品',
+    'hanaya_shop_products' => 'Luna Shop商品',
     'no_matching_products' => '一致する商品が見つかりません。',
     'try_different_keywords' => '別のキーワードで検索してみてください',
     'product_catalog' => '商品カタログ',

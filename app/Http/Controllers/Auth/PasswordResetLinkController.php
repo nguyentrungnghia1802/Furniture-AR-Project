@@ -3,7 +3,7 @@
 /**
  * Password Reset Link Controller
  *
- * This controller handles password reset link generation and sending for the Hanaya Shop
+ * This controller handles password reset link generation and sending for the Luna Shop
  * e-commerce application. It manages the initial step of the password reset process by
  * validating email addresses, generating secure reset tokens, and sending reset emails
  * with comprehensive error handling and logging for security and debugging.
@@ -31,7 +31,7 @@
  * - Comprehensive logging for security monitoring
  * - Error handling prevents information leakage
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

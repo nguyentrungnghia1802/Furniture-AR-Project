@@ -42,7 +42,7 @@
                 <div class="flex justify-center lg:justify-end">
                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md story-video-container">
                         <div class="relative cursor-pointer story-video-wrapper">
-                            <img src="{{ asset('fixed_resources/about/about_story.jpg') }}" alt="Hanaya Shop Story"
+                            <img src="{{ asset('fixed_resources/about/about_story.jpg') }}" alt="Luna Shop Story"
                                 class="w-full h-72 object-cover transition-transform duration-700 ease-in-out">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex items-center justify-center">
                                 <div class="story-play-button bg-white/80 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center transform scale-75 opacity-0 transition-all duration-500">
@@ -165,11 +165,11 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                    <!-- Soap Flowers -->
+                    <!-- Seatings -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('soap-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/soap_flower.jpg') }}" alt="Soap Flowers"
+                            <img src="{{ asset('fixed_resources/about/soap_flower.jpg') }}" alt="Seatings"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -194,11 +194,11 @@
                         </div>
                     </div>
 
-                    <!-- Fresh Flowers -->
+                    <!-- Tables -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('fresh-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/fresh_flower.jpg') }}" alt="Fresh Flowers"
+                            <img src="{{ asset('fixed_resources/about/fresh_flower.jpg') }}" alt="Tables"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -223,11 +223,11 @@
                         </div>
                     </div>
 
-                    <!-- Special Flowers -->
+                    <!-- Storages -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('special-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/special_flower.jpg') }}" alt="Special Flowers"
+                            <img src="{{ asset('fixed_resources/about/special_flower.jpg') }}" alt="Storages"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -252,11 +252,11 @@
                         </div>
                     </div>
 
-                    <!-- Souvenirs -->
+                    <!-- Decors -->
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('souvenirs')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/souvenir.jpg') }}" alt="Souvenirs"
+                            <img src="{{ asset('fixed_resources/about/souvenir.jpg') }}" alt="Decors"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -288,7 +288,7 @@
                 <!-- Team Header with Large Background -->
                 <div
                     class="relative w-full h-[220px] sm:h-[400px] md:h-[560px] flex flex-col items-center justify-center text-center">
-                    <img src="{{ asset('fixed_resources/about/team.png') }}" alt="Hanaya Shop Team"
+                    <img src="{{ asset('fixed_resources/about/team.png') }}" alt="Luna Shop Team"
                         class="absolute inset-0 w-full h-full object-cover object-center opacity-70">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent"></div>
                     <div class="relative z-10 px-4 sm:px-8 flex flex-col items-center justify-end h-full mb-8">

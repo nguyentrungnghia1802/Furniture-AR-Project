@@ -4,7 +4,7 @@
  * Admin Products Controller
  *
  * This controller handles product management functionality for the admin panel
- * in the Hanaya Shop e-commerce application. It provides comprehensive CRUD
+ * in the Luna Shop e-commerce application. It provides comprehensive CRUD
  * operations for products, including creation, editing, deletion, and detailed
  * product views with reviews and filtering capabilities.
  *
@@ -24,7 +24,7 @@
  * - Efficient database queries with eager loading
  * - Image optimization and cleanup
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

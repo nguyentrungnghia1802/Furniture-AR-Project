@@ -3,7 +3,7 @@
 /**
  * Main Web Routes Configuration
  *
- * This file serves as the central routing hub for the Hanaya Shop e-commerce application.
+ * This file serves as the central routing hub for the Luna Shop e-commerce application.
  * It orchestrates the inclusion of specialized route files and defines global application routes.
  * The modular approach separates concerns between user, admin, and authentication routes.
  *
@@ -19,7 +19,7 @@
  * - Easier debugging and development
  * - Scalable route organization
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

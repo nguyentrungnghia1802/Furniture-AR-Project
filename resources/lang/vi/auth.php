@@ -69,8 +69,8 @@ return [
     'verification_completed_at' => 'Xác thực hoàn tất lúc:',
 
     // Mẫu email
-    'verify_email_subject' => 'Xác Thực Địa Chỉ Email - Hanaya Shop',
-    'email_greeting' => 'Cảm ơn bạn đã đăng ký với Hanaya Shop!',
+    'verify_email_subject' => 'Xác Thực Địa Chỉ Email - Luna Shop',
+    'email_greeting' => 'Cảm ơn bạn đã đăng ký với Luna Shop!',
     'email_verification_instruction' => 'Vui lòng nhấp vào nút bên dưới để xác thực địa chỉ email và hoàn tất thiết lập tài khoản:',
     'verify_email_button' => 'Xác Thực Địa Chỉ Email',
     'verification_link_expires' => 'Liên kết xác thực này sẽ hết hạn sau 24 giờ.',
@@ -82,7 +82,7 @@ return [
     'need_help' => 'Cần hỗ trợ xác thực?',
     'contact_support' => 'Liên Hệ Hỗ Trợ',
     'support_email_subject' => 'Yêu Cầu Hỗ Trợ Xác Thực Email',
-    'support_email_body' => 'Kính gửi Hanaya Shop Support,
+    'support_email_body' => 'Kính gửi Luna Shop Support,
 
 Tôi cần hỗ trợ về việc xác thực email cho tài khoản của mình.
 
@@ -94,7 +94,7 @@ Cảm ơn!',
 
     // Yêu cầu Gmail
     'create_account' => 'Tạo Tài Khoản',
-    'create_account_description' => 'Tham gia Hanaya Shop và bắt đầu hành trình mua sắm của bạn',
+    'create_account_description' => 'Tham gia Luna Shop và bắt đầu hành trình mua sắm của bạn',
     'gmail_requirement_title' => '📧 Yêu Cầu Tài Khoản Gmail',
     'gmail_requirement_description' => 'Vui lòng sử dụng địa chỉ Gmail hợp lệ để có trải nghiệm tốt nhất:',
     'gmail_for_order_updates' => 'Nhận cập nhật trạng thái đơn hàng và thông báo',
@@ -125,7 +125,7 @@ Cảm ơn!',
     'reset_password_expire' => 'Liên kết đặt lại mật khẩu này sẽ hết hạn trong :count phút.',
     'reset_password_no_action' => 'Nếu bạn không yêu cầu đặt lại mật khẩu, không cần thực hiện thêm hành động nào.',
     'reset_password_regards' => 'Trân trọng,',
-    'reset_password_signature' => 'Hanaya Shop',
+    'reset_password_signature' => 'Luna Shop',
     'reset_password_trouble' => 'Nếu bạn gặp khó khăn khi nhấp vào nút "Đặt Lại Mật Khẩu", hãy sao chép và dán URL bên dưới vào trình duyệt web của bạn:',
 
     // Trải nghiệm tài khoản test

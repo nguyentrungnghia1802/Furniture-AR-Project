@@ -3,7 +3,7 @@
 /**
  * Payment Model
  *
- * This model represents payment transactions in the Hanaya Shop e-commerce application.
+ * This model represents payment transactions in the Luna Shop e-commerce application.
  * It manages payment processing, status tracking, and transaction records for customer orders.
  * Supports multiple payment methods and provides comprehensive payment lifecycle management.
  *
@@ -31,7 +31,7 @@
  * - Status tracking enables order fulfillment decisions
  * - Default values ensure consistent payment initialization
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

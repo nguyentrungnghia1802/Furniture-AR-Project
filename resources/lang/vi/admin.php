@@ -164,7 +164,7 @@ return [
     'total' => 'Tổng cộng',
     'status' => 'Trạng thái',
     'welcome_message' => 'Chào mừng đến với Bảng điều khiển quản trị',
-    'manage_hanaya_shop' => 'Quản lý cửa hàng Hanaya',
+    'manage_hanaya_shop' => 'Quản lý cửa hàng Luna',
 
     // category index
     'view_details' => 'Xem chi tiết',

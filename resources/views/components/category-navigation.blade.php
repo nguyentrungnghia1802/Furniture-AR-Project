@@ -28,7 +28,7 @@
             </div>
         </a>
 
-        <!-- Soap Flower -->
+        <!-- Seating -->
         <a href="{{ route('user.products.index', ['category_name' => 'soap-flower']) }}"
             class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'soap-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-3 text-center">
@@ -48,7 +48,7 @@
             </div>
         </a>
 
-        <!-- Fresh Flowers -->
+        <!-- Tables -->
         <a href="{{ route('user.products.index', ['category_name' => 'fresh-flower']) }}"
             class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'fresh-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-3 text-center">
@@ -68,7 +68,7 @@
             </div>
         </a>
 
-        <!-- Special Flower -->
+        <!-- Storage -->
         <a href="{{ route('user.products.index', ['category_name' => 'special-flower']) }}"
             class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'special-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-3 text-center">
@@ -88,7 +88,7 @@
             </div>
         </a>
 
-        <!-- Souvenir -->
+        <!-- Decor -->
         <a href="{{ route('user.products.index', ['category_name' => 'souvenir']) }}"
             class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'souvenir' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-3 text-center">

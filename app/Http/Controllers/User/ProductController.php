@@ -4,7 +4,7 @@
  * User Product Controller
  *
  * This controller handles product-related functionality for customer-facing pages
- * in the Hanaya Shop e-commerce application. It manages product browsing, searching,
+ * in the Luna Shop e-commerce application. It manages product browsing, searching,
  * filtering, and detailed product views with reviews and related products.
  *
  * Key Features:
@@ -17,7 +17,7 @@
  * - Performance optimization through caching
  * - Pagination for large product catalogs
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */
@@ -121,10 +121,10 @@ class ProductController extends Controller
              */
             if ($categoryName) {
                 $categoryMapping = [
-                    'soap-flower' => ['Soap Flower', 'Hoa sáp', 'soap flower'],     // Soap flower variants
-                    'fresh-flower' => ['Fresh Flower', 'Hoa tươi', 'fresh flower'],      // Fresh flower variants
-                    'special-flower' => ['Special Flower', 'Hoa đặc biệt', 'special flower'], // Special flower variants
-                    'souvenir' => ['Souvenir', 'Quà lưu niệm', 'souvenir'],               // Souvenir variants
+                    'soap-flower' => ['Seating', 'Hoa sáp', 'soap flower'],     // Soap flower variants
+                    'fresh-flower' => ['Table', 'Hoa tươi', 'fresh flower'],      // Fresh flower variants
+                    'special-flower' => ['Storage', 'Hoa đặc biệt', 'special flower'], // Special flower variants
+                    'souvenir' => ['Decor', 'Quà lưu niệm', 'souvenir'],               // Decor variants
                 ];
 
                 // Apply Category Name Filter

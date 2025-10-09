@@ -4,7 +4,7 @@
  * Admin Users Controller
  *
  * This controller handles user management functionality for the admin panel
- * in the Hanaya Shop e-commerce application. It provides comprehensive CRUD
+ * in the Luna Shop e-commerce application. It provides comprehensive CRUD
  * operations for user accounts, including creation, editing, deletion, and
  * detailed user information viewing.
  *
@@ -24,7 +24,7 @@
  * - Input sanitization and validation
  * - Password encryption for user security
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

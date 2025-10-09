@@ -2,7 +2,7 @@
 
 return [
     // Home Page
-    'welcome_to_hanaya' => 'Welcome to Hanaya Shop',
+    'welcome_to_hanaya' => 'Welcome to Luna Shop',
     'tagline' => 'Beautiful soap flowers and meaningful gifts',
 
     // Categories Section
@@ -18,8 +18,8 @@ return [
     'sale_items' => 'Sale Items',
     'trending_now' => 'Trending Now',
 
-    // Why Choose Hanaya Shop
-    'why_choose_hanaya' => 'Why Choose Hanaya Shop?',
+    // Why Choose Luna Shop
+    'why_choose_hanaya' => 'Why Choose Luna Shop?',
     'quality_guarantee' => 'Quality Guarantee',
     'quality_guarantee_desc' => 'All our soap flowers are handcrafted with premium materials',
     'fast_shipping' => 'Fast Shipping',

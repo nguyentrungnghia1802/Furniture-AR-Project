@@ -4,7 +4,7 @@ return [
     // Product Listing
     'title' => 'Sản phẩm',
     'all_products' => 'Tất cả sản phẩm',
-    'hanaya_shop_products' => 'Sản phẩm Hanaya Shop',
+    'hanaya_shop_products' => 'Sản phẩm Luna Shop',
     'no_matching_products' => 'Không tìm thấy sản phẩm phù hợp.',
     'try_different_keywords' => 'Thử tìm kiếm với từ khóa khác',
     'product_catalog' => 'Danh mục sản phẩm',

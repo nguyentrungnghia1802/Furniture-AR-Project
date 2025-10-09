@@ -37,7 +37,7 @@ return [
     'most_viewed_products' => 'Most Viewed Products',
 
     // Features Section
-    'why_choose_hanaya' => 'Why Choose Hanaya Shop?',
+    'why_choose_hanaya' => 'Why Choose Luna Shop?',
     'quality_commitment' => 'We are committed to bringing you the highest quality products',
     'discover_what_makes_us_special' => 'Discover what makes us the perfect choice for your floral needs',
     'quality_guarantee' => 'Quality Guarantee',

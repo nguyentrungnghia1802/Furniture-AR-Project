@@ -3,7 +3,7 @@
 /**
  * Profile Management Controller
  *
- * This controller handles user profile management functionality in the Hanaya Shop
+ * This controller handles user profile management functionality in the Luna Shop
  * e-commerce application. It provides comprehensive profile management including
  * viewing, editing, updating, and deleting user accounts with role-based interfaces.
  *
@@ -26,7 +26,7 @@
  * - Redirect management with status messages
  * - Seamless authentication flow
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

@@ -3,8 +3,8 @@
 return [
     // About Page
     'about_us' => 'Về chúng tôi',
-    'about_hanaya' => 'Về Hanaya Shop',
-    'welcome_to_hanaya' => 'Chào mừng đến với Hanaya Shop',
+    'about_hanaya' => 'Về Luna Shop',
+    'welcome_to_hanaya' => 'Chào mừng đến với Luna Shop',
     'hero_description' => 'Khám phá nghệ thuật hoa sáp tuyệt đẹp - nơi sự thanh lịch gặp gỡ tính năng thực tiễn. Mỗi sản phẩm được chế tác thủ công cẩn thận để mang lại vẻ đẹp và hương thơm cho những khoảnh khắc đặc biệt của bạn.',
     'our_story' => 'Câu chuyện của chúng tôi',
     'watch_video_demo' => 'Xem video demo của chúng tôi',
@@ -25,7 +25,7 @@ return [
 
     // Story paragraphs
     'story_paragraph_1' => 'Ở Việt Nam, đặc biệt vào các dịp lễ Tết, rất nhiều bông hoa bị bỏ đi do thời gian tươi ngắn và người bán không kịp tiếp cận đúng khách hàng. Sự lệch pha giữa cung và cầu gây lãng phí xã hội và thiệt hại cho người bán.',
-    'story_paragraph_2' => 'Hanaya Shop được xây dựng để giải quyết vấn đề thực tế đó. Nền tảng giúp mở rộng mức độ hiển thị của cửa hàng, tăng điểm chạm với khách hàng, và đưa mỗi bông hoa đến đúng người, đúng thời điểm. Ứng dụng có UI/UX hiện đại, backend Laravel tin cậy, SSR nhanh, và mô hình nghiệp vụ thực tế cho tồn kho, đơn hàng, thanh toán.',
+    'story_paragraph_2' => 'Luna Shop được xây dựng để giải quyết vấn đề thực tế đó. Nền tảng giúp mở rộng mức độ hiển thị của cửa hàng, tăng điểm chạm với khách hàng, và đưa mỗi bông hoa đến đúng người, đúng thời điểm. Ứng dụng có UI/UX hiện đại, backend Laravel tin cậy, SSR nhanh, và mô hình nghiệp vụ thực tế cho tồn kho, đơn hàng, thanh toán.',
     'story_paragraph_3' => 'Tầm nhìn dài hạn của chúng tôi là tăng cường kết nối người bán–người mua, tiến tới giảm thiểu hoa bị lãng phí đến mức thấp nhất. Mỗi ngày, chúng tôi nỗ lực mang nhiều vẻ đẹp hơn vào cuộc sống của mọi người trong khi giảm thiểu lãng phí không cần thiết trong ngành hoa.',
 
     // Why choose us
@@ -74,7 +74,7 @@ return [
     'opening_hours_time' => 'Thứ Hai - Chủ Nhật: 8:00 - 22:00',
 
     // Why choose us detailed
-    'why_choose_hanaya_detailed' => 'Tại sao chọn Hanaya Shop?',
+    'why_choose_hanaya_detailed' => 'Tại sao chọn Luna Shop?',
     'premium_quality' => 'Chất Lượng Cao Cấp',
     'premium_quality_desc' => 'Mọi sản phẩm đều được chế tác cẩn thận với vật liệu tốt nhất',
     'fast_delivery' => 'Giao Hàng Nhanh',
@@ -84,7 +84,7 @@ return [
     'custom_orders' => 'Đặt Hàng Tùy Chỉnh',
     'custom_orders_desc' => 'Chúng tôi tạo ra những món quà cá nhân hóa cho những dịp đặc biệt',
     'start_shopping_now' => 'Bắt Đầu Mua Sắm Ngay',
-    'company_description' => 'Hanaya Shop là điểm đến hàng đầu cho những bông hoa sáp đẹp và quà tặng ý nghĩa. Chúng tôi chuyên về hoa sáp thủ công kết hợp nghệ thuật với tính thực dụng.',
+    'company_description' => 'Luna Shop là điểm đến hàng đầu cho những bông hoa sáp đẹp và quà tặng ý nghĩa. Chúng tôi chuyên về hoa sáp thủ công kết hợp nghệ thuật với tính thực dụng.',
     'established_year' => 'Thành lập năm 2020',
     'years_experience' => 'Năm kinh nghiệm',
     'satisfied_customers' => 'Khách hàng hài lòng',
@@ -109,7 +109,7 @@ return [
     'our_team' => 'Đội ngũ của chúng tôi',
     'meet_team' => 'Gặp gỡ đội ngũ',
     'meet_our_team' => 'Gặp Gỡ Đội Ngũ',
-    'team_description' => 'Những cá nhân nhiệt huyết đằng sau Hanaya Shop',
+    'team_description' => 'Những cá nhân nhiệt huyết đằng sau Luna Shop',
     'team_group_description' => 'Đội ngũ tuyệt vời của chúng tôi làm việc cùng nhau để mang đến điều tốt nhất cho bạn',
     'founder_ceo' => 'Người sáng lập & CEO',
     'creative_director' => 'Giám đốc sáng tạo',

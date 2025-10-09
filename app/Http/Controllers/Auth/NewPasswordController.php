@@ -3,7 +3,7 @@
 /**
  * New Password Controller
  *
- * This controller handles password reset functionality for the Hanaya Shop e-commerce
+ * This controller handles password reset functionality for the Luna Shop e-commerce
  * application. It manages the complete password reset process including form display,
  * token validation, password updating, and security measures to ensure safe password
  * recovery for users who have forgotten their credentials.
@@ -31,7 +31,7 @@
  * - Event-driven password reset tracking
  * - Comprehensive validation rules
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

@@ -163,7 +163,7 @@ return [
     'total' => 'Total',
     'status' => 'Status',
     'welcome_message' => 'Welcome to the Admin Dashboard',
-    'manage_hanaya_shop' => 'Manage Hanaya Shop',
+    'manage_hanaya_shop' => 'Manage Luna Shop',
 
     // category index
     'view_details' => 'View Details',

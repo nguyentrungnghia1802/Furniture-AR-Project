@@ -21,7 +21,7 @@
                     </svg>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-sm">Hanaya Assistant</h3>
+                    <h3 class="font-semibold text-sm">Luna Assistant</h3>
                     <p class="text-xs text-pink-100">Trực tuyến</p>
                 </div>
                 <div class="ml-auto">
@@ -39,7 +39,7 @@
                     </svg>
                 </div>
                 <div class="bg-gray-100 rounded-lg px-3 py-2 max-w-xs">
-                    <p class="text-xs">Xin chào! Tôi là trợ lý ảo của Hanaya Shop. Tôi có thể giúp bạn tìm sản phẩm, thông tin cửa hàng, giá cả và nhiều thứ khác. Bạn cần tôi giúp gì?</p>
+                    <p class="text-xs">Xin chào! Tôi là trợ lý ảo của Luna Shop. Tôi có thể giúp bạn tìm sản phẩm, thông tin cửa hàng, giá cả và nhiều thứ khác. Bạn cần tôi giúp gì?</p>
                 </div>
             </div>
         </div>

@@ -69,8 +69,8 @@ return [
     'verification_completed_at' => '確認完了時刻：',
 
     // メールテンプレート
-    'verify_email_subject' => 'メールアドレスの確認 - Hanaya Shop',
-    'email_greeting' => 'Hanaya Shopにご登録いただき、ありがとうございます！',
+    'verify_email_subject' => 'メールアドレスの確認 - Luna Shop',
+    'email_greeting' => 'Luna Shopにご登録いただき、ありがとうございます！',
     'email_verification_instruction' => '下のボタンをクリックしてメールアドレスを確認し、アカウント設定を完了してください：',
     'verify_email_button' => 'メールアドレスを確認',
     'verification_link_expires' => 'この確認リンクは24時間で有効期限が切れます。',
@@ -82,7 +82,7 @@ return [
     'need_help' => '認証でお困りですか？',
     'contact_support' => 'サポートに連絡',
     'support_email_subject' => 'メール認証のヘルプリクエスト',
-    'support_email_body' => 'Hanaya Shopサポート様
+    'support_email_body' => 'Luna Shopサポート様
 
 アカウントのメール認証について支援が必要です。
 
@@ -94,7 +94,7 @@ return [
 
     // Gmail要件
     'create_account' => 'アカウント作成',
-    'create_account_description' => 'Hanaya Shopに参加して、ショッピングの旅を始めましょう',
+    'create_account_description' => 'Luna Shopに参加して、ショッピングの旅を始めましょう',
     'gmail_requirement_title' => '📧 Gmailアカウントが必要です',
     'gmail_requirement_description' => '最高のエクスペリエンスのため、有効なGmailアドレスをご使用ください：',
     'gmail_for_order_updates' => '注文状況の更新と通知を受信',
@@ -125,7 +125,7 @@ return [
     'reset_password_expire' => 'このパスワードリセットリンクは:count分で有効期限が切れます。',
     'reset_password_no_action' => 'パスワードリセットを要求していない場合、特に対応は不要です。',
     'reset_password_regards' => '敬具、',
-    'reset_password_signature' => 'Hanaya Shop',
+    'reset_password_signature' => 'Luna Shop',
     'reset_password_trouble' => '「パスワードリセット」ボタンをクリックできない場合は、以下のURLをコピーしてWebブラウザに貼り付けてください：',
 
     // テストアカウント体験

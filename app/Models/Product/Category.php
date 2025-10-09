@@ -3,7 +3,7 @@
 /**
  * Product Category Model
  *
- * This model represents product categories in the Hanaya Shop e-commerce application.
+ * This model represents product categories in the Luna Shop e-commerce application.
  * Categories serve as a hierarchical organization system for products, enabling
  * efficient product browsing, filtering, and management. The model supports
  * the creation of product catalogs with clear categorization for enhanced
@@ -23,12 +23,12 @@
  * - Has many Products (one-to-many) - Products belonging to this category
  *
  * Category Examples:
- * - Soap Flower (Hoa sáp)
- * - Fresh Flower (Hoa tươi)
- * - Special Flower (Hoa đặc biệt)
- * - Souvenir (Quà lưu niệm)
+ * - Seating (Hoa sáp)
+ * - Table (Hoa tươi)
+ * - Storage (Hoa đặc biệt)
+ * - Decor (Quà lưu niệm)
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

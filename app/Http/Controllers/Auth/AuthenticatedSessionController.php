@@ -3,7 +3,7 @@
 /**
  * Authenticated Session Controller
  *
- * This controller handles user authentication sessions for the Hanaya Shop e-commerce
+ * This controller handles user authentication sessions for the Luna Shop e-commerce
  * application. It manages the complete login/logout lifecycle including session management,
  * security features, and role-based redirections for both customers and administrators.
  *
@@ -27,7 +27,7 @@
  * - Session invalidation on logout
  * - Role-based access control
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

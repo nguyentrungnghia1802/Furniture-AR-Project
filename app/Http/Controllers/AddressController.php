@@ -4,7 +4,7 @@
  * Address Controller
  *
  * This controller handles address management functionality for user shipping addresses
- * in the Hanaya Shop e-commerce application. It provides CRUD operations for customer
+ * in the Luna Shop e-commerce application. It provides CRUD operations for customer
  * addresses used during checkout and shipping processes.
  *
  * Key Features:
@@ -14,7 +14,7 @@
  * - Error handling and exception management
  * - Input validation for data integrity
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

@@ -69,8 +69,8 @@ return [
     'verification_completed_at' => 'Verification completed at:',
 
     // Email Template
-    'verify_email_subject' => 'Verify Your Email Address - Hanaya Shop',
-    'email_greeting' => 'Thank you for registering with Hanaya Shop!',
+    'verify_email_subject' => 'Verify Your Email Address - Luna Shop',
+    'email_greeting' => 'Thank you for registering with Luna Shop!',
     'email_verification_instruction' => 'Please click the button below to verify your email address and complete your account setup:',
     'verify_email_button' => 'Verify Email Address',
     'verification_link_expires' => 'This verification link will expire in 24 hours.',
@@ -84,7 +84,7 @@ return [
 
     // Gmail Requirement
     'create_account' => 'Create Account',
-    'create_account_description' => 'Join Hanaya Shop and start your shopping journey',
+    'create_account_description' => 'Join Luna Shop and start your shopping journey',
     'gmail_requirement_title' => '📧 Gmail Account Required',
     'gmail_requirement_description' => 'Please use a valid Gmail address for the best experience:',
     'gmail_for_order_updates' => 'Receive order status updates and notifications',
@@ -96,7 +96,7 @@ return [
     'need_help' => 'Need help with verification?',
     'contact_support' => 'Contact Support',
     'support_email_subject' => 'Email Verification Help Request',
-    'support_email_body' => 'Hello Hanaya Shop Support,
+    'support_email_body' => 'Hello Luna Shop Support,
 
 I need assistance with email verification for my account.
 
@@ -125,7 +125,7 @@ Thank you!',
     'reset_password_expire' => 'This password reset link will expire in :count minutes.',
     'reset_password_no_action' => 'If you did not request a password reset, no further action is required.',
     'reset_password_regards' => 'Regards,',
-    'reset_password_signature' => 'Hanaya Shop',
+    'reset_password_signature' => 'Luna Shop',
     'reset_password_trouble' => 'If you\'re having trouble clicking the "Reset Password" button, copy and paste the URL below into your web browser:',
 
     // Test Account Experience

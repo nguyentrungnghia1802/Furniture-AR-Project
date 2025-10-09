@@ -3,7 +3,7 @@
 /**
  * Product Model
  *
- * This model represents products in the Hanaya Shop e-commerce application.
+ * This model represents products in the Luna Shop e-commerce application.
  * It handles all product-related data, relationships, and business logic including
  * pricing calculations, inventory management, category associations, and customer interactions.
  *
@@ -23,7 +23,7 @@
  * - Has many Cart Items (one-to-many)
  * - Has many Reviews (one-to-many)
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

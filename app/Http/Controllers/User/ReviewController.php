@@ -3,7 +3,7 @@
 /**
  * User Review Controller
  *
- * This controller handles customer review functionality for the Hanaya Shop e-commerce
+ * This controller handles customer review functionality for the Luna Shop e-commerce
  * application. It manages the complete review lifecycle including creation, validation,
  * image uploads, and display of product reviews with comprehensive security checks.
  *
@@ -30,7 +30,7 @@
  * 4. Customer submits review with optional image
  * 5. Review is stored and displayed on product pages
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

@@ -3,7 +3,7 @@
 /**
  * User Model
  *
- * This model represents users/customers in the Hanaya Shop e-commerce application.
+ * This model represents users/customers in the Luna Shop e-commerce application.
  * It handles user authentication, authorization, and relationships with other entities
  * like orders, reviews, shopping cart, and addresses. The model extends Laravel's
  * Authenticatable class to provide full authentication functionality.
@@ -27,7 +27,7 @@
  * - Has many Addresses (one-to-many)
  * - Has many Posts (one-to-many)
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

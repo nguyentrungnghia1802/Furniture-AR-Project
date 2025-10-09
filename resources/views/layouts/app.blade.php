@@ -9,7 +9,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>{{ config('app.name', 'Hanaya') }}</title>
+    <title>{{ config('app.name', 'Luna') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -175,7 +175,7 @@
             </div>
 
             <div class="text-center text-sm text-gray-400 dark:text-gray-500 mt-8 border-t border-gray-700 dark:border-gray-600 pt-4 transition-colors duration-300">
-                &copy; {{ date('Y') }} Hanaya. {{ __('common.copyright') }}
+                &copy; {{ date('Y') }} Luna. {{ __('common.copyright') }}
             </div>
         </footer>
     </div>

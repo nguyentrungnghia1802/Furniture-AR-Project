@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'greeting' => "こんにちは！私はHanaya ShopのAIアシスタントです。以下の内容でお手伝いできます：\n"
+    'greeting' => "こんにちは！私はLuna ShopのAIアシスタントです。以下の内容でお手伝いできます：\n"
         ."🌸 商品検索＆おすすめ\n"
         ."📝 注文追跡＆ステータス\n"
         ."📋 商品カテゴリ＆コレクション\n"
@@ -12,7 +12,7 @@ return [
         ."❓ よくあるご質問\n\n"
         .'本日どのようにお手伝いできますか？',
 
-    'help' => "🤖 Hanaya Shopチャットボットご利用ガイド：\n\n"
+    'help' => "🤖 Luna Shopチャットボットご利用ガイド：\n\n"
         ."🔍 商品を探す：\n"
         ."• 'ソープフラワーを探して'\n"
         ."• 'ギフトを見せて'\n"
@@ -41,7 +41,7 @@ return [
         ."• '配送料'\n\n"
         .'自然な日本語で何でもご質問ください！',
 
-    'store_info' => "🏪 Hanaya Shop店舗情報：\n\n"
+    'store_info' => "🏪 Luna Shop店舗情報：\n\n"
         ."📍 住所：123 Flower Street, Son Tay, Hanoi\n"
         ."📞 電話：0353295709\n"
         ."📧 メール：support@hanayashop.com\n"
@@ -135,7 +135,7 @@ return [
         ."🔗 :products_url\n\n"
         .'📞 **ご相談はこちら：** :phone',
 
-    'product_categories' => '📂 **Hanaya Shopの商品カテゴリ：**',
+    'product_categories' => '📂 **Luna Shopの商品カテゴリ：**',
 
     'popular_categories' => "🎯 **人気カテゴリ：**\n"
         ."🧼 ソープフラワー - 長持ちで美しい香り\n"
@@ -215,7 +215,7 @@ return [
         .'🛒 **今すぐご注文で特典あり！**',
 
     // Gift suggestions
-    'gift_suggestions' => "🎁 **Hanaya Shopのおすすめギフト：**\n\n"
+    'gift_suggestions' => "🎁 **Luna Shopのおすすめギフト：**\n\n"
         ."💝 **人気ギフトカテゴリ：**\n"
         ."🌹 ロマンチックなソープフラワーブーケ\n"
         ."🎀 高級感あるギフトセット\n"
@@ -248,9 +248,9 @@ return [
         .'📞 **在庫確認は：** :phone',
 
     // --- Assistant Info ---
-    'name' => 'Hanaya Shopアシスタント',
+    'name' => 'Luna Shopアシスタント',
     'status_online' => 'オンライン',
-    'greeting_hanaya' => 'こんにちは！私はHanaya ShopのAIアシスタントです。以下の内容でお手伝いできます：',
+    'greeting_hanaya' => 'こんにちは！私はLuna ShopのAIアシスタントです。以下の内容でお手伝いできます：',
     'how_can_i_assist' => '本日どのようにお手伝いできますか？🌸',
 
     // --- Main Features ---

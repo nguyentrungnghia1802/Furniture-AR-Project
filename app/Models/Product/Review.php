@@ -3,7 +3,7 @@
 /**
  * Product Review Model
  *
- * This model represents customer reviews and ratings for products in the Hanaya Shop
+ * This model represents customer reviews and ratings for products in the Luna Shop
  * e-commerce application. It manages customer feedback, ratings, and review content
  * to provide social proof and product quality insights for other customers.
  *
@@ -34,7 +34,7 @@
  * - Only verified purchasers can leave reviews
  * - Prevents fake or spam reviews
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

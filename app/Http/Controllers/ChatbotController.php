@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
  * Enhanced AI Chatbot Controller
  *
  * This controller provides intelligent chatbot functionality for customer support
- * in the Hanaya Shop e-commerce application. It features advanced intent detection,
+ * in the Luna Shop e-commerce application. It features advanced intent detection,
  * multilingual support, and integration with product, category, order, and post models
  * to answer customer queries about products, orders, store info, and more.
  *
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
  * - Error handling and logging for chatbot failures
  * - UTF-8 encoding for international support
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

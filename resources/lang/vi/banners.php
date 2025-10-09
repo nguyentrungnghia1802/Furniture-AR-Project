@@ -2,7 +2,7 @@
 
 return [
     // Banner translations
-    'welcome_title' => 'Chào mừng đến với Hanaya Shop',
+    'welcome_title' => 'Chào mừng đến với Luna Shop',
     'welcome_subtitle' => 'Nơi hội tụ những bông hoa và món quà ý nghĩa',
     'explore_now' => 'Khám phá ngay',
 

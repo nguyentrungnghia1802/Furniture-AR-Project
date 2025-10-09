@@ -37,7 +37,7 @@ return [
     'most_viewed_products' => '最も閲覧された商品',
 
     // 特徴セクション
-    'why_choose_hanaya' => 'なぜHanaya Shopを選ぶのか？',
+    'why_choose_hanaya' => 'なぜLuna Shopを選ぶのか？',
     'quality_commitment' => '私たちは最高品質の商品を提供することをお約束します',
     'discover_what_makes_us_special' => 'あなたの花のニーズに最適な選択肢となる理由を発見してください',
     'quality_guarantee' => '品質保証',

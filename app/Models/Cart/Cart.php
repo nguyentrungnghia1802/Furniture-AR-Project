@@ -3,7 +3,7 @@
 /**
  * Cart Model
  *
- * This model represents the shopping cart functionality in the Hanaya Shop e-commerce application.
+ * This model represents the shopping cart functionality in the Luna Shop e-commerce application.
  * It manages temporary storage of products that customers intend to purchase, supporting both
  * authenticated users and guest sessions for seamless shopping experience.
  *
@@ -27,7 +27,7 @@
  * - Cart items can be updated, removed, or converted to orders
  * - Supports cart persistence across user sessions
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

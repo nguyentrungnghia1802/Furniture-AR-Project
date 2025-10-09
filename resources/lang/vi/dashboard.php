@@ -37,7 +37,7 @@ return [
     'most_viewed_products' => 'Sản phẩm được xem nhiều nhất',
 
     // Tính năng đặc biệt
-    'why_choose_hanaya' => 'Tại sao chọn Hanaya Shop?',
+    'why_choose_hanaya' => 'Tại sao chọn Luna Shop?',
     'quality_commitment' => 'Chúng tôi cam kết mang đến cho bạn những sản phẩm chất lượng cao nhất',
     'discover_what_makes_us_special' => 'Khám phá điều gì làm chúng tôi trở thành lựa chọn hoàn hảo cho nhu cầu hoa của bạn',
     'quality_guarantee' => 'Đảm bảo chất lượng',

@@ -29,9 +29,9 @@ class TestMailCommand extends Command
         $email = $this->argument('email');
 
         try {
-            Mail::raw('This is a test email from Hanaya Shop. Mail configuration is working!', function ($message) use ($email) {
+            Mail::raw('This is a test email from Luna Shop. Mail configuration is working!', function ($message) use ($email) {
                 $message->to($email)
-                    ->subject('Test Email from Hanaya Shop');
+                    ->subject('Test Email from Luna Shop');
             });
 
             $this->info("Test email sent successfully to {$email}");

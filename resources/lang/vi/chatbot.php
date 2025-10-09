@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'greeting' => "Xin chào! Tôi là trợ lý AI của Hanaya Shop. Tôi có thể giúp bạn với:\n"
+    'greeting' => "Xin chào! Tôi là trợ lý AI của Luna Shop. Tôi có thể giúp bạn với:\n"
         ."🌸 Tìm kiếm & gợi ý sản phẩm\n"
         ."📝 Theo dõi & trạng thái đơn hàng\n"
         ."📋 Danh mục & bộ sưu tập sản phẩm\n"
@@ -12,7 +12,7 @@ return [
         ."❓ Câu hỏi thường gặp\n\n"
         .'Tôi có thể giúp gì cho bạn hôm nay?',
 
-    'help' => "🤖 Hướng dẫn sử dụng chatbot Hanaya Shop:\n\n"
+    'help' => "🤖 Hướng dẫn sử dụng chatbot Luna Shop:\n\n"
         ."🔍 Tìm sản phẩm:\n"
         ."• 'tìm hoa sáp'\n"
         ."• 'cho tôi xem quà tặng'\n"
@@ -41,7 +41,7 @@ return [
         ."• 'chi phí vận chuyển'\n\n"
         .'Hãy hỏi tôi bất cứ điều gì bằng ngôn ngữ tự nhiên!',
 
-    'store_info' => "🏪 Thông tin cửa hàng Hanaya Shop:\n\n"
+    'store_info' => "🏪 Thông tin cửa hàng Luna Shop:\n\n"
         ."📍 Địa chỉ: 123 Flower Street, Sơn Tây, Hà Nội\n"
         ."📞 Điện thoại: 0353295709\n"
         ."📧 Email: support@hanayashop.com\n"
@@ -135,7 +135,7 @@ return [
         ."🔗 :products_url\n\n"
         .'📞 **Cần trợ giúp?** :phone',
 
-    'product_categories' => '📂 **Danh mục sản phẩm tại Hanaya Shop:**',
+    'product_categories' => '📂 **Danh mục sản phẩm tại Luna Shop:**',
 
     'popular_categories' => "🎯 **Danh mục phổ biến:**\n"
         ."🧼 Hoa sáp - Bền lâu, hương thơm dễ chịu\n"
@@ -215,7 +215,7 @@ return [
         .'🛒 **Đặt hàng ngay để nhận ưu đãi!**',
 
     // Gift suggestions
-    'gift_suggestions' => "🎁 **Gợi ý quà tặng hoàn hảo từ Hanaya Shop:**\n\n"
+    'gift_suggestions' => "🎁 **Gợi ý quà tặng hoàn hảo từ Luna Shop:**\n\n"
         ."💝 **Danh mục quà tặng phổ biến:**\n"
         ."🌹 Bó hoa sáp lãng mạn\n"
         ."🎀 Hộp quà sang trọng, đóng gói đẹp\n"
@@ -248,9 +248,9 @@ return [
         .'📞 **Cần kiểm tra tồn kho cụ thể:** :phone',
 
     // --- Assistant Info ---
-    'name' => 'Trợ lý Hanaya Shop',
+    'name' => 'Trợ lý Luna Shop',
     'status_online' => 'Đang trực tuyến',
-    'greeting_hanaya' => 'Xin chào! Tôi là trợ lý AI của Hanaya Shop. Tôi có thể giúp bạn với:',
+    'greeting_hanaya' => 'Xin chào! Tôi là trợ lý AI của Luna Shop. Tôi có thể giúp bạn với:',
     'how_can_i_assist' => 'Tôi có thể giúp gì cho bạn hôm nay? 🌸',
 
     // --- Main Features ---

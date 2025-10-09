@@ -3,7 +3,7 @@
 /**
  * Order Model
  *
- * This model represents customer orders in the Hanaya Shop e-commerce application.
+ * This model represents customer orders in the Luna Shop e-commerce application.
  * It manages the complete order lifecycle from creation to completion, including
  * order status tracking, payment processing, shipping information, and customer
  * communication. The model serves as the central hub for order management operations.
@@ -31,7 +31,7 @@
  *     ↓
  * cancelled (can occur from pending or processing)
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

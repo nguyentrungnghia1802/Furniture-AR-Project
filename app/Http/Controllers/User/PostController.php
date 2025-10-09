@@ -3,7 +3,7 @@
 /**
  * User Post Controller
  *
- * This controller handles blog post viewing functionality for customers in the Hanaya Shop
+ * This controller handles blog post viewing functionality for customers in the Luna Shop
  * e-commerce application. It provides access to published blog content including post
  * listings, search functionality, and detailed post views for content marketing and
  * customer engagement.
@@ -23,7 +23,7 @@
  * - Provides product education and inspiration
  * - Builds brand authority and trust
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

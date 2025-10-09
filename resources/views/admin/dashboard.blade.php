@@ -1,7 +1,7 @@
 {{-- 
     Admin Dashboard View
     
-    This is the main dashboard page for administrators of the Hanaya Shop e-commerce platform.
+    This is the main dashboard page for administrators of the Luna Shop e-commerce platform.
     It provides a comprehensive overview of the shop's performance including:
     - Key statistics (revenue, orders, products, users)
     - Revenue charts for the last 6 months

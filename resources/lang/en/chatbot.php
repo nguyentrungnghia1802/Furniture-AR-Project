@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'greeting' => "Hello! I'm Hanaya Shop's AI assistant. I can help you with:\n"
+    'greeting' => "Hello! I'm Luna Shop's AI assistant. I can help you with:\n"
         ."🌸 Product search & recommendations\n"
         ."📝 Order tracking & status\n"
         ."📋 Product categories & collections\n"
@@ -12,7 +12,7 @@ return [
         ."❓ Frequently asked questions\n\n"
         .'What can I help you with today?',
 
-    'help' => "🤖 Hanaya Shop chatbot user guide:\n\n"
+    'help' => "🤖 Luna Shop chatbot user guide:\n\n"
         ."🔍 Find products:\n"
         ."• 'find soap flowers'\n"
         ."• 'show me gifts'\n"
@@ -41,7 +41,7 @@ return [
         ."• 'shipping costs'\n\n"
         .'Feel free to ask me anything in natural language!',
 
-    'store_info' => "🏪 Hanaya Shop store information:\n\n"
+    'store_info' => "🏪 Luna Shop store information:\n\n"
         ."📍 Address: 123 Flower Street, Son Tay, Hanoi\n"
         ."📞 Phone: 0353295709\n"
         ."📧 Email: support@hanayashop.com\n"
@@ -61,7 +61,7 @@ return [
 
     'price_info' => "About our product prices:\n\n"
         ."🌸 Soap flowers: From $15 - $500\n"
-        ."🎁 Souvenirs & gifts: From $5 - $800\n"
+        ."🎁 Decors & gifts: From $5 - $800\n"
         ."💐 Fresh flowers: From $10 - $200\n"
         ."🎀 Custom arrangements: From $25 - $1000\n\n"
         ."Prices vary based on size, materials, design complexity, and customization.\n"
@@ -110,7 +110,7 @@ return [
         ."You might be interested in:\n"
         ."🌸 Soap flowers: Long-lasting, gentle fragrance\n"
         ."🌺 Fresh flowers: Natural, vibrant colors\n"
-        ."🎁 Souvenirs: Meaningful, unique gifts\n\n"
+        ."🎁 Decors: Meaningful, unique gifts\n\n"
         ."🔗 :products_url\n\n"
         ."💡 **Search tips:**\n"
         ."• Try broader terms like 'flowers' or 'gifts'\n"
@@ -135,12 +135,12 @@ return [
         ."🔗 :products_url\n\n"
         .'📞 **Need assistance?** :phone',
 
-    'product_categories' => '📂 **Product categories at Hanaya Shop:**',
+    'product_categories' => '📂 **Product categories at Luna Shop:**',
 
     'popular_categories' => "🎯 **Popular categories:**\n"
-        ."🧼 Soap Flowers - Long-lasting, beautiful fragrance\n"
-        ."🌺 Fresh Flowers - Natural, vibrant colors\n"
-        ."🎁 Souvenirs - Meaningful, memorable gifts\n\n"
+        ."🧼 Seatings - Long-lasting, beautiful fragrance\n"
+        ."🌺 Tables - Natural, vibrant colors\n"
+        ."🎁 Decors - Meaningful, memorable gifts\n\n"
         .'💝 **Tip:** Choose based on special occasions like birthdays, weddings, anniversaries...',
 
     // Order responses
@@ -215,7 +215,7 @@ return [
         .'🛒 **Order now to get special offers!**',
 
     // Gift suggestions
-    'gift_suggestions' => "🎁 **Perfect gift ideas from Hanaya Shop:**\n\n"
+    'gift_suggestions' => "🎁 **Perfect gift ideas from Luna Shop:**\n\n"
         ."💝 **Popular gift categories:**\n"
         ."🌹 Romantic soap flower bouquets\n"
         ."🎀 Elegant gift sets with premium packaging\n"
@@ -248,9 +248,9 @@ return [
         .'📞 **For specific availability:** :phone',
 
     // --- Assistant Info ---
-    'name' => 'Hanaya Shop Assistant',
+    'name' => 'Luna Shop Assistant',
     'status_online' => 'Online now',
-    'greeting_hanaya' => "Hello! I'm Hanaya Shop's AI assistant. I can help you with:",
+    'greeting_hanaya' => "Hello! I'm Luna Shop's AI assistant. I can help you with:",
     'how_can_i_assist' => 'How can I assist you today ? 🌸',
 
     // --- Main Features ---
@@ -258,7 +258,7 @@ return [
     'track_orders' => '📦 Track your orders',
     'pricing_info' => '💰 Pricing & payment options',
     'faq' => '❓ FAQ & customer support',
-    'soap_flowers' => '🧼 Soap Flowers',
+    'soap_flowers' => '🧼 Seatings',
 
     // --- Quick Action Buttons ---
     'track_orders_button' => '📦 My Orders',

@@ -18,7 +18,7 @@ return [
     'sale_items' => 'セール商品',
     'trending_now' => '今のトレンド',
 
-    // Why Choose Hanaya Shop
+    // Why Choose Luna Shop
     'why_choose_hanaya' => 'なぜハナヤショップを選ぶのか？',
     'quality_guarantee' => '品質保証',
     'quality_guarantee_desc' => 'すべてのソープフラワーはプレミアム素材で手作りされています',

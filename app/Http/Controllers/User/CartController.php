@@ -4,7 +4,7 @@
  * User Cart Controller
  *
  * This controller handles shopping cart functionality for customers
- * in the Hanaya Shop e-commerce application. It manages cart operations
+ * in the Luna Shop e-commerce application. It manages cart operations
  * including adding products, viewing cart contents, removing items,
  * and quick purchase functionality.
  *
@@ -22,7 +22,7 @@
  * - Authenticated users: Cart tied to user ID
  * - Seamless transition between guest and authenticated states
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

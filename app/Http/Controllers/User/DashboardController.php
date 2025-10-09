@@ -3,7 +3,7 @@
 /**
  * User Dashboard Controller
  *
- * This controller manages the main customer-facing dashboard for the Hanaya Shop
+ * This controller manages the main customer-facing dashboard for the Luna Shop
  * e-commerce application. It provides a comprehensive overview of products, categories,
  * and content to create an engaging homepage experience for customers.
  *
@@ -39,7 +39,7 @@
  * - Promotes sale items and special offers
  * - Integrates content marketing with e-commerce
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */
@@ -222,10 +222,10 @@ class DashboardController extends Controller
      * Supports multilingual category names and flexible category matching.
      *
      * Category Organization:
-     * - Soap Flower: Handcrafted soap flower products
-     * - Special Flower: Unique and premium flower arrangements
-     * - Fresh Flowers: Natural fresh flower products
-     * - Souvenir: Gift and memorable items
+     * - Seating: Handcrafted soap flower products
+     * - Storage: Unique and premium flower arrangements
+     * - Tables: Natural fresh flower products
+     * - Decor: Gift and memorable items
      *
      * Features:
      * - Multilingual category name support
@@ -248,10 +248,10 @@ class DashboardController extends Controller
          * - Multiple name variations per category
          */
         $categoryMapping = [
-            'soap-flower' => ['Soap Flower', 'Hoa sáp', 'soap flower'],
-            'special-flower' => ['Special Flower', 'Hoa đặc biệt', 'special flower'],
-            'fresh-flowers' => ['Fresh Flowers', 'Hoa tươi', 'fresh flowers'],
-            'souvenir' => ['Souvenir', 'Quà lưu niệm', 'souvenir'],
+            'soap-flower' => ['Seating', 'Hoa sáp', 'soap flower'],
+            'special-flower' => ['Storage', 'Hoa đặc biệt', 'special flower'],
+            'fresh-flowers' => ['Tables', 'Hoa tươi', 'fresh flowers'],
+            'souvenir' => ['Decor', 'Quà lưu niệm', 'souvenir'],
         ];
 
         $latestByCategory = [];
@@ -305,10 +305,10 @@ class DashboardController extends Controller
      * Provides consistent category naming across the application interface.
      *
      * Display Name Mapping:
-     * - soap-flower → Soap Flower
-     * - special-flower → Special Flower
-     * - fresh-flowers → Fresh Flowers
-     * - souvenir → Souvenir
+     * - soap-flower → Seating
+     * - special-flower → Storage
+     * - fresh-flowers → Tables
+     * - souvenir → Decor
      *
      * @param  string  $key  Category key identifier
      * @return string Human-readable category display name
@@ -323,10 +323,10 @@ class DashboardController extends Controller
          * Supports easy category name updates and internationalization
          */
         $displayNames = [
-            'soap-flower' => 'Soap Flower',
-            'special-flower' => 'Special Flower',
-            'fresh-flowers' => 'Fresh Flowers',
-            'souvenir' => 'Souvenir',
+            'soap-flower' => 'Seating',
+            'special-flower' => 'Storage',
+            'fresh-flowers' => 'Tables',
+            'souvenir' => 'Decor',
         ];
 
         // Fallback Name Generation

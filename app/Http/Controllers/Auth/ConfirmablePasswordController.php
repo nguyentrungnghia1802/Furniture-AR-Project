@@ -3,7 +3,7 @@
 /**
  * Confirmable Password Controller
  *
- * This controller handles password confirmation functionality for the Hanaya Shop
+ * This controller handles password confirmation functionality for the Luna Shop
  * e-commerce application. It manages secure password re-verification for sensitive
  * operations that require additional authentication beyond the initial login.
  *
@@ -28,7 +28,7 @@
  * - Proper error messaging
  * - Integration with authentication guards
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

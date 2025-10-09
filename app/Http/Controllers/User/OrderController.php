@@ -3,7 +3,7 @@
 /**
  * User Order Management Controller
  *
- * This controller handles order management functionality for customers in the Hanaya Shop
+ * This controller handles order management functionality for customers in the Luna Shop
  * e-commerce application. It provides comprehensive order viewing, tracking, cancellation,
  * and completion features for customer order lifecycle management.
  *
@@ -26,7 +26,7 @@
  * - Duplicate review prevention
  * - Review status tracking per order item
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

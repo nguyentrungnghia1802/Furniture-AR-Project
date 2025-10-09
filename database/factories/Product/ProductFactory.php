@@ -17,7 +17,7 @@ class ProductFactory extends Factory
             'descriptions' => $this->faker->paragraph,
             'price' => $this->faker->numberBetween(50000, 500000),
             'stock_quantity' => $this->faker->numberBetween(0, 100),
-            'image_url' => $this->faker->imageUrl(640, 480, 'flowers', true, 'Soap Flower'),
+            'image_url' => $this->faker->imageUrl(640, 480, 'flowers', true, 'Seating'),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => now(),
             'category_id' => Category::factory(),

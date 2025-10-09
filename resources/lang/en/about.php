@@ -3,8 +3,8 @@
 return [
     // About Page
     'about_us' => 'About Us',
-    'about_hanaya' => 'About Hanaya Shop',
-    'welcome_to_hanaya' => 'Welcome to Hanaya Shop',
+    'about_hanaya' => 'About Luna Shop',
+    'welcome_to_hanaya' => 'Welcome to Luna Shop',
     'hero_description' => 'Discover the art of beautiful soap flowers - where elegance meets functionality. Each piece is carefully handcrafted to bring beauty and fragrance to your special moments.',
     'our_story' => 'Our Story',
     'watch_video_demo' => 'Watch Our Video Demo',
@@ -27,7 +27,7 @@ return [
 
     // Story paragraphs
     'story_paragraph_1' => 'In Vietnam, especially during festive seasons and holidays, countless flowers are discarded due to their short lifespan and sellers\' inability to reach the right customers in time. This mismatch between supply and demand results in social waste and losses for sellers.',
-    'story_paragraph_2' => 'Hanaya Shop was created to address this real-world problem. Our platform helps expand shop visibility, increases customer touchpoints, and ensures each flower reaches the right person at the right moment. With a modern UI/UX, reliable Laravel backend, fast SSR, and practical business models for inventory, orders, and payments, we\'re making a difference.',
+    'story_paragraph_2' => 'Luna Shop was created to address this real-world problem. Our platform helps expand shop visibility, increases customer touchpoints, and ensures each flower reaches the right person at the right moment. With a modern UI/UX, reliable Laravel backend, fast SSR, and practical business models for inventory, orders, and payments, we\'re making a difference.',
     'story_paragraph_3' => 'Our long-term vision is to strengthen the connection between sellers and buyers, working towards minimizing wasted flowers to the absolute minimum. Each day, we strive to bring more beauty into people\'s lives while reducing unnecessary waste in the flower industry.',
 
     // Why choose us
@@ -62,18 +62,18 @@ return [
     'our_beginning_description' => 'From a small workshop to a beloved shop, every step has been guided by our commitment to quality and beauty.',
 
     // Product categories
-    'soap_flowers' => 'Soap Flowers',
+    'soap_flowers' => 'Seatings',
     'soap_flowers_description' => 'Handcrafted eternal flowers that combine beauty with functionality. Perfect for decoration and special occasions.',
-    'fresh_flowers' => 'Fresh Flowers',
+    'fresh_flowers' => 'Tables',
     'fresh_flowers_description' => 'Beautiful fresh flower arrangements for every occasion, from romantic bouquets to celebration centerpieces.',
-    'special_flowers' => 'Special Flowers',
+    'special_flowers' => 'Storages',
     'special_flowers_description' => 'Elegant and unique flower selections crafted for memorable moments, perfect for expressing love, gratitude, or sympathy.',
-    'souvenirs' => 'Souvenirs',
+    'souvenirs' => 'Decors',
     'souvenirs_description' => 'Thoughtfully curated gifts and souvenirs that show you care, perfect for expressing your feelings.',
 
     // Meet Our Team
     'meet_our_team' => 'Meet Our Team',
-    'team_description' => 'The passionate individuals behind Hanaya Shop',
+    'team_description' => 'The passionate individuals behind Luna Shop',
     'team_group_description' => 'Our amazing team working together to bring you the best',
 
     // Team members
@@ -95,7 +95,7 @@ return [
     'click_to_view_github' => 'Click to view GitHub',
 
     // Why choose us detailed
-    'why_choose_hanaya_detailed' => 'Why Choose Hanaya Shop?',
+    'why_choose_hanaya_detailed' => 'Why Choose Luna Shop?',
     'premium_quality' => 'Premium Quality',
     'premium_quality_desc' => 'Every product is carefully crafted with the finest materials',
     'fast_delivery' => 'Fast Delivery',
@@ -107,7 +107,7 @@ return [
     'start_shopping_now' => 'Start Shopping Now',
 
     // Company Description
-    'company_description' => 'Hanaya Shop is a premier destination for beautiful soap flowers and meaningful gifts. We specialize in handcrafted soap flowers that combine artistry with functionality.',
+    'company_description' => 'Luna Shop is a premier destination for beautiful soap flowers and meaningful gifts. We specialize in handcrafted soap flowers that combine artistry with functionality.',
     'established_year' => 'Established in 2020',
     'years_experience' => 'Years of Experience',
     'satisfied_customers' => 'Satisfied Customers',
@@ -139,7 +139,7 @@ return [
     // Achievements
     'our_achievements' => 'Our Achievements',
     'awards_recognition' => 'Awards & Recognition',
-    'best_soap_flower_award' => 'Best Soap Flower Brand 2023',
+    'best_soap_flower_award' => 'Best Seating Brand 2023',
     'eco_friendly_certification' => 'Eco-Friendly Product Certification',
     'customer_choice_award' => 'Customer Choice Award',
     'innovation_award' => 'Innovation in Craft Award',

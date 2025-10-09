@@ -2,7 +2,7 @@
 
 return [
     // Home Page
-    'welcome_to_hanaya' => 'Chào mừng đến với Hanaya Shop',
+    'welcome_to_hanaya' => 'Chào mừng đến với Luna Shop',
     'tagline' => 'Hoa sáp đẹp và quà tặng ý nghĩa',
 
     // Categories Section
@@ -18,8 +18,8 @@ return [
     'sale_items' => 'Sản phẩm giảm giá',
     'trending_now' => 'Xu hướng hiện tại',
 
-    // Why Choose Hanaya Shop
-    'why_choose_hanaya' => 'Tại sao chọn Hanaya Shop?',
+    // Why Choose Luna Shop
+    'why_choose_hanaya' => 'Tại sao chọn Luna Shop?',
     'quality_guarantee' => 'Đảm bảo chất lượng',
     'quality_guarantee_desc' => 'Tất cả hoa sáp của chúng tôi đều được làm thủ công với chất liệu cao cấp',
     'fast_shipping' => 'Giao hàng nhanh',

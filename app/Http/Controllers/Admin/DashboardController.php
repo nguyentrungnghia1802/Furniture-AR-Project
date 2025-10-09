@@ -3,7 +3,7 @@
 /**
  * Admin Dashboard Controller
  *
- * This controller handles the admin dashboard functionality for the Hanaya Shop e-commerce application.
+ * This controller handles the admin dashboard functionality for the Luna Shop e-commerce application.
  * It provides comprehensive statistics, analytics, and overview data for administrative purposes.
  * The dashboard displays key performance indicators, sales metrics, inventory status, and recent activity.
  *
@@ -16,7 +16,7 @@
  * - Recent orders overview
  * - User growth metrics
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */

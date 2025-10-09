@@ -20,7 +20,7 @@
             </div>
         </a>
 
-        <!-- Soap Flower -->
+        <!-- Seating -->
         <a href="{{ route('product.index', ['category_name' => 'soap-flower']) }}" 
            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-lg {{ $selectedCategory === 'soap-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-6 text-center">
@@ -30,13 +30,13 @@
                     </svg>
                 </div>
                 <h4 class="font-semibold {{ $selectedCategory === 'soap-flower' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
-                    Soap Flowerjhgjhkgyjkhg
+                    Seatingjhgjhkgyjkhg
                 </h4>
                 <p class="text-sm text-gray-500 mt-1">{{ __('product.soap_flowers') }}</p>
             </div>
         </a>
 
-        <!-- Special Flower -->
+        <!-- Storage -->
         <a href="{{ route('product.index', ['category_name' => 'special-flower']) }}" 
            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-lg {{ $selectedCategory === 'special-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-6 text-center">
@@ -46,13 +46,13 @@
                     </svg>
                 </div>
                 <h4 class="font-semibold {{ $selectedCategory === 'special-flower' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
-                    Special Flower
+                    Storage
                 </h4>
                 <p class="text-sm text-gray-500 mt-1">{{ __('product.special_flowers') }}</p>
             </div>
         </a>
 
-        <!-- Fresh Flowers -->
+        <!-- Tables -->
         <a href="{{ route('product.index', ['category_name' => 'fresh-flowers']) }}" 
            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-lg {{ $selectedCategory === 'fresh-flowers' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-6 text-center">
@@ -62,13 +62,13 @@
                     </svg>
                 </div>
                 <h4 class="font-semibold {{ $selectedCategory === 'fresh-flowers' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
-                    Fresh Flowers
+                    Tables
                 </h4>
                 <p class="text-sm text-gray-500 mt-1">{{ __('product.fresh_flowers') }}</p>
             </div>
         </a>
 
-        <!-- Souvenir (span 2 columns on mobile, span 4 on larger screens to center it) -->
+        <!-- Decor (span 2 columns on mobile, span 4 on larger screens to center it) -->
         <a href="{{ route('product.index', ['category_name' => 'souvenir']) }}" 
            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-lg col-span-2 md:col-span-4 max-w-xs mx-auto {{ $selectedCategory === 'souvenir' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
             <div class="p-6 text-center">
@@ -78,7 +78,7 @@
                     </svg>
                 </div>
                 <h4 class="font-semibold {{ $selectedCategory === 'souvenir' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
-                    Souvenir
+                    Decor
                 </h4>
                 <p class="text-sm text-gray-500 mt-1">{{ __('product.souvenirs') }}</p>
             </div>

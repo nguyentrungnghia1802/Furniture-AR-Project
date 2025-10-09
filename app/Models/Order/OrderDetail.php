@@ -3,7 +3,7 @@
 /**
  * Order Detail Model
  *
- * This model represents individual line items within customer orders in the Hanaya Shop
+ * This model represents individual line items within customer orders in the Luna Shop
  * e-commerce application. Each OrderDetail record represents a specific product with its
  * quantity and price within a parent order. This model enables detailed order tracking,
  * inventory management, and accurate order fulfillment.
@@ -28,7 +28,7 @@
  * - Enables order modification and line item adjustments
  * - Supports partial fulfillment and backorder scenarios
  *
- * @author Hanaya Shop Development Team
+ * @author Luna Shop Development Team
  *
  * @version 1.0
  */
