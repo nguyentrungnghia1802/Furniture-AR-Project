@@ -145,6 +145,7 @@
 
         <!-- Page Content -->
         <main>
+            {{-- @yield('content') --}}
             {{ $slot }}
         </main>
         <footer class="bg-gray-800 text-gray-200 py-8 mt-10 flex flex-col transition-colors duration-300">

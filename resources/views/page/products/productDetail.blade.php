@@ -94,7 +94,7 @@
                     <!-- Action buttons -->
                     <div class="space-y-3">
                         <!-- AR Button (if available) -->
-                        @if ($product->ar_enabled ?? false)
+                        @if ($product->ar_enabled)
                             <a href="{{ route('products.ar', $product->id) }}" 
                                 class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

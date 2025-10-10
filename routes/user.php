@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserDashboardController::class, 'index'])->name('dashboard');
 
 // Product routes available for both guests and authenticated users
-Route::get('/products', [ProductController::class, 'index'])->name('user.products.index');
+
+// Route chi tiết sản phẩm thường
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('user.products.show');
+// Route AR riêng biệt cho sản phẩm
 Route::get('/products/{id}/ar', [ProductController::class, 'showArProduct'])->name('products.ar');
+Route::get('/products', [ProductController::class, 'index'])->name('user.products.index');
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
