@@ -26,10 +26,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product\Product;  // Product model for product data
-use App\Models\Product\Review;     // HTTP request handling
-use Illuminate\Http\Request;    // Database query builder
+use App\Models\Product\Review;   // Review model for product ratings
+use Illuminate\Http\Request;     // HTTP request handling
 use Illuminate\Support\Facades\Cache; // Laravel caching for performance
-use Illuminate\Support\Facades\DB;   // Review model for product ratings
+use Illuminate\Support\Facades\DB;   // Database query builder
 
 /**
  * Product Controller Class
@@ -114,7 +114,7 @@ class ProductController extends Controller
          * MD5 hash ensures consistent key length while capturing all parameter variations
          * This approach provides efficient caching while maintaining data freshness
          */
-        $cacheKey = 'products_index_'.app()->getLocale().'_'.md5(serialize([
+        $cacheKey = 'products_index_' . app()->getLocale() . '_' . md5(serialize([
             'sort' => $sort,
             'keyword' => $keyword,
             'categoryId' => $categoryId,
@@ -342,15 +342,16 @@ class ProductController extends Controller
      * Display detailed view of a specific product with reviews and related products.
      *
      * This method handles individual product detail pages including product information,
-     * customer reviews with ratings, related products recommendations, and view tracking.
-     * The method optimizes performance through strategic caching while ensuring view
-     * counts are accurately tracked for analytics.
+     * customer reviews with ratings, related products recommendations, AR support,
+     * and view tracking. The method optimizes performance through strategic caching
+     * while ensuring view counts are accurately tracked for analytics.
      *
      * Features include:
      * - Comprehensive product details with category information
      * - Paginated customer reviews with user information
      * - Average rating calculation and review statistics
      * - Related products from the same category
+     * - AR model support for AR-enabled products
      * - View count tracking for popularity metrics
      * - Efficient caching for improved performance
      *
@@ -440,19 +441,26 @@ class ProductController extends Controller
     }
 
     /**
-     * Display AR-enabled product details
-     * Shows product information with AR model viewing capabilities
+     * Display AR view for a specific product
+     *
+     * This method handles the AR-specific page for products with AR models.
+     * It provides immersive AR experience with 3D model viewing and placement.
+     *
+     * @param  int  $id  Product ID to display in AR
+     * @return \Illuminate\View\View AR view with product data
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException If product not found or AR not enabled
      */
-        public function showArProduct(Request $request, $id)
+    public function showArProduct($id)
     {
-        // Find product by ID with AR support (since slug column doesn't exist)
+        // Find product by ID and ensure AR is enabled
         $product = Product::where('id', $id)
             ->where('ar_enabled', true)
             ->with(['category'])
             ->firstOrFail();
 
-        // Increment view count
-        $product->increment('view_count');
+        // Increment view count for analytics
+        Product::where('id', $id)->increment('view_count');
 
         // Get AR model URLs
         $arModels = [
@@ -463,14 +471,19 @@ class ProductController extends Controller
         // Get product dimensions for AR positioning
         $dimensions = $product->getDimensions();
 
-        // Get related AR products
+        // Get related AR products from same category
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->where('ar_enabled', true)
             ->limit(4)
             ->get();
 
-        return view('user.products.ar-details', compact(
+        // Ensure we have a collection even if empty
+        if (!$relatedProducts) {
+            $relatedProducts = collect([]);
+        }
+
+        return view('page.products.ar-view', compact(
             'product',
             'arModels',
             'dimensions',

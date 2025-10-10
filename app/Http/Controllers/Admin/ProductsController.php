@@ -205,8 +205,8 @@ class ProductsController extends Controller
             
             // AR-related validations
             'ar_enabled' => 'nullable|boolean',                           // AR support flag
-            'ar_model_glb' => 'nullable|file|mimes:glb|max:51200',       // GLB model (50MB max)
-            'ar_model_usdz' => 'nullable|file|mimes:usdz|max:51200',     // USDZ model (50MB max)
+            'ar_model_glb' => 'nullable|file|max:51200',       // GLB model (50MB max) - No MIME validation due to inconsistent detection
+            'ar_model_usdz' => 'nullable|file|max:51200',     // USDZ model (50MB max) - No MIME validation due to inconsistent detection
             'ar_model_size' => 'nullable|string|max:255',                // Model size description
             'ar_placement_instructions' => 'nullable|string|max:1000',    // AR placement instructions
             'width_cm' => 'nullable|numeric|min:0|max:10000',            // Width in centimeters
@@ -367,6 +367,16 @@ class ProductsController extends Controller
             'discount_percent' => 'nullable|numeric|min:0|max:100',   // Discount validation
             'view_count' => 'nullable|integer|min:0',                 // View count validation
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
+            
+            // AR-related validations
+            'ar_enabled' => 'nullable|boolean',                           // AR support flag
+            'ar_model_glb' => 'nullable|file|max:51200',       // GLB model (50MB max) - No MIME validation due to inconsistent detection
+            'ar_model_usdz' => 'nullable|file|max:51200',     // USDZ model (50MB max) - No MIME validation due to inconsistent detection
+            'ar_model_size' => 'nullable|string|max:255',                // Model size description
+            'ar_placement_instructions' => 'nullable|string|max:1000',    // AR placement instructions
+            'width_cm' => 'nullable|numeric|min:0|max:10000',            // Width in centimeters
+            'height_cm' => 'nullable|numeric|min:0|max:10000',           // Height in centimeters
+            'depth_cm' => 'nullable|numeric|min:0|max:10000',            // Depth in centimeters
         ]);
 
         // Product Data Updates
@@ -405,6 +415,60 @@ class ProductsController extends Controller
             $request->file('image_url')->move(public_path('images/products'), $imageName);
             $product->image_url = $imageName;
         }
+
+        // AR Model Update Handling
+        /**
+         * AR Model Update Process - Handle AR model file uploads and updates
+         * Processes GLB and USDZ files for AR functionality
+         * Uses ArModelService for secure upload and validation
+         */
+        $arModelService = new ArModelService();
+
+        // Handle GLB model upload (Android AR)
+        if ($request->hasFile('ar_model_glb')) {
+            // Delete old GLB file if exists
+            if ($product->ar_model_glb) {
+                $arModelService->deleteArModel($product->ar_model_glb);
+            }
+
+            $glbResult = $arModelService->uploadArModel(
+                $request->file('ar_model_glb'),
+                'glb',
+                $request->input('name')
+            );
+            if ($glbResult['success']) {
+                $product->ar_model_glb = $glbResult['filename'];
+            } else {
+                return redirect()->back()->with('error', 'GLB upload failed: ' . $glbResult['error']);
+            }
+        }
+
+        // Handle USDZ model upload (iOS AR)
+        if ($request->hasFile('ar_model_usdz')) {
+            // Delete old USDZ file if exists
+            if ($product->ar_model_usdz) {
+                $arModelService->deleteArModel($product->ar_model_usdz);
+            }
+
+            $usdzResult = $arModelService->uploadArModel(
+                $request->file('ar_model_usdz'),
+                'usdz',
+                $request->input('name')
+            );
+            if ($usdzResult['success']) {
+                $product->ar_model_usdz = $usdzResult['filename'];
+            } else {
+                return redirect()->back()->with('error', 'USDZ upload failed: ' . $usdzResult['error']);
+            }
+        }
+
+        // Update AR-related fields
+        $product->ar_enabled = $request->has('ar_enabled') ? true : false;
+        $product->ar_model_size = $request->input('ar_model_size');
+        $product->ar_placement_instructions = $request->input('ar_placement_instructions');
+        $product->width_cm = $request->input('width_cm');
+        $product->height_cm = $request->input('height_cm');
+        $product->depth_cm = $request->input('depth_cm');
 
         // Save and Cache Management
         /**
