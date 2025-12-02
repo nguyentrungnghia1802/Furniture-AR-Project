@@ -1,59 +1,94 @@
 {{-- resources/views/page/products/ar-view.blade.php --}}
 <x-app-layout>
-    @section('head')
+    @push('scripts')
         <!-- Model Viewer for AR functionality -->
         <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
         <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
         
-        <!-- AR Viewer Scripts -->
-        <script src="{{ asset('js/ar-viewer.js') }}" defer></script>
-        
-        <!-- Debug Script for AR Model Loading -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const modelViewer = document.querySelector('model-viewer');
+        <!-- Debug Script for AR Model Loading (must run after model-viewer loads) -->
+        <script type="module">
+            // Wait for model-viewer to be defined
+            await customElements.whenDefined('model-viewer');
+            console.log('✅ Model-viewer element defined');
+            
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve));
+            }
+            
+            const modelViewer = document.querySelector('model-viewer');
+            const modelLoadingOverlay = document.getElementById('model-loading');
+            
+            if (modelViewer) {
+                console.log('Model Viewer found');
+                console.log('Model URL:', modelViewer.getAttribute('src'));
+                console.log('iOS Source:', modelViewer.getAttribute('ios-src'));
                 
-                if (modelViewer) {
-                    console.log('Model Viewer found');
-                    console.log('Model URL:', modelViewer.getAttribute('src'));
-                    console.log('iOS Source:', modelViewer.getAttribute('ios-src'));
-                    
-                    modelViewer.addEventListener('load', () => {
-                        console.log('✅ Model loaded successfully');
-                        document.getElementById('loading-indicator')?.style.display = 'none';
-                    });
-                    
-                    modelViewer.addEventListener('error', (event) => {
-                        console.error('❌ Model failed to load:', event.detail);
-                        document.getElementById('loading-indicator')?.innerHTML = 
-                            '<div class="text-red-500">❌ Failed to load model</div>';
-                    });
-                    
-                    modelViewer.addEventListener('progress', (event) => {
-                        const progress = event.detail.totalProgress;
-                        console.log('Loading progress:', Math.round(progress * 100) + '%');
-                    });
-                    
-                    // Test if model file exists
-                    const modelUrl = modelViewer.getAttribute('src');
-                    if (modelUrl) {
-                        fetch(modelUrl, { method: 'HEAD' })
-                            .then(response => {
-                                if (response.ok) {
-                                    console.log('✅ Model file exists and accessible');
-                                } else {
-                                    console.error('❌ Model file not accessible:', response.status);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('❌ Error checking model file:', error);
-                            });
+                modelViewer.addEventListener('load', () => {
+                    console.log('✅ Model loaded successfully');
+                    // Hide BOTH loading indicators
+                    if (modelLoadingOverlay) {
+                        modelLoadingOverlay.style.display = 'none';
                     }
-                } else {
-                    console.error('❌ Model Viewer not found');
+                    const loadingIndicator = document.getElementById('loading-indicator');
+                    if (loadingIndicator) {
+                        loadingIndicator.style.display = 'none';
+                    }
+                });
+                
+                modelViewer.addEventListener('error', (event) => {
+                    console.error('❌ Model failed to load:', event.detail);
+                    // Hide loading and show error
+                    if (modelLoadingOverlay) {
+                        modelLoadingOverlay.style.display = 'none';
+                    }
+                    const errorOverlay = document.getElementById('model-error');
+                    if (errorOverlay) {
+                        errorOverlay.style.display = 'flex';
+                    }
+                });
+                
+                modelViewer.addEventListener('progress', (event) => {
+                    const progress = event.detail.totalProgress;
+                    console.log('Loading progress:', Math.round(progress * 100) + '%');
+                    // Update progress bar
+                    const progressBar = document.getElementById('loading-progress');
+                    if (progressBar) {
+                        progressBar.style.width = (progress * 100) + '%';
+                    }
+                });
+                
+                // Test if model file exists
+                const modelUrl = modelViewer.getAttribute('src');
+                if (modelUrl) {
+                    fetch(modelUrl, { method: 'HEAD' })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('✅ Model file exists and accessible');
+                                console.log('File size:', response.headers.get('content-length'), 'bytes');
+                            } else {
+                                console.error('❌ Model file not accessible:', response.status);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('❌ Error checking model file:', error);
+                        });
                 }
-            });
+                
+                // Fallback timeout - hide loading after 15 seconds
+                setTimeout(() => {
+                    if (modelLoadingOverlay && modelLoadingOverlay.style.display !== 'none') {
+                        console.warn('⚠️ Loading timeout - hiding overlay (model may still be loading)');
+                        modelLoadingOverlay.style.display = 'none';
+                    }
+                }, 15000);
+            } else {
+                console.error('❌ Model Viewer not found');
+            }
         </script>
+        
+        <!-- AR Viewer Scripts (load after debug) -->
+        <script src="{{ asset('js/ar-viewer.js') }}" defer></script>
         
         <!-- Meta tags for AR -->
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,7 +190,7 @@
                 box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             }
         </style>
-    @endsection
+    @endpush
 
     <div class="container mx-auto px-4 py-8">
         <!-- Breadcrumb -->
