@@ -65,7 +65,7 @@ return [
     'copyright' => 'All rights reserved.',
 
     // Shop info
-    'shop_name' => 'HANAYA SHOP',
+    'shop_name' => 'LUNA SHOP',
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',

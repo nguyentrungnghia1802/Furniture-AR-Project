@@ -65,7 +65,7 @@ return [
     'copyright' => '全著作権所有。',
 
     // Shop info
-    'shop_name' => 'HANAYA SHOP',
+    'shop_name' => 'LUNA SHOP',
     'address' => '住所',
     'phone' => '電話',
     'email' => 'メール',

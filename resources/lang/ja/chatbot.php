@@ -44,7 +44,7 @@ return [
     'store_info' => "🏪 Luna Shop店舗情報：\n\n"
         ."📍 住所：123 Flower Street, Son Tay, Hanoi\n"
         ."📞 電話：0353295709\n"
-        ."📧 メール：support@hanayashop.com\n"
+        ."📧 メール：support@lunashop.com\n"
         ."🕒 営業時間：8:00 AM - 10:00 PM（月〜日）\n\n"
         ."🚚 配送：全国対応\n"
         ."💳 お支払い：現金、銀行振込、クレジット/デビットカード\n"

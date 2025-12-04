@@ -11,8 +11,8 @@ return [
     'fixed_resources_path' => 'fixed_resources/',
 
     // Shop information (can be used for footer, contact...)
-    'shop_name' => 'HANAYA SHOP',
-    'shop_email' => 'support@hanayashop.com',
+    'shop_name' => 'LUNA SHOP',
+    'shop_email' => 'support@lunashop.com',
     'shop_phone' => '0353295709',
     'shop_address' => '123 Flower Street, Son Tay, Hanoi',
 
