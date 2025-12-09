@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
+        <div class="bg-gradient-to-r from-gray-500 to-purple-600 text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="py-6">
                     <h1 class="text-3xl font-bold">🌸 {{ __('about.about_hanaya') }}</h1>
-                    <p class="text-pink-100 mt-2">{{ __('about.discover_story') }}</p>
+                    <p class="text-gray-100 mt-2">{{ __('about.discover_story') }}</p>
                 </div>
             </div>
         </div>
@@ -28,10 +28,10 @@
                     <div class="space-y-4 text-gray-600 leading-relaxed">
                         <p>{{ __('about.story_paragraph_1') }}</p>
                         <p>{{ __('about.story_paragraph_2') }}</p>
-                        <p class="font-medium text-pink-700">{{ __('about.story_paragraph_3') }}</p>
+                        <p class="font-medium text-gray-700">{{ __('about.story_paragraph_3') }}</p>
                     </div>
                     <div class="pt-4">
-                        <a href="{{ route('user.products.index') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium rounded-lg transition-all hover:from-pink-600 hover:to-purple-700">
+                        <a href="{{ route('user.products.index') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gray-500 to-purple-600 text-white font-medium rounded-lg transition-all hover:from-gray-600 hover:to-purple-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
@@ -46,7 +46,7 @@
                                 class="w-full h-72 object-cover transition-transform duration-700 ease-in-out">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex items-center justify-center">
                                 <div class="story-play-button bg-white/80 backdrop-blur-sm w-16 h-16 rounded-full flex items-center justify-center transform scale-75 opacity-0 transition-all duration-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-600" fill="currentColor" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" fill="currentColor" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
                                     </svg>
@@ -111,7 +111,7 @@
                     <!-- Quality -->
                     <div class="text-center">
                         <div
-                            class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            class="w-16 h-16 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
@@ -126,7 +126,7 @@
                     <!-- Customer Care -->
                     <div class="text-center">
                         <div
-                            class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            class="w-16 h-16 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
@@ -142,7 +142,7 @@
                     <!-- Sustainability -->
                     <div class="text-center">
                         <div
-                            class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            class="w-16 h-16 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0 9c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9">
@@ -178,7 +178,7 @@
                         <div class="p-6">
                             <div class="flex items-center mb-3">
                                 <div
-                                    class="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                                    class="w-8 h-8 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -294,9 +294,9 @@
                     <div class="relative z-10 px-4 sm:px-8 flex flex-col items-center justify-end h-full mb-8">
                         <h3 class="text-1xl sm:text-2xl md:text-4xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg"
                             style="text-shadow: 0 2px 8px #000, 0 0 2px #fff;">{{ __('about.meet_our_team') }}</h3>
-                        <p class="text-sm sm:text-lg text-pink-100 mb-2 sm:mb-4 drop-shadow-lg"
+                        <p class="text-sm sm:text-lg text-gray-100 mb-2 sm:mb-4 drop-shadow-lg"
                             style="text-shadow: 0 2px 8px #000;">{{ __('about.team_description') }}</p>
-                        <p class="text-sm sm:text-base text-pink-100 italic drop-shadow-lg"
+                        <p class="text-sm sm:text-base text-gray-100 italic drop-shadow-lg"
                             style="text-shadow: 0 2px 8px #000;">{{ __('about.team_group_description') }}</p>
                     </div>
                 </div>
@@ -309,11 +309,11 @@
                             <img src="{{ asset('fixed_resources/about/quyen.jpg') }}" alt="Team Member 1"
                                 class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg transition-transform duration-300">
                             <div
-                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-pink-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
+                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-gray-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
                             </div>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">{{ __('about.tan_van_quyen') }}</h4>
-                        <p class="text-pink-600 font-medium mb-3">{{ __('about.team_member') }}</p>
+                        <p class="text-gray-600 font-medium mb-3">{{ __('about.team_member') }}</p>
                         <div style="min-height: 66px; display: flex; align-items: center; justify-content: center;">
                             <p class="text-gray-600 text-sm mb-3" style="margin-bottom:0;">
                                 {{ __('about.quyen_description') }}
@@ -335,11 +335,11 @@
                             <img src="{{ asset('fixed_resources/about/nghia.jpg') }}" alt="Team Member 2"
                                 class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg">
                             <div
-                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-pink-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
+                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-gray-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
                             </div>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">{{ __('about.nguyen_trung_nghia') }}</h4>
-                        <p class="text-pink-600 font-medium mb-3">{{ __('about.team_leader') }}</p>
+                        <p class="text-gray-600 font-medium mb-3">{{ __('about.team_leader') }}</p>
                         <div style="min-height: 66px; display: flex; align-items: center; justify-content: center;">
                             <p class="text-gray-600 text-sm mb-3" style="margin-bottom:0;">
                                 {{ __('about.nghia_description') }}
@@ -361,11 +361,11 @@
                             <img src="{{ asset('fixed_resources/about/tai.jpg') }}" alt="Team Member 3"
                                 class="w-32 h-32 rounded-full mx-auto object-cover shadow-lg">
                             <div
-                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-pink-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
+                                class="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-gray-500 to-purple-600 opacity-0 hover:opacity-20 transition-opacity duration-300">
                             </div>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">{{ __('about.le_duc_anh_tai') }}</h4>
-                        <p class="text-pink-600 font-medium mb-3">{{ __('about.team_member') }}</p>
+                        <p class="text-gray-600 font-medium mb-3">{{ __('about.team_member') }}</p>
                         <div style="min-height: 66px; display: flex; align-items: center; justify-content: center;">
                             <p class="text-gray-600 text-sm mb-3" style="margin-bottom:0;">
                                 {{ __('about.tai_description') }}
@@ -391,7 +391,7 @@
                     <div class="space-y-4">
                         <div class="flex items-center space-x-4">
                             <div
-                                class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                class="w-10 h-10 bg-gradient-to-r from-gray-500 to-purple-600 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -409,7 +409,7 @@
 
                         <div class="flex items-center space-x-4">
                             <div
-                                class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                class="w-10 h-10 bg-gradient-to-r from-gray-500 to-purple-600 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -425,7 +425,7 @@
 
                         <div class="flex items-center space-x-4">
                             <div
-                                class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                class="w-10 h-10 bg-gradient-to-r from-gray-500 to-purple-600 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -441,7 +441,7 @@
 
                         <div class="flex items-center space-x-4">
                             <div
-                                class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                class="w-10 h-10 bg-gradient-to-r from-gray-500 to-purple-600 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -457,7 +457,7 @@
                 </div>
 
                 <!-- Why Choose Us -->
-                <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8">
+                <div class="bg-gradient-to-br from-gray-50 to-purple-50 rounded-2xl p-8">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ __('about.why_choose_hanaya_detailed') }}
                     </h3>
                     <div class="space-y-4">
@@ -520,7 +520,7 @@
 
                     <div class="mt-8">
                         <a href="{{ route('user.products.index') }}"
-                            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>

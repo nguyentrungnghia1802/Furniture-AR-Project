@@ -14,7 +14,7 @@
             {{ __('auth.verify_email_sent') }}
         </p>
         
-        <p class="mb-6 text-pink-600 font-medium">
+        <p class="mb-6 text-gray-600 font-medium">
             {{ session('pending_registration.email') }}
         </p>
 
@@ -27,7 +27,7 @@
         <div class="space-y-4">
             <form method="POST" action="{{ route('verification.resend') }}">
                 @csrf
-                <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     {{ __('auth.resend_verification_email') }}
                 </button>
             </form>
@@ -46,8 +46,8 @@
                     $supportSubject = __('auth.support_email_subject');
                     $supportBody = __('auth.support_email_body', ['email' => $userEmail]);
                 @endphp
-                <a href="mailto:support@hanayashop.com?subject={{ urlencode($supportSubject) }}&body={{ urlencode($supportBody) }}" 
-                   class="inline-flex items-center text-sm text-pink-600 hover:text-pink-700 font-medium">
+                <a href="mailto:support@lunashop.com?subject={{ urlencode($supportSubject) }}&body={{ urlencode($supportBody) }}" 
+                   class="inline-flex items-center text-sm text-gray-600 hover:text-gray-700 font-medium">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>

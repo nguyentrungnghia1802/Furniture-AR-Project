@@ -33,7 +33,7 @@
                     <div>
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{{ $product->name }}</h2>
                         @if ($product->category)
-                            <p class="text-pink-600 font-medium mb-2">{{ $product->category->name }}</p>
+                            <p class="text-gray-600 font-medium mb-2">{{ $product->category->name }}</p>
                         @endif
                         <div class="flex items-center space-x-4 text-sm text-gray-500 mb-4">
                             <span class="flex items-center">
@@ -68,7 +68,7 @@
                                 </p>
                             </div>
                         @else
-                            <p class="text-3xl sm:text-4xl font-bold text-pink-600">
+                            <p class="text-3xl sm:text-4xl font-bold text-gray-600">
                                 ${{ number_format($product->price, 2, '.', ',') }}
                             </p>
                         @endif
@@ -83,7 +83,7 @@
                             </button>
                             <input id="quantity" type="number" value="1" min="1"
                                 max="{{ $product->stock_quantity }}" data-max-stock="{{ $product->stock_quantity }}"
-                                class="w-20 text-center border-2 border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-pink-500" />
+                                class="w-20 text-center border-2 border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-gray-500" />
                             <button id="increase"
                                 class="flex items-center justify-center w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors">
                                 <i class="fas fa-plus text-sm"></i>
@@ -109,7 +109,7 @@
                                 <form id="add-to-cart-form" action="{{ route('cart.add', $product->id) }}" method="POST" class="w-full">
                                     @csrf
                                     <input type="hidden" name="quantity" id="form-quantity" value="1">
-                                    <button type="submit" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center">
+                                    <button type="submit" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center">
                                         <i class="fas fa-shopping-cart mr-2"></i>{{ __('product.add_to_cart') }}
                                     </button>
                                 </form>
@@ -124,14 +124,14 @@
                             @else
                                 <button 
                                     type="button" 
-                                    class="w-full bg-pink-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center cursor-not-allowed opacity-60" 
+                                    class="w-full bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center cursor-not-allowed opacity-60" 
                                     disabled>
 
                                     <i class="fas fa-shopping-cart mr-2"></i>{{ __('product.out_of_stock') }}
                                 </button>
                                 <button 
                                     type="button" 
-                                    class="w-full bg-pink-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center cursor-not-allowed opacity-60" 
+                                    class="w-full bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center cursor-not-allowed opacity-60" 
                                     disabled>
 
                                     <i class="fas fa-shopping-cart mr-2"></i>{{ __('product.out_of_stock') }}
@@ -174,7 +174,7 @@
                                 {{ __('product.warranty') }}
                             </div>
                             <div class="flex items-center text-gray-600">
-                                <i class="fas fa-headset mr-2 text-pink-500"></i>
+                                <i class="fas fa-headset mr-2 text-gray-500"></i>
                                 {{ __('product.24_7_support') }}
                             </div>
                         </div>
@@ -201,8 +201,8 @@
                                 <div class="flex items-start space-x-4">
                                     <div class="flex-shrink-0">
                                         <div
-                                            class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
-                                            <span class="text-pink-600 font-semibold text-sm">
+                                            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                                            <span class="text-gray-600 font-semibold text-sm">
                                                 {{ strtoupper(substr($review->user->name, 0, 1)) }}
                                             </span>
                                         </div>
@@ -278,7 +278,7 @@
                             <div class="h-12 mb-3">
                                 @if ($item->discount_percent > 0)
                                     <div class="space-y-1">
-                                        <p class="text-pink-600 font-bold text-lg">
+                                        <p class="text-gray-600 font-bold text-lg">
                                             ${{ number_format($item->discounted_price, 2, '.', ',') }}
                                         </p>
                                         <p class="text-sm text-gray-500 line-through">
@@ -286,7 +286,7 @@
                                         </p>
                                     </div>
                                 @else
-                                    <p class="text-pink-600 font-bold text-lg">
+                                    <p class="text-gray-600 font-bold text-lg">
                                         ${{ number_format($item->price, 2, '.', ',') }}</p>
                                 @endif
                             </div>
@@ -294,7 +294,7 @@
                             <!-- Button pushes to bottom -->
                             <div class="mt-auto">
                                 <a href="{{ route('user.products.show', $item->id) }}"
-                                    class="block w-full text-center bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+                                    class="block w-full text-center bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
                                     {{ __('product.view_details') }}
                                 </a>
                             </div>

@@ -8,7 +8,7 @@
                     <img src="{{ asset(config('constants.logo_path')) }}" alt="Logo" class="h-9 w-auto">
 
                     <a href="{{ route('admin.dashboard') }}">
-                        <p class="ml-2.5 font-semibold"> HANAYA SHOP </p>
+                        <p class="ml-2.5 font-semibold"> LUNA SHOP </p>
 
                     </a>
                 </div>

@@ -10,11 +10,11 @@
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
         <!-- All Products -->
         <a href="{{ route('user.products.index') }}"
-            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ !$currentCategoryName ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
+            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ !$currentCategoryName ? 'border-gray-500 bg-gray-50' : 'border-gray-200 hover:border-gray-300' }}">
             <div class="p-3 text-center">
                 <div
-                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ !$currentCategoryName ? 'bg-pink-500' : 'bg-gray-100 group-hover:bg-pink-100' }}">
-                    <svg class="w-6 h-6 {{ !$currentCategoryName ? 'text-white' : 'text-gray-600 group-hover:text-pink-600' }}"
+                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ !$currentCategoryName ? 'bg-gray-500' : 'bg-gray-100 group-hover:bg-gray-100' }}">
+                    <svg class="w-6 h-6 {{ !$currentCategoryName ? 'text-white' : 'text-gray-600 group-hover:text-gray-600' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 11H5m14-4H9m4 8H7m6 4v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2z">
@@ -22,7 +22,7 @@
                     </svg>
                 </div>
                 <h4
-                    class="text-sm font-semibold {{ !$currentCategoryName ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
+                    class="text-sm font-semibold {{ !$currentCategoryName ? 'text-gray-700' : 'text-gray-700 group-hover:text-gray-600' }}">
                     {{ __('product.all_products') }}
                 </h4>
             </div>
@@ -30,11 +30,11 @@
 
         <!-- Seating -->
         <a href="{{ route('user.products.index', ['category_name' => 'soap-flower']) }}"
-            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'soap-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
+            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'soap-flower' ? 'border-gray-500 bg-gray-50' : 'border-gray-200 hover:border-gray-300' }}">
             <div class="p-3 text-center">
                 <div
-                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'soap-flower' ? 'bg-pink-500' : 'bg-gray-100 group-hover:bg-pink-100' }}">
-                    <svg class="w-6 h-6 {{ $currentCategoryName === 'soap-flower' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600' }}"
+                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'soap-flower' ? 'bg-gray-500' : 'bg-gray-100 group-hover:bg-gray-100' }}">
+                    <svg class="w-6 h-6 {{ $currentCategoryName === 'soap-flower' ? 'text-white' : 'text-gray-600 group-hover:text-gray-600' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1">
@@ -42,7 +42,7 @@
                     </svg>
                 </div>
                 <h4
-                    class="text-sm font-semibold {{ $currentCategoryName === 'soap-flower' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
+                    class="text-sm font-semibold {{ $currentCategoryName === 'soap-flower' ? 'text-gray-700' : 'text-gray-700 group-hover:text-gray-600' }}">
                     {{ __('product.soap_flower') }}
                 </h4>
             </div>
@@ -50,11 +50,11 @@
 
         <!-- Tables -->
         <a href="{{ route('user.products.index', ['category_name' => 'fresh-flower']) }}"
-            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'fresh-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
+            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'fresh-flower' ? 'border-gray-500 bg-gray-50' : 'border-gray-200 hover:border-gray-300' }}">
             <div class="p-3 text-center">
                 <div
-                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'fresh-flower' ? 'bg-pink-500' : 'bg-gray-100 group-hover:bg-pink-100' }}">
-                    <svg class="w-6 h-6 {{ $currentCategoryName === 'fresh-flower' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600' }}"
+                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'fresh-flower' ? 'bg-gray-500' : 'bg-gray-100 group-hover:bg-gray-100' }}">
+                    <svg class="w-6 h-6 {{ $currentCategoryName === 'fresh-flower' ? 'text-white' : 'text-gray-600 group-hover:text-gray-600' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
@@ -62,7 +62,7 @@
                     </svg>
                 </div>
                 <h4
-                    class="text-sm font-semibold {{ $currentCategoryName === 'fresh-flower' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
+                    class="text-sm font-semibold {{ $currentCategoryName === 'fresh-flower' ? 'text-gray-700' : 'text-gray-700 group-hover:text-gray-600' }}">
                     {{ __('product.fresh_flower') }}
                 </h4>
             </div>
@@ -70,11 +70,11 @@
 
         <!-- Storage -->
         <a href="{{ route('user.products.index', ['category_name' => 'special-flower']) }}"
-            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'special-flower' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
+            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'special-flower' ? 'border-gray-500 bg-gray-50' : 'border-gray-200 hover:border-gray-300' }}">
             <div class="p-3 text-center">
                 <div
-                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'special-flower' ? 'bg-pink-500' : 'bg-gray-100 group-hover:bg-pink-100' }}">
-                    <svg class="w-6 h-6 {{ $currentCategoryName === 'special-flower' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600' }}"
+                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'special-flower' ? 'bg-gray-500' : 'bg-gray-100 group-hover:bg-gray-100' }}">
+                    <svg class="w-6 h-6 {{ $currentCategoryName === 'special-flower' ? 'text-white' : 'text-gray-600 group-hover:text-gray-600' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
@@ -82,7 +82,7 @@
                     </svg>
                 </div>
                 <h4
-                    class="text-sm font-semibold {{ $currentCategoryName === 'special-flower' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
+                    class="text-sm font-semibold {{ $currentCategoryName === 'special-flower' ? 'text-gray-700' : 'text-gray-700 group-hover:text-gray-600' }}">
                     {{ __('product.special_flower') }}
                 </h4>
             </div>
@@ -90,11 +90,11 @@
 
         <!-- Decor -->
         <a href="{{ route('user.products.index', ['category_name' => 'souvenir']) }}"
-            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'souvenir' ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300' }}">
+            class="category-item group relative overflow-hidden rounded-lg border-2 transition-all duration-300 hover:shadow-md {{ $currentCategoryName === 'souvenir' ? 'border-gray-500 bg-gray-50' : 'border-gray-200 hover:border-gray-300' }}">
             <div class="p-3 text-center">
                 <div
-                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'souvenir' ? 'bg-pink-500' : 'bg-gray-100 group-hover:bg-pink-100' }}">
-                    <svg class="w-6 h-6 {{ $currentCategoryName === 'souvenir' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600' }}"
+                    class="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center {{ $currentCategoryName === 'souvenir' ? 'bg-gray-500' : 'bg-gray-100 group-hover:bg-gray-100' }}">
+                    <svg class="w-6 h-6 {{ $currentCategoryName === 'souvenir' ? 'text-white' : 'text-gray-600 group-hover:text-gray-600' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7">
@@ -102,7 +102,7 @@
                     </svg>
                 </div>
                 <h4
-                    class="text-sm font-semibold {{ $currentCategoryName === 'souvenir' ? 'text-pink-700' : 'text-gray-700 group-hover:text-pink-600' }}">
+                    class="text-sm font-semibold {{ $currentCategoryName === 'souvenir' ? 'text-gray-700' : 'text-gray-700 group-hover:text-gray-600' }}">
                     {{ __('product.souvenir') }}
                 </h4>
             </div>

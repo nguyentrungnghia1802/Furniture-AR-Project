@@ -143,7 +143,7 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <button type="submit"
-                                                            class="inline-block px-3 py-1 bg-pink-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition">
+                                                            class="inline-block px-3 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition">
                                                             {{ __('admin.paid') }}
                                                         </button>
                                                     </form>
@@ -165,7 +165,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="submit"
-                                                        class="inline-block px-3 py-1 bg-pink-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition">
+                                                        class="inline-block px-3 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition">
                                                         {{ __('admin.paid') }}
                                                     </button>
                                                 </form>

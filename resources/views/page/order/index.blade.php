@@ -99,7 +99,7 @@
                                             <div class="flex items-center space-x-3 mb-4">
                                                 <div class="flex-shrink-0">
                                                     <div
-                                                        class="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                                        class="w-10 h-10 bg-gradient-to-br from-gray-500 to-purple-600 rounded-lg flex items-center justify-center">
                                                         <svg class="w-5 h-5 text-white" fill="none"
                                                             stroke="currentColor" viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -236,7 +236,7 @@
                                         <!-- Action Button -->
                                         <div class="flex-shrink-0 mt-4 lg:mt-0 lg:ml-6">
                                             <a href="{{ route('order.show', $order->id) }}"
-                                                class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                                                class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -274,7 +274,7 @@
                         <h3 class="text-lg font-medium text-gray-900 mb-2">{{ __('orders.no_orders_yet') }}</h3>
                         <p class="text-gray-500 mb-6">{{ __('orders.you_have_not') }}</p>
                         <a href="{{ route('user.products.index') }}"
-                            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>

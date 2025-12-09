@@ -9,11 +9,11 @@
 @section('content')
 <div class="max-w-7xl mx-auto py-8 px-2 sm:px-4">
     <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <a href="{{ route('admin.post.create') }}" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 font-semibold">{{ __('admin.add_new_post') }}</a>
+        <a href="{{ route('admin.post.create') }}" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 font-semibold">{{ __('admin.add_new_post') }}</a>
 
         <!-- Search Form -->
         <form method="GET" action="{{ route('admin.post.index') }}" class="flex gap-2">
-            <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('admin.search_posts') }}" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('admin.search_posts') }}" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500">
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">{{ __('admin.search') }}</button>
             @if(request('search'))
                 <a href="{{ route('admin.post.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">{{ __('admin.clear_filter') }}</a>
@@ -40,7 +40,7 @@
                 @forelse($posts as $index => $post)
                     <tr class="hover:bg-gray-50 transition">
                         <td class="px-3 sm:px-6 py-4 whitespace-nowrap">{{ ($posts->currentPage() - 1) * $posts->perPage() + $index + 1 }}</td>
-                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap font-semibold text-pink-700 max-w-[180px] truncate">{{ $post->title }}</td>
+                        <td class="px-3 sm:px-6 py-4 whitespace-nowrap font-semibold text-gray-700 max-w-[180px] truncate">{{ $post->title }}</td>
                         <td class="px-3 sm:px-6 py-4 whitespace-nowrap max-w-[120px] truncate">{{ $post->author->name ?? 'Admin' }}</td>
                         <td class="px-3 sm:px-6 py-4 whitespace-nowrap">{{ $post->created_at->format('d/m/Y') }}</td>
                         <td class="px-3 sm:px-6 py-4 whitespace-nowrap">

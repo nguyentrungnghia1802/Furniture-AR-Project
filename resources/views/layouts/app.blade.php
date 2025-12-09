@@ -123,12 +123,12 @@
 <body class="font-sans antialiased bg-gray-100 transition-colors duration-300">
     <!-- Loading overlay đặt ngay sau <body> -->
     <div id="pageLoadingOverlay" class="hidden fixed inset-0 z-50 bg-white bg-opacity-80 backdrop-blur-sm" style="display:none;">
-        <div class="flex flex-col items-center justify-center h-full text-2xl text-pink-500">
-            <svg class="animate-spin h-14 w-14 mb-4 text-pink-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <div class="flex flex-col items-center justify-center h-full text-2xl text-gray-500">
+            <svg class="animate-spin h-14 w-14 mb-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
             </svg>
-            <div class="text-xl font-semibold text-pink-600 tracking-wide animate-pulse">Loading...</div>
+            <div class="text-xl font-semibold text-gray-600 tracking-wide animate-pulse">Loading...</div>
         </div>
     </div>
     <div class="min-h-screen bg-gray-100 transition-colors duration-300">

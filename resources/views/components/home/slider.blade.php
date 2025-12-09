@@ -26,7 +26,7 @@
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <button data-add-to-cart="{{ $productItem->id }}" 
-                                            class="bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700 transition-colors"
+                                            class="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 transition-colors"
                                             title="{{ __('product.add_to_cart') }}">
                                         <i class="fas fa-shopping-cart"></i>
                                     </button>
@@ -38,7 +38,7 @@
                             
                             @if($productItem->discount_percent > 0)
                             <div class="flex items-center mb-1">
-                                <p class="text-pink-600 font-bold text-lg">
+                                <p class="text-gray-600 font-bold text-lg">
                                     ${{ number_format($productItem->discounted_price ?? $productItem->price, 2) }}
                                 </p>
                                 <p class="text-gray-500 text-sm line-through ml-2">
@@ -46,7 +46,7 @@
                                 </p>
                             </div>
                             @else
-                            <p class="text-pink-600 font-bold text-lg mb-1">
+                            <p class="text-gray-600 font-bold text-lg mb-1">
                                 ${{ number_format($productItem->price, 2) }}
                             </p>
                             @endif
@@ -68,7 +68,7 @@
                             </div>
                             
                             <a href="{{ route('user.products.show', $productItem->id) }}"
-                                class="mt-3 block text-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 rounded transition-colors">
+                                class="mt-3 block text-center bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 rounded transition-colors">
                                 View Details
                             </a>
                         </div>

@@ -1,6 +1,6 @@
 @props(['categories'])
 
-<div class="bg-gradient-to-br from-rose-400 via-pink-500 to-purple-600 rounded-lg shadow-xl p-6 text-white">
+<div class="bg-gradient-to-br from-gray-400 via-gray-500 to-gray-600 rounded-lg shadow-xl p-6 text-white">
     <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-bold flex items-center">
             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

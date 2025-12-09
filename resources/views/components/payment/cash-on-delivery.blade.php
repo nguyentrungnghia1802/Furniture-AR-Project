@@ -36,7 +36,7 @@
                         id="terms"
                         type="checkbox"
                         x-model="termsAccepted"
-                        class="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
+                        class="focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded"
                     >
                 </div>
                 <div class="ml-3 text-sm">
@@ -52,7 +52,7 @@
                 type="button"
                 @click="processPayment"
                 :disabled="isProcessing || !termsAccepted"
-                class="w-full bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 <span x-show="isProcessing">
                     <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
