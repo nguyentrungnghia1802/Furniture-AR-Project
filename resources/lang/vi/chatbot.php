@@ -14,7 +14,7 @@ return [
 
     'help' => "🤖 Hướng dẫn sử dụng chatbot Luna Shop:\n\n"
         ."🔍 Tìm sản phẩm:\n"
-        ."• 'tìm hoa sáp'\n"
+        ."• 'tìm nội thất'\n"
         ."• 'cho tôi xem quà tặng'\n"
         ."• 'sản phẩm phổ biến'\n"
         ."• 'gợi ý sản phẩm'\n\n"
@@ -42,7 +42,7 @@ return [
         .'Hãy hỏi tôi bất cứ điều gì bằng ngôn ngữ tự nhiên!',
 
     'store_info' => "🏪 Thông tin cửa hàng Luna Shop:\n\n"
-        ."📍 Địa chỉ: 123 Flower Street, Sơn Tây, Hà Nội\n"
+        ."📍 Địa chỉ: 123 Luna Street, Sơn Tây, Hà Nội\n"
         ."📞 Điện thoại: 0353295709\n"
         ."📧 Email: support@hanayashop.com\n"
         ."🕒 Giờ làm việc: 8:00 AM - 10:00 PM (Thứ 2 - Chủ nhật)\n\n"
@@ -60,11 +60,11 @@ return [
     ],
 
     'price_info' => "Về giá sản phẩm của chúng tôi:\n\n"
-        ."🌸 Hoa sáp: Từ $15 - $500\n"
-        ."🎁 Quà lưu niệm & quà tặng: Từ $5 - $800\n"
-        ."💐 Hoa tươi: Từ $10 - $200\n"
-        ."🎀 Sắp xếp theo yêu cầu: Từ $25 - $1000\n\n"
-        ."Giá có thể thay đổi theo kích thước, chất liệu, độ phức tạp và tuỳ chỉnh.\n"
+        ."🛋️ Nội thất: Từ $50 - $5000\n"
+        ."🪑 Ghế: Từ $50 - $1500\n"
+        ."🪟 Bàn & Trang trí: Từ $30 - $2000\n"
+        ."🎀 Đơn đặt hàng tùy chỉnh: Từ $100 - $5000\n\n"
+        ."Giá có thể thay đổi theo chất liệu, kích thước, tay nghề và tuỳ chỉnh.\n"
         ."💡 Miễn phí vận chuyển cho đơn hàng trên $100!\n"
         ."🎊 Giảm giá cho đơn hàng số lượng lớn!\n\n"
         .'Xem giá chi tiết tại: /products',
@@ -92,14 +92,14 @@ return [
         .'Cần hỗ trợ thanh toán? Chúng tôi luôn sẵn sàng!',
 
     'default' => "Tôi hiểu bạn cần hỗ trợ! Đây là những gì tôi có thể giúp:\n\n"
-        ."🔍 **Tìm kiếm sản phẩm**: 'tìm hoa sáp', 'cho tôi xem quà tặng'\n"
+        ."🔍 **Tìm kiếm sản phẩm**: 'tìm nội thất', 'cho tôi xem quà tặng'\n"
         ."📂 **Danh mục**: 'bạn có danh mục gì'\n"
         ."📦 **Đơn hàng**: 'kiểm tra đơn hàng', 'theo dõi đơn hàng'\n"
         ."📰 **Tin tức**: 'cập nhật mới nhất', 'bài viết blog'\n"
         ."🏪 **Thông tin cửa hàng**: 'chi tiết liên hệ', 'giờ mở cửa'\n"
         ."💰 **Giá**: 'khoảng giá', 'phương thức thanh toán'\n"
         ."🚚 **Vận chuyển**: 'tùy chọn giao hàng', 'chi phí vận chuyển'\n\n"
-        ."💡 **Mẹo nhanh**: Hãy hỏi tự nhiên, ví dụ 'Bạn gợi ý hoa gì cho sinh nhật?' hoặc 'Chi phí vận chuyển là bao nhiêu?'\n\n"
+        ."💡 **Mẹo nhanh**: Hãy hỏi tự nhiên, ví dụ 'Bạn gợi ý đồ nội thất nào cho phòng khách?' hoặc 'Chi phí vận chuyển là bao nhiêu?'\n\n"
         ."Gõ 'help' để xem hướng dẫn chi tiết hoặc hỏi tôi bất cứ điều gì!",
 
     // Error handling
@@ -108,8 +108,8 @@ return [
     // Product search responses
     'no_products_found' => "🔍 **Không tìm thấy sản phẩm phù hợp**\n\n"
         ."Bạn có thể quan tâm đến:\n"
-        ."🌸 Hoa sáp: Bền lâu, hương thơm dịu nhẹ\n"
-        ."🌺 Hoa tươi: Màu sắc tự nhiên, rực rỡ\n"
+        ."🛋️ Bộ sưu tập nội thất: Sofa, bàn, tủ\n"
+        ."🪑 Ghế: Ghế và ghế đẩu\n"
         ."🎁 Quà lưu niệm: Món quà ý nghĩa, độc đáo\n\n"
         ."🔗 :products_url\n\n"
         ."💡 **Mẹo tìm kiếm:**\n"
@@ -118,7 +118,7 @@ return [
         ."• Duyệt danh mục để lấy cảm hứng\n\n"
         .'📞 **Cần hỗ trợ?** Gọi: :phone',
 
-    'products_search_results' => '🌸 **Sản phẩm phù hợp với tìm kiếm của bạn:**',
+    'products_search_results' => '🛋️ **Sản phẩm phù hợp với tìm kiếm của bạn:**',
 
     'browse_more_products' => "✨ **Xem thêm sản phẩm:**\n"
         ."🔗 :products_url\n\n"
@@ -138,9 +138,9 @@ return [
     'product_categories' => '📂 **Danh mục sản phẩm tại Luna Shop:**',
 
     'popular_categories' => "🎯 **Danh mục phổ biến:**\n"
-        ."🧼 Hoa sáp - Bền lâu, hương thơm dễ chịu\n"
-        ."🌺 Hoa tươi - Màu sắc tự nhiên, rực rỡ\n"
-        ."🎁 Quà lưu niệm - Món quà ý nghĩa, đáng nhớ\n\n"
+        ."🪑 Ghế - Thoải mái và phong cách\n"
+        ."🪟 Bàn - Tiện dụng và thanh lịch\n"
+        ."🎁 Trang trí - Món quà ý nghĩa, đáng nhớ\n\n"
         .'💝 **Mẹo:** Chọn theo dịp đặc biệt như sinh nhật, cưới hỏi, kỷ niệm...',
 
     // Order responses
@@ -192,9 +192,9 @@ return [
     'latest_news' => '📰 **Tin tức & bài viết mới nhất:**',
 
     'hot_topics' => "🌸 **Chủ đề nổi bật:**\n"
-        ."• Cách chọn hoa cho từng dịp\n"
-        ."• Mẹo bảo quản hoa sáp\n"
-        ."• Trang trí nhà với hoa\n"
+        ."• Cách chọn nội thất cho từng phòng\n"
+        ."• Mẹo bảo quản và chăm sóc đồ nội thất\n"
+        ."• Ý tưởng trang trí & bố trí nội thất\n"
         ."• Xu hướng quà tặng 2025\n\n"
         .'💡 **Truy cập website để đọc thêm nhiều bài viết thú vị!**',
 
@@ -217,7 +217,7 @@ return [
     // Gift suggestions
     'gift_suggestions' => "🎁 **Gợi ý quà tặng hoàn hảo từ Luna Shop:**\n\n"
         ."💝 **Danh mục quà tặng phổ biến:**\n"
-        ."🌹 Bó hoa sáp lãng mạn\n"
+        ."🛋️ Bộ ghế sofa nhỏ\n"
         ."🎀 Hộp quà sang trọng, đóng gói đẹp\n"
         ."💐 Sắp xếp theo yêu cầu cho dịp đặc biệt\n"
         ."🌸 Thiệp nhắn cá nhân miễn phí\n\n"
@@ -258,7 +258,7 @@ return [
     'track_orders' => '📦 Theo dõi đơn hàng',
     'pricing_info' => '💰 Giá & thanh toán',
     'faq' => '❓ Hỏi đáp & hỗ trợ khách hàng',
-    'soap_flowers' => '🧼 Hoa sáp',
+    'soap_flowers' => '🪑 Ghế',
 
     // --- Quick Action Buttons ---
     'track_orders_button' => '📦 Đơn hàng của tôi',

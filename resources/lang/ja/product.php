@@ -44,11 +44,11 @@ return [
     'stock' => '在庫',
 
     // Categories
-    'soap_flower' => 'ソープフラワー',
-    'souvenir' => 'お土産',
-    'fresh_flower' => '生花',
+    'soap_flower' => '椅子',
+    'souvenir' => '装飾',
+    'fresh_flower' => 'テーブル',
     'gift_set' => 'ギフトセット',
-    'special_flower' => '特別な花',
+    'special_flower' => '収納',
 
     // Price & Stock
     'regular_price' => '通常価格',

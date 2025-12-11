@@ -48,7 +48,7 @@
         <div class="px-3 py-2 bg-gray-50 border-t border-gray-100">
             <div class="flex flex-wrap gap-1">
                 <button class="simple-quick-action text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200" data-message="sản phẩm">
-                    🌸 Sản phẩm
+                    🛋️ Sản phẩm
                 </button>
                 <button class="simple-quick-action text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full hover:bg-purple-200" data-message="giá cả">
                     💰 Giá cả
