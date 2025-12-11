@@ -3,7 +3,7 @@
         <div class="bg-gradient-to-r from-gray-500 to-purple-600 text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="py-6">
-                    <h1 class="text-3xl font-bold">🌸 {{ __('about.about_hanaya') }}</h1>
+                    <h1 class="text-3xl font-bold">🛋️ {{ __('about.about_hanaya') }}</h1>
                     <p class="text-gray-100 mt-2">{{ __('about.discover_story') }}</p>
                 </div>
             </div>

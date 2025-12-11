@@ -2,7 +2,7 @@
 
 return [
     'greeting' => "Hello! I'm Luna Shop's AI assistant. I can help you with:\n"
-        ."🌸 Product search & recommendations\n"
+        ."🛋️ Product search & recommendations\n"
         ."📝 Order tracking & status\n"
         ."📋 Product categories & collections\n"
         ."📰 Latest news & blog updates\n"
@@ -14,7 +14,7 @@ return [
 
     'help' => "🤖 Luna Shop chatbot user guide:\n\n"
         ."🔍 Find products:\n"
-        ."• 'find soap flowers'\n"
+        ."• 'find furniture'\n"
         ."• 'show me gifts'\n"
         ."• 'what's popular'\n"
         ."• 'recommend something'\n\n"
@@ -42,7 +42,7 @@ return [
         .'Feel free to ask me anything in natural language!',
 
     'store_info' => "🏪 Luna Shop store information:\n\n"
-        ."📍 Address: 123 Flower Street, Son Tay, Hanoi\n"
+        ."📍 Address: 123 Luna Street, Son Tay, Hanoi\n"
         ."📞 Phone: 0353295709\n"
         ."📧 Email: support@lunashop.com\n"
         ."🕒 Business hours: 8:00 AM - 10:00 PM (Monday - Sunday)\n\n"
@@ -60,9 +60,9 @@ return [
     ],
 
     'price_info' => "About our product prices:\n\n"
-        ."🌸 Soap flowers: From $15 - $500\n"
+        ."🛋️ Furniture: From $50 - $5000\n"
         ."🎁 Decors & gifts: From $5 - $800\n"
-        ."💐 Fresh flowers: From $10 - $200\n"
+        ."🪟 Tables & decors: From $30 - $2000\n"
         ."🎀 Custom arrangements: From $25 - $1000\n\n"
         ."Prices vary based on size, materials, design complexity, and customization.\n"
         ."💡 Free shipping on orders over $100!\n"
@@ -99,7 +99,7 @@ return [
         ."🏪 **Store info**: 'contact details', 'store hours'\n"
         ."💰 **Pricing**: 'price range', 'payment methods'\n"
         ."🚚 **Shipping**: 'delivery options', 'shipping costs'\n\n"
-        ."💡 **Quick tip**: Try asking questions naturally, like 'What flowers do you recommend for a birthday?' or 'How much does shipping cost?'\n\n"
+        ."💡 **Quick tip**: Try asking questions naturally, like 'What furniture do you recommend for a living room?' or 'How much does shipping cost?'\n\n"
         ."Type 'help' for detailed instructions or just ask me anything!",
 
     // Error handling
@@ -113,12 +113,12 @@ return [
         ."🎁 Decors: Meaningful, unique gifts\n\n"
         ."🔗 :products_url\n\n"
         ."💡 **Search tips:**\n"
-        ."• Try broader terms like 'flowers' or 'gifts'\n"
+        ."• Try broader terms like 'furniture' or 'gifts'\n"
         ."• Search by occasion: 'birthday', 'wedding'\n"
         ."• Browse categories for inspiration\n\n"
         .'📞 **Need help?** Call us: :phone',
 
-    'products_search_results' => '🌸 **Products matching your search:**',
+    'products_search_results' => '🛋️ **Products matching your search:**',
 
     'browse_more_products' => "✨ **Browse more products:**\n"
         ."🔗 :products_url\n\n"
@@ -138,8 +138,8 @@ return [
     'product_categories' => '📂 **Product categories at Luna Shop:**',
 
     'popular_categories' => "🎯 **Popular categories:**\n"
-        ."🧼 Seatings - Long-lasting, beautiful fragrance\n"
-        ."🌺 Tables - Natural, vibrant colors\n"
+        ."🪑 Seatings - Comfortable and stylish\n"
+        ."🪟 Tables - Functional and elegant\n"
         ."🎁 Decors - Meaningful, memorable gifts\n\n"
         .'💝 **Tip:** Choose based on special occasions like birthdays, weddings, anniversaries...',
 
@@ -183,18 +183,18 @@ return [
     'no_news_found' => "📰 **News & Updates**\n\n"
         ."No recent news available at the moment.\n"
         ."Check back soon for updates!\n\n"
-        ."🌸 **Follow us for latest news:**\n"
+        ."🛋️ **Follow us for latest news:**\n"
         ."• Product launches\n"
         ."• Special promotions\n"
-        ."• Care tips & guides\n\n"
+        ."• Furniture care & styling tips\n\n"
         .'📞 **Contact:** :phone',
 
     'latest_news' => '📰 **Latest news & articles:**',
 
-    'hot_topics' => "🌸 **Hot topics:**\n"
-        ."• How to choose flowers for different occasions\n"
-        ."• Soap flower care and maintenance tips\n"
-        ."• Home decoration ideas with flowers\n"
+    'hot_topics' => "🛋️ **Hot topics:**\n"
+        ."• How to choose furniture for different rooms\n"
+        ."• Furniture care and maintenance tips\n"
+        ."• Home decoration & styling ideas\n"
         ."• Gift trends for 2025\n\n"
         .'💡 **Visit our website to discover more interesting articles!**',
 
@@ -217,9 +217,9 @@ return [
     // Gift suggestions
     'gift_suggestions' => "🎁 **Perfect gift ideas from Luna Shop:**\n\n"
         ."💝 **Popular gift categories:**\n"
-        ."🌹 Romantic soap flower bouquets\n"
-        ."🎀 Elegant gift sets with premium packaging\n"
-        ."💐 Custom arrangements for special occasions\n"
+        ."🛋️ Small sofa & seating sets\n"
+        ."🎀 Elegant home décor gift sets\n"
+        ."🪑 Custom furniture pieces for special occasions\n"
         ."🌸 Personalized message cards included\n\n"
         ."🔗 :products_url\n\n"
         ."💡 **Gift occasions:** Birthdays, anniversaries, Valentine's Day, Mother's Day, weddings, graduations\n\n"
@@ -251,14 +251,14 @@ return [
     'name' => 'Luna Shop Assistant',
     'status_online' => 'Online now',
     'greeting_hanaya' => "Hello! I'm Luna Shop's AI assistant. I can help you with:",
-    'how_can_i_assist' => 'How can I assist you today ? 🌸',
+    'how_can_i_assist' => 'How can I assist you today ? 🛋️',
 
     // --- Main Features ---
     'find_products' => '🔍 Find products & recommendations',
     'track_orders' => '📦 Track your orders',
     'pricing_info' => '💰 Pricing & payment options',
     'faq' => '❓ FAQ & customer support',
-    'soap_flowers' => '🧼 Seatings',
+    'soap_flowers' => '🪑 Seatings',
 
     // --- Quick Action Buttons ---
     'track_orders_button' => '📦 My Orders',

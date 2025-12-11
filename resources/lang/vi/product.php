@@ -44,11 +44,11 @@ return [
     'stock' => 'Tồn kho',
 
     // Categories
-    'soap_flower' => 'Hoa sáp',
-    'souvenir' => 'Quà lưu niệm',
-    'fresh_flower' => 'Hoa tươi',
+    'soap_flower' => 'Ghế',
+    'souvenir' => 'Trang trí',
+    'fresh_flower' => 'Bàn',
     'gift_set' => 'Bộ quà tặng',
-    'special_flower' => 'Hoa đặc biệt',
+    'special_flower' => 'Kho',
 
     // Price & Stock
     'regular_price' => 'Giá thường',

@@ -57,7 +57,7 @@
         <!-- Quick Actions -->
         <div class="px-2 sm:px-4 py-2 bg-gray-50 border-t border-gray-100">
             <div class="flex flex-wrap gap-1">
-                <button class="quick-action text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors" data-message="Find soap flowers">
+                <button class="quick-action text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors" data-message="Find furniture">
                     {{ __('chatbot.soap_flowers') }}
                 </button>
                 <button class="quick-action text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full hover:bg-purple-200 transition-colors" data-message="Check my orders">

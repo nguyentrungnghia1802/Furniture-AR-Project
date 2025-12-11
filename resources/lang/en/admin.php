@@ -112,7 +112,7 @@ return [
     'account_deleted_successfully' => 'Account deleted successfully!',
     'you_cannot_delete_yourself' => 'you cannot delete yourself.',
     'no_categories_found' => 'No categories found.',
-    'add_flower_category' => 'Add Flower Category',
+    'add_flower_category' => 'Add Product Category',
     'category_name' => 'Category Name',
     'quick_view' => 'Quick View',
     'category_exists' => 'This category already exists.',

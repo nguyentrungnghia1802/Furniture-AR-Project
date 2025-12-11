@@ -39,9 +39,9 @@ return [
     // Features Section
     'why_choose_hanaya' => 'Why Choose Luna Shop?',
     'quality_commitment' => 'We are committed to bringing you the highest quality products',
-    'discover_what_makes_us_special' => 'Discover what makes us the perfect choice for your floral needs',
+    'discover_what_makes_us_special' => 'Discover what makes us the perfect choice for your furniture needs',
     'quality_guarantee' => 'Quality Guarantee',
-    'quality_guarantee_desc' => 'All our soap flowers are handcrafted with premium materials',
+    'quality_guarantee_desc' => 'All our furniture pieces are crafted with premium materials',
     'fast_delivery' => 'Fast Delivery',
     'fast_delivery_desc' => 'Guaranteed delivery within 24-48h in city center',
     'customer_support' => '24/7 Customer Support',

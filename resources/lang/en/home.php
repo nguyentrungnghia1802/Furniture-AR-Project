@@ -3,7 +3,7 @@
 return [
     // Home Page
     'welcome_to_hanaya' => 'Welcome to Luna Shop',
-    'tagline' => 'Beautiful soap flowers and meaningful gifts',
+    'tagline' => 'Beautiful furniture and meaningful gifts',
 
     // Categories Section
     'shop_by_category' => 'Shop by Category',
@@ -21,7 +21,7 @@ return [
     // Why Choose Luna Shop
     'why_choose_hanaya' => 'Why Choose Luna Shop?',
     'quality_guarantee' => 'Quality Guarantee',
-    'quality_guarantee_desc' => 'All our soap flowers are handcrafted with premium materials',
+    'quality_guarantee_desc' => 'All our furniture pieces are crafted with premium materials',
     'fast_shipping' => 'Fast Shipping',
     'fast_shipping_desc' => 'Free shipping on orders over $50 with 2-day delivery',
     'customer_support' => '24/7 Customer Support',

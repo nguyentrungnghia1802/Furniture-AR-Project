@@ -5,7 +5,7 @@ return [
     'about_us' => 'About Us',
     'about_hanaya' => 'About Luna Shop',
     'welcome_to_hanaya' => 'Welcome to Luna Shop',
-    'hero_description' => 'Discover the art of beautiful soap flowers - where elegance meets functionality. Each piece is carefully handcrafted to bring beauty and fragrance to your special moments.',
+    'hero_description' => 'Discover the art of beautiful furniture - where elegance meets functionality. Each piece is carefully crafted to bring style and comfort to your spaces.',
     'our_story' => 'Our Story',
     'watch_video_demo' => 'Watch Our Video Demo',
 
@@ -26,9 +26,9 @@ return [
     'our_values' => 'Our Values',
 
     // Story paragraphs
-    'story_paragraph_1' => 'In Vietnam, especially during festive seasons and holidays, countless flowers are discarded due to their short lifespan and sellers\' inability to reach the right customers in time. This mismatch between supply and demand results in social waste and losses for sellers.',
-    'story_paragraph_2' => 'Luna Shop was created to address this real-world problem. Our platform helps expand shop visibility, increases customer touchpoints, and ensures each flower reaches the right person at the right moment. With a modern UI/UX, reliable Laravel backend, fast SSR, and practical business models for inventory, orders, and payments, we\'re making a difference.',
-    'story_paragraph_3' => 'Our long-term vision is to strengthen the connection between sellers and buyers, working towards minimizing wasted flowers to the absolute minimum. Each day, we strive to bring more beauty into people\'s lives while reducing unnecessary waste in the flower industry.',
+    'story_paragraph_1' => 'In Vietnam, many small furniture makers struggle to reach customers due to fragmented distribution and limited online presence. This reduces business visibility and sales opportunities for local artisans.',
+    'story_paragraph_2' => 'Luna Shop was created to help these makers connect with buyers. Our platform expands shop visibility, increases customer touchpoints, and helps furniture reach the right home at the right time. With a modern UI/UX, a reliable Laravel backend, fast SSR, and practical business models for inventory, orders, and payments, we\'re making a difference.',
+    'story_paragraph_3' => 'Our long-term vision is to strengthen the connection between makers and buyers, working towards sustainable production and better livelihoods for artisans. Each day, we strive to bring more style and comfort into people\'s lives while supporting local craftsmanship.',
 
     // Why choose us
     'why_choose_us' => 'Why Choose Us?',
@@ -39,7 +39,7 @@ return [
     'unique_designs' => 'Unique Designs',
     'unique_designs_desc' => 'Diverse collection with exclusive designs not found elsewhere.',
     'lasting_beauty' => 'Lasting Beauty',
-    'lasting_beauty_desc' => 'Our soap flowers maintain their beauty for years to come.',
+    'lasting_beauty_desc' => 'Our furniture is built to last and remain beautiful for years to come.',
 
     // Discover story
     'discover_story' => 'Discover our story',
@@ -47,11 +47,11 @@ return [
 
     // Additional content for about page
     'handcrafted_excellence' => 'Handcrafted Excellence',
-    'handcrafted_excellence_desc' => 'Each soap flower is handcrafted with meticulous attention to detail.',
-    'natural_ingredients' => 'Natural Ingredients',
-    'natural_ingredients_desc' => 'We use natural ingredients that are safe for skin and environmentally friendly.',
+    'handcrafted_excellence_desc' => 'Each furniture piece is handcrafted with meticulous attention to detail.',
+    'natural_ingredients' => 'Sustainable Materials',
+    'natural_ingredients_desc' => 'We use sustainable materials that are durable and environmentally friendly.',
     'perfect_gifts' => 'Perfect Gifts',
-    'perfect_gifts_desc' => 'Ideal for any special occasion, from birthdays to anniversaries and weddings.',
+    'perfect_gifts_desc' => 'Ideal for home upgrades, gifts, and special occasions.',
 
     // What we offer
     'what_we_offer' => 'What We Offer',
@@ -63,11 +63,11 @@ return [
 
     // Product categories
     'soap_flowers' => 'Seatings',
-    'soap_flowers_description' => 'Handcrafted eternal flowers that combine beauty with functionality. Perfect for decoration and special occasions.',
+    'soap_flowers_description' => 'Handcrafted seating solutions that combine comfort with style. Perfect for living rooms and lounges.',
     'fresh_flowers' => 'Tables',
-    'fresh_flowers_description' => 'Beautiful fresh flower arrangements for every occasion, from romantic bouquets to celebration centerpieces.',
+    'fresh_flowers_description' => 'Elegant tables and surfaces designed for daily use and special occasions.',
     'special_flowers' => 'Storages',
-    'special_flowers_description' => 'Elegant and unique flower selections crafted for memorable moments, perfect for expressing love, gratitude, or sympathy.',
+    'special_flowers_description' => 'Stylish and functional storage solutions to keep your home organized and beautiful.',
     'souvenirs' => 'Decors',
     'souvenirs_description' => 'Thoughtfully curated gifts and souvenirs that show you care, perfect for expressing your feelings.',
 
@@ -107,7 +107,7 @@ return [
     'start_shopping_now' => 'Start Shopping Now',
 
     // Company Description
-    'company_description' => 'Luna Shop is a premier destination for beautiful soap flowers and meaningful gifts. We specialize in handcrafted soap flowers that combine artistry with functionality.',
+    'company_description' => 'Luna Shop is a premier destination for beautiful furniture and meaningful gifts. We specialize in handcrafted furniture that combines artistry with functionality.',
     'established_year' => 'Established in 2020',
     'years_experience' => 'Years of Experience',
     'satisfied_customers' => 'Satisfied Customers',
