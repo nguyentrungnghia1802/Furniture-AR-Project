@@ -531,6 +531,9 @@
         </div>
     </div>
 
+    <!-- Christmas Tree Icon Component -->
+    <x-christmas-tree-icon />
+
 </x-app-layout>
 
 @push('scripts')

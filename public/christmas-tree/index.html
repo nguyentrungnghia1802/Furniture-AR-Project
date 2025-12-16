@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive 3D Christmas Tree Experience">
+    <title>🎄 Christmas Tree 3D - Luna Furniture AR</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 100%);
+        }
+
+        #christmas-tree-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* UI Overlay */
+        .ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .ui-overlay > * {
+            pointer-events: auto;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Controls */
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 215, 0, 0.3);
+            border-color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Info Panel */
+        .info-panel {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            color: white;
+            max-width: 300px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .info-panel h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .info-panel p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .info-panel ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-panel li {
+            padding: 5px 0;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .info-panel li::before {
+            content: "🎁 ";
+            margin-right: 5px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 59, 48, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 59, 48, 1);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Snowflake Overlay */
+        .snowflake-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .info-panel {
+                display: none;
+            }
+
+            .controls {
+                bottom: 15px;
+                padding: 10px 15px;
+            }
+
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div class="loading-text">🎄 Loading Christmas Magic... ✨</div>
+    </div>
+
+    <!-- 3D Container -->
+    <div id="christmas-tree-container"></div>
+
+    <!-- UI Overlay -->
+    <div class="ui-overlay">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎄 Merry Christmas! 🎅</h1>
+            <p>Interactive 3D Experience</p>
+        </div>
+
+        <!-- Close Button -->
+        <button class="close-btn" onclick="closeChristmasTree()" title="Close">
+            ✕
+        </button>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <h3>✨ Controls</h3>
+            <p>Drag to rotate • Scroll to zoom</p>
+            <ul>
+                <li>Rotate: Click & Drag</li>
+                <li>Zoom: Mouse Wheel</li>
+                <li>Pan: Right Click & Drag</li>
+            </ul>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" onclick="toggleAutoRotate()" title="Auto Rotate" id="rotate-btn">
+                🔄
+            </button>
+            <button class="control-btn" onclick="resetCamera()" title="Reset Camera">
+                🎯
+            </button>
+            <button class="control-btn" onclick="takeScreenshot()" title="Take Screenshot">
+                📸
+            </button>
+        </div>
+    </div>
+
+    <!-- Snowflake Overlay -->
+    <div class="snowflake-overlay" id="snowflake-overlay"></div>
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+            "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/controls/OrbitControls.js",
+            "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/loaders/GLTFLoader.js"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import { ChristmasTree3D } from './js/christmas-tree-3d.js';
+
+        let christmasTree = null;
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                christmasTree = new ChristmasTree3D('christmas-tree-container');
+                
+                // Hide loading screen
+                document.getElementById('loading-screen').classList.add('hidden');
+                
+                // Create decorative snowflakes in overlay
+                createSnowflakes();
+                
+                console.log('🎄 Christmas Tree 3D initialized!');
+            }, 1000);
+        });
+
+        // Create decorative HTML snowflakes
+        function createSnowflakes() {
+            const overlay = document.getElementById('snowflake-overlay');
+            const snowflakeCount = 20;
+
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.textContent = '❄';
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                overlay.appendChild(snowflake);
+            }
+        }
+
+        // Controls
+        window.toggleAutoRotate = function() {
+            if (christmasTree && christmasTree.controls) {
+                christmasTree.controls.autoRotate = !christmasTree.controls.autoRotate;
+                const btn = document.getElementById('rotate-btn');
+                btn.style.background = christmasTree.controls.autoRotate 
+                    ? 'rgba(255, 215, 0, 0.5)' 
+                    : 'rgba(255, 255, 255, 0.1)';
+            }
+        };
+
+        window.resetCamera = function() {
+            if (christmasTree && christmasTree.camera && christmasTree.controls) {
+                christmasTree.camera.position.set(0, 5, 15);
+                christmasTree.controls.target.set(0, 5, 0);
+                christmasTree.controls.update();
+            }
+        };
+
+        window.takeScreenshot = function() {
+            if (christmasTree && christmasTree.renderer) {
+                const link = document.createElement('a');
+                link.download = 'christmas-tree-' + Date.now() + '.png';
+                link.href = christmasTree.renderer.domElement.toDataURL('image/png');
+                link.click();
+                
+                // Visual feedback
+                const btn = event.target;
+                btn.textContent = '✓';
+                setTimeout(() => btn.textContent = '📸', 1000);
+            }
+        };
+
+        window.closeChristmasTree = function() {
+            if (window.parent && window.parent !== window) {
+                // If in iframe, send message to parent
+                window.parent.postMessage('closeChristmasTree', '*');
+            } else {
+                // If standalone, go back or close
+                window.history.back();
+            }
+        };
+
+        // Cleanup on unload
+        window.addEventListener('beforeunload', () => {
+            if (christmasTree) {
+                christmasTree.dispose();
+            }
+        });
+    </script>
+</body>
+</html>
