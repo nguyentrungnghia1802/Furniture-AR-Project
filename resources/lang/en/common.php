@@ -60,12 +60,12 @@ return [
     'no_results' => 'No results found',
 
     // Footer
-    'footer_description' => 'Specializing in premium flowers, meaningful gifts and decorative accessories.',
+    'footer_description' => 'Specializing in premium furniture, meaningful gifts and decorative accessories.',
     'quick_links' => 'Quick Links',
     'copyright' => 'All rights reserved.',
 
     // Shop info
-    'shop_name' => 'HANAYA SHOP',
+    'shop_name' => 'LUNA SHOP',
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',

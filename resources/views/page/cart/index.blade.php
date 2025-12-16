@@ -29,7 +29,7 @@
                             {{-- Cart Items Table - Structured layout for desktop viewing --}}
                             <table class="min-w-full">
                                 {{-- Table Header - Gradient background for visual appeal --}}
-                                <thead class="bg-gradient-to-r from-pink-50 to-purple-50">
+                                <thead class="bg-gradient-to-r from-gray-50 to-purple-50">
                                     <tr>
                                         {{-- Select All Checkbox Column - Allows bulk selection of all items --}}
                                         <th class="py-3 px-4 text-center">
@@ -57,16 +57,16 @@
                                     @foreach ($cart as $id => $item)
                                         {{-- Calculate running total for display - Add current item total to cart total --}}
                                         @php $total += $item['discounted_price'] * $item['quantity']; @endphp
-                                        <tr class="hover:bg-pink-50 transition-all">
+                                        <tr class="hover:bg-gray-50 transition-all">
                                             <td class="py-3 px-4 text-center align-middle">
                                                 <input type="checkbox" name="cart_ids[]" value="{{ $id }}"
-                                                    class="cart-checkbox accent-pink-500 w-5 h-5"
+                                                    class="cart-checkbox accent-gray-500 w-5 h-5"
                                                     data-price="{{ $item['discounted_price'] * $item['quantity'] }}"
                                                     data-id="{{ $id }}"
                                                     data-product-id="{{ $item['product_id'] }}">
                                             </td>
                                             <td class="py-3 px-4 align-middle">
-                                                <a href="{{ route('user.products.show', $item['product_id']) }}" class="block w-16 h-16 rounded-lg overflow-hidden border-2 border-pink-200 bg-gray-100 flex items-center justify-center">
+                                                <a href="{{ route('user.products.show', $item['product_id']) }}" class="block w-16 h-16 rounded-lg overflow-hidden border-2 border-gray-200 bg-gray-100 flex items-center justify-center">
                                                     <img src="{{ $item['image_url'] && file_exists(public_path('images/products/' . $item['image_url']))
                                                         ? asset('images/products/' . $item['image_url'])
                                                         : asset('images/no-image.png') }}"
@@ -74,7 +74,7 @@
                                                 </a>
                                             </td>
                                             <td class="py-3 px-4 align-middle font-semibold text-gray-900">
-                                                <a href="{{ route('user.products.show', $item['product_id']) }}" class="text-pink-700 hover:underline">
+                                                <a href="{{ route('user.products.show', $item['product_id']) }}" class="text-gray-700 hover:underline">
                                                     {{ $item['name'] }}
                                                 </a>
                                             </td>
@@ -85,7 +85,7 @@
                                                     {{-- Discount Price Display - Shows both discounted and original prices --}}
                                                     <div class="space-y-1">
                                                         {{-- Discounted Price - Highlighted in pink color --}}
-                                                        <div class="text-pink-600 font-bold">
+                                                        <div class="text-gray-600 font-bold">
                                                             ${{ number_format($item['discounted_price'], 2, '.', ',') }}
                                                         </div>
                                                         {{-- Original Price - Strikethrough to show savings --}}
@@ -95,7 +95,7 @@
                                                     </div>
                                                 @else
                                                     {{-- Regular Price Display - No discount available --}}
-                                                    <div class="text-pink-600 font-bold">
+                                                    <div class="text-gray-600 font-bold">
                                                         ${{ number_format($item['price'], 2, '.', ',') }}
                                                     </div>
                                                 @endif
@@ -106,11 +106,11 @@
                                                 <div class="flex items-center justify-center gap-2">
                                                     {{-- Decrease Quantity Button - Reduces item quantity by 1 --}}
                                                     <button type="button"
-                                                        class="btn-decrease bg-gray-200 hover:bg-pink-100 text-pink-600 px-2 rounded transition"
+                                                        class="btn-decrease bg-gray-200 hover:bg-gray-100 text-gray-600 px-2 rounded transition"
                                                         data-id="{{ $id }}">−</button>
                                                          {{-- Quantity Input Field - Manual quantity entry with data attributes for calculations --}}
                                                          <input name="quantities[{{ $id }}]" type="number" min="1"
-                                                            class="quantity-input w-[80px] text-center border rounded focus:ring-pink-500"
+                                                            class="quantity-input w-[80px] text-center border rounded focus:ring-gray-500"
                                                             value="{{ $item['quantity'] }}" data-id="{{ $id }}"
                                                             data-price="{{ $item['discounted_price'] }}"
                                                             data-original-price="{{ $item['price'] }}"
@@ -120,7 +120,7 @@
 
                                                         {{-- Increase Quantity Button - Increases item quantity by 1 --}}
                                                         <button type="button"
-                                                        class="btn-increase bg-gray-200 hover:bg-pink-100 text-pink-600 px-2 rounded transition"
+                                                        class="btn-increase bg-gray-200 hover:bg-gray-100 text-gray-600 px-2 rounded transition"
                                                         data-id="{{ $id }}">+</button>
                                                 </div>
                                             </td>
@@ -142,7 +142,7 @@
                                         <td colspan="4" class="text-right font-bold py-3 px-4 text-lg text-gray-700">
                                             {{ __('cart.submit_total') }}</td>
                                         {{-- Total Amount - Dynamic value updated by JavaScript --}}
-                                        <td colspan="2" class="font-bold py-3 px-4 text-lg text-pink-600"
+                                        <td colspan="2" class="font-bold py-3 px-4 text-lg text-gray-600"
                                             id="totalPrice">$0</td>
                                     </tr>
                                 </tbody>
@@ -152,7 +152,7 @@
                         <div class="mt-8 text-right">
                             {{-- Checkout Button - Gradient background with hover effects and icon --}}
                             <button type="submit"
-                                class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                                class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                                 {{-- Shopping Cart Icon - SVG icon for visual identification --}}
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -166,10 +166,10 @@
                     <div class="md:hidden space-y-6 mt-8">
                         {{-- Mobile Select All Card - Prominent selection option for mobile users --}}
                         <div
-                            class="bg-white rounded-xl shadow-lg p-4 flex items-center gap-3 border-l-4 border-pink-500">
+                            class="bg-white rounded-xl shadow-lg p-4 flex items-center gap-3 border-l-4 border-gray-500">
                             {{-- Mobile Select All Checkbox - Synchronized with desktop version --}}
                             <input type="checkbox" id="select-all-mobile" title="Select All"
-                                class="accent-pink-500 w-5 h-5">
+                                class="accent-gray-500 w-5 h-5">
                             {{-- Select All Label - Clear text for user understanding --}}
                             <span class="font-semibold text-gray-700">{{ __('cart.select_all') }}</span>
                         </div>
@@ -181,12 +181,12 @@
                                 <div class="flex items-center gap-3">
                                     {{-- Item Selection Checkbox - Same functionality as desktop version --}}
                                     <input type="checkbox" name="cart_ids[]" value="{{ $id }}"
-                                        class="cart-checkbox accent-pink-500 w-5 h-5"
+                                        class="cart-checkbox accent-gray-500 w-5 h-5"
                                         data-price="{{ $item['discounted_price'] * $item['quantity'] }}"
                                         data-id="{{ $id }}" data-product-id="{{ $item['product_id'] }}">
                                     {{-- Mobile Product Image Container - Larger size for mobile viewing --}}
                                     <div
-                                        class="w-20 h-20 rounded-lg overflow-hidden border-2 border-pink-200 bg-gray-100 flex items-center justify-center">
+                                        class="w-20 h-20 rounded-lg overflow-hidden border-2 border-gray-200 bg-gray-100 flex items-center justify-center">
                                         {{-- Product Image - Same logic as desktop version with fallback --}}
                                         <img src="{{ $item['image_url'] && file_exists(public_path('images/products/' . $item['image_url']))
                                             ? asset('images/products/' . $item['image_url'])
@@ -202,7 +202,7 @@
                                             {{-- Discounted Price Layout - Shows savings clearly on mobile --}}
                                             <div class="space-y-1">
                                                 {{-- Current Discounted Price - Highlighted in pink --}}
-                                                <div class="text-pink-600 font-bold">
+                                                <div class="text-gray-600 font-bold">
                                                     ${{ number_format($item['discounted_price'], 2, '.', ',') }}
                                                 </div>
                                                 {{-- Original Price - Smaller text with strikethrough --}}
@@ -212,7 +212,7 @@
                                             </div>
                                         @else
                                             {{-- Regular Price - No discount available --}}
-                                            <div class="text-pink-600 font-bold">
+                                            <div class="text-gray-600 font-bold">
                                                 ${{ number_format($item['price'], 2, '.', ',') }}
                                             </div>
                                         @endif
@@ -224,11 +224,11 @@
                                     <div class="flex items-center gap-2">
                                         {{-- Decrease Button - Touch-friendly size for mobile --}}
                                         <button type="button"
-                                            class="btn-decrease bg-gray-200 hover:bg-pink-100 text-pink-600 px-2 rounded transition"
+                                            class="btn-decrease bg-gray-200 hover:bg-gray-100 text-gray-600 px-2 rounded transition"
                                             data-id="{{ $id }}">−</button>
                                         {{-- Mobile Quantity Input - Smaller width for mobile layout --}}
                                         <input type="number" min="1"
-                                            class="quantity-input w-[60px] text-center border rounded focus:ring-pink-500"
+                                            class="quantity-input w-[60px] text-center border rounded focus:ring-gray-500"
                                             value="{{ $item['quantity'] }}" data-id="{{ $id }}"
                                             data-price="{{ $item['discounted_price'] }}"
                                             data-original-price="{{ $item['price'] }}"
@@ -237,7 +237,7 @@
                                             data-stock="{{ $item['product_quantity'] }}">
                                         {{-- Increase Button - Touch-friendly size for mobile --}}
                                         <button type="button"
-                                            class="btn-increase bg-gray-200 hover:bg-pink-100 text-pink-600 px-2 rounded transition"
+                                            class="btn-increase bg-gray-200 hover:bg-gray-100 text-gray-600 px-2 rounded transition"
                                             data-id="{{ $id }}">+</button>
                                     </div>
                                     {{-- Mobile Item Total - Real-time updated line total --}}
@@ -256,13 +256,13 @@
                             {{-- Total Label - Clear identification of cart total --}}
                             <span class="text-gray-700">{{ __('cart.submit_total') }}</span>
                             {{-- Total Amount - Dynamic value updated by JavaScript --}}
-                            <span id="totalPrice" class="text-pink-600">$0</span>
+                            <span id="totalPrice" class="text-gray-600">$0</span>
                         </div>
                         {{-- Mobile Checkout Button Container - Full-width layout for mobile --}}
                         <div class="text-right mt-4">
                             {{-- Mobile Checkout Button - Same styling as desktop version --}}
                             <button type="submit"
-                                class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                                class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                                 {{-- Checkout Icon - SVG shopping cart icon --}}
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -291,7 +291,7 @@
                     <p class="text-gray-500 mb-6">{{ __('product.cart_empty_message') }}</p>
                     {{-- Call-to-Action Button - Directs user to product catalog --}}
                     <a href="{{ route('user.products.index') }}"
-                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                         {{-- Shopping Icon - Encourages browsing products --}}
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

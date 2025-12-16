@@ -7,9 +7,9 @@
             <div class="mb-8 flex justify-center">
                 <form method="GET" action="{{ route('posts.index') }}" class="flex gap-2 w-full max-w-md">
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('posts.search_posts_placeholder') }}"
-                        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500">
                     <button type="submit"
-                        class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">{{ __('dashboard.search') }}</button>
+                        class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">{{ __('dashboard.search') }}</button>
                     @if (request('search'))
                         <a href="{{ route('posts.index') }}"
                             class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">{{ __('posts.clear') }}</a>
@@ -31,7 +31,7 @@
                                     <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->title }}"
                                         class="h-48 w-full object-cover rounded mb-4">
                                 @endif
-                                <h3 class="text-lg font-bold mb-2 text-pink-700">{{ $post->title }}</h3>
+                                <h3 class="text-lg font-bold mb-2 text-gray-700">{{ $post->title }}</h3>
                             </a>
                             <div class="text-sm text-gray-600 mb-2">{{ $post->created_at->format('d/m/Y') }} by
                                 {{ $post->author->name ?? 'Admin' }}</div>
@@ -39,7 +39,7 @@
                                 {{ Str::limit(html_entity_decode(strip_tags($post->content)), 120) }}</div>
                         </div>
                         <a href="{{ route('posts.show', $post->id) }}"
-                            class="mt-4 text-pink-600 hover:underline block">{{ __('posts.read_more') }}</a>
+                            class="mt-4 text-gray-600 hover:underline block">{{ __('posts.read_more') }}</a>
                     </div>
                 @empty
                     <div class="col-span-2 text-center text-gray-500">{{ __('posts.no_posts_available') }}</div>

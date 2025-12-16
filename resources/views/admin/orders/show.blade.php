@@ -180,7 +180,7 @@
                     @csrf
                     @method('PUT')
                     <button type="submit"
-                            class="inline-block px-5 py-2 bg-pink-500 text-white text-base font-semibold rounded-lg hover:bg-pink-600 transition">
+                            class="inline-block px-5 py-2 bg-gray-500 text-white text-base font-semibold rounded-lg hover:bg-gray-600 transition">
                         {{ __('admin.mark_as_paid') }}
                     </button>
                 </form>

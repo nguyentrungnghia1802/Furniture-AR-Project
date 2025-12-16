@@ -4,7 +4,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="py-6">
                     <div class="flex items-center space-x-3">
-                        <a href="{{ route('order.index') }}" class="text-white hover:text-pink-200 transition-colors">
+                        <a href="{{ route('order.index') }}" class="text-white hover:text-gray-200 transition-colors">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M15 19l-7-7 7-7"></path>
@@ -12,7 +12,7 @@
                         </a>
                         <div>
                             <h1 class="text-3xl font-bold">📋 {{ __('orders.order_details') }}</h1>
-                            <p class="text-pink-400 mt-2">Order #{{ $order->id }} -
+                            <p class="text-gray-400 mt-2">Order #{{ $order->id }} -
                                 {{ $order->created_at->format('M d, Y H:i') }}</p>
                         </div>
                     </div>
@@ -260,7 +260,7 @@
                                     <a href="{{ route('user.products.show', $detail->product_id) }}"
                                         class="block group">
                                         <div
-                                            class="w-20 h-20 bg-gradient-to-br from-pink-100 to-purple-100 rounded-xl flex items-center justify-center">
+                                            class="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-100 rounded-xl flex items-center justify-center">
                                             @if ($detail->product && $detail->product->image_url)
                                                 <img src="{{ asset('images/products/' . $detail->product->image_url) }}"
                                                     alt="{{ $detail->product->name }}"
@@ -283,7 +283,7 @@
                                     <a href="{{ route('user.products.show', $detail->product_id) }}"
                                         class="block group">
                                         <h4
-                                            class="text-lg font-semibold text-gray-900 mb-1 group-hover:text-pink-600 transition-colors">
+                                            class="text-lg font-semibold text-gray-900 mb-1 group-hover:text-gray-600 transition-colors">
                                             {{ $detail->product->name ?? 'Product Not Found' }}</h4>
                                         <p class="text-sm text-gray-600 mb-2">
                                             {{ $detail->product->description ?? __('orders.no_description_available') }}</p>
@@ -304,7 +304,7 @@
                                             {{ __('orders.unit_price') }}
                                             @if ($hasDiscount && abs($orderPrice - $currentDiscountedPrice) < 0.01)
                                                 {{-- Nếu giá đặt hàng = giá khuyến mãi hiện tại --}}
-                                                <span class="text-pink-600 font-medium">${{ number_format($orderPrice, 2, '.', ',') }}</span>
+                                                <span class="text-gray-600 font-medium">${{ number_format($orderPrice, 2, '.', ',') }}</span>
                                                 <span class="text-gray-400 line-through text-xs ml-1">${{ number_format($currentPrice, 2, '.', ',') }}</span>
                                             @else
                                                 {{-- Giá bình thường hoặc khác --}}
@@ -502,7 +502,7 @@
 
 
                 <a href="{{ route('user.products.index') }}"
-                    class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                    class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-purple-600 hover:from-gray-600 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>

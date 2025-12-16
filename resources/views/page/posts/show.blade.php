@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="mt-8">
-            <a href="{{ route('posts.index') }}" class="text-pink-600 hover:underline">← {{ __('posts.back_to_posts') }}</a>
+            <a href="{{ route('posts.index') }}" class="text-gray-600 hover:underline">← {{ __('posts.back_to_posts') }}</a>
         </div>
     </div>
 </x-app-layout>

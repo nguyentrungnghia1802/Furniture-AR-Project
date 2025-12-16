@@ -37,11 +37,11 @@
                 >
                 <div class="p-4 flex flex-col gap-2">
                     <h2 class="font-semibold text-lg">{{ $product['name'] }}</h2>
-                    <p class="text-pink-500 font-bold text-xl">
+                    <p class="text-gray-500 font-bold text-xl">
                         ${{ number_format($product['price'], 2, '.', ',') }}
                     </p>
                     <button 
-                        class="mt-auto bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600 transition-colors"
+                        class="mt-auto bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition-colors"
                     >
                         {{ __('product.order_now') }}
                     </button>

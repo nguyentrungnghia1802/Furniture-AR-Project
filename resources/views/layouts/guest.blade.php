@@ -26,7 +26,7 @@
             </a>
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open"
-                    class="flex items-center px-4 py-2 text-sm text-gray-700 bg-white rounded-lg shadow hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    class="flex items-center px-4 py-2 text-sm text-gray-700 bg-white rounded-lg shadow hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     <span class="mr-2">{{ strtoupper(app()->getLocale()) }}</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -35,15 +35,15 @@
                 <div x-show="open" @click.away="open = false" x-transition
                     class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
                     <a href="{{ route('locale.set', 'ja') }}"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg {{ app()->getLocale() == 'ja' ? 'bg-pink-50 text-pink-700' : '' }}">
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg {{ app()->getLocale() == 'ja' ? 'bg-gray-50 text-gray-700' : '' }}">
                         🇯🇵 日本語
                     </a>
                     <a href="{{ route('locale.set', 'en') }}"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg {{ app()->getLocale() == 'en' ? 'bg-pink-50 text-pink-700' : '' }}">
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg {{ app()->getLocale() == 'en' ? 'bg-gray-50 text-gray-700' : '' }}">
                         🇺🇸 English
                     </a>
                     <a href="{{ route('locale.set', 'vi') }}"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {{ app()->getLocale() == 'vi' ? 'bg-pink-50 text-pink-700' : '' }}">
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {{ app()->getLocale() == 'vi' ? 'bg-gray-50 text-gray-700' : '' }}">
                         🇻🇳 Tiếng Việt
                     </a>
                 </div>

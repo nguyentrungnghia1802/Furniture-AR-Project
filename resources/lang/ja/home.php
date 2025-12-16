@@ -2,8 +2,8 @@
 
 return [
     // Home Page
-    'welcome_to_hanaya' => 'ハナヤショップへようこそ',
-    'tagline' => '美しいソープフラワーと心のこもったギフト',
+    'welcome_to_hanaya' => 'ルナショップへようこそ',
+    'tagline' => '美しい家具と心のこもったギフト',
 
     // Categories Section
     'shop_by_category' => 'カテゴリー別ショップ',
@@ -19,9 +19,9 @@ return [
     'trending_now' => '今のトレンド',
 
     // Why Choose Luna Shop
-    'why_choose_hanaya' => 'なぜハナヤショップを選ぶのか？',
+    'why_choose_hanaya' => 'なぜルナショップを選ぶのか？',
     'quality_guarantee' => '品質保証',
-    'quality_guarantee_desc' => 'すべてのソープフラワーはプレミアム素材で手作りされています',
+    'quality_guarantee_desc' => 'すべての家具はプレミアム素材で丁寧に作られています',
     'fast_shipping' => '迅速配送',
     'fast_shipping_desc' => '6,000円以上のご注文で送料無料、2日以内配送',
     'customer_support' => '24時間カスタマーサポート',

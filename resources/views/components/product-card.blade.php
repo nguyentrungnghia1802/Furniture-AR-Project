@@ -46,7 +46,7 @@
         <div class="h-12 mb-3">
             @if($product->discount_percent > 0)
             <div class="space-y-1">
-                <p class="text-pink-600 font-bold text-lg">
+                <p class="text-gray-600 font-bold text-lg">
                     ${{ number_format($product->discounted_price, 2, '.', ',') }}
                 </p>
                 <p class="text-sm text-gray-500 line-through">
@@ -54,14 +54,14 @@
                 </p>
             </div>
             @else
-            <p class="text-pink-600 font-bold text-lg">${{ number_format($product->price, 2, '.', ',') }}</p>
+            <p class="text-gray-600 font-bold text-lg">${{ number_format($product->price, 2, '.', ',') }}</p>
             @endif
         </div>
         
         <!-- Button pushes to bottom -->
         <div class="mt-auto">
             <a href="{{ route('user.products.show', $product->id) }}" 
-               class="block w-full text-center bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
+               class="block w-full text-center bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm">
                 View Details
             </a>
         </div>

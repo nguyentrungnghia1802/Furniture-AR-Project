@@ -87,7 +87,7 @@
                                                 @csrf
                                                 <input type="hidden" name="quantity" id="form-quantity" value="1">
                                                 <button type="submit"
-                                                    class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
+                                                    class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
                                                     title="Add to Cart">
                                                     <i class="fas fa-shopping-cart mr-2"></i>
                                                 </button>
@@ -204,7 +204,7 @@
                                                     <input type="hidden" name="quantity" id="form-quantity"
                                                         value="1">
                                                     <button type="submit"
-                                                        class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
+                                                        class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
                                                         title="Add to Cart">
                                                         <i class="fas fa-shopping-cart mr-2"></i>
                                                     </button>
@@ -313,7 +313,7 @@
                                                     <input type="hidden" name="quantity" id="form-quantity"
                                                         value="1">
                                                     <button type="submit"
-                                                        class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
+                                                        class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
                                                         title="Add to Cart">
                                                         <i class="fas fa-shopping-cart mr-2"></i>
                                                     </button>
@@ -424,7 +424,7 @@
                                                 @csrf
                                                 <input type="hidden" name="quantity" id="form-quantity" value="1">
                                                 <button type="submit"
-                                                    class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
+                                                    class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center"
                                                     title="Add to Cart">
                                                     <i class="fas fa-shopping-cart mr-2"></i>
                                                 </button>

@@ -50,12 +50,12 @@
             </h4>
 
             <button id="toggle-address-list"
-                class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition">
+                class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
                 {{ __('checkout.change_address') }}
             </button>
 
             <button id="open-address-form"
-                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition">
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
                 {{ __('checkout.add_address') }}
             </button>
         </div>
@@ -89,7 +89,7 @@
                                 <td class="py-2 px-4 border-b">
                                     @if ($hasDiscount)
                                         <div class="space-y-1">
-                                            <div class="text-pink-600 font-bold">
+                                            <div class="text-gray-600 font-bold">
                                                 ${{ number_format($item['discounted_price'] ?? $item['price'], 2, '.', ',') }}
                                             </div>
                                             <div class="text-xs text-gray-500 line-through">
@@ -97,7 +97,7 @@
                                             </div>
                                         </div>
                                     @else
-                                        <div class="text-pink-600 font-bold">
+                                        <div class="text-gray-600 font-bold">
                                             ${{ number_format($item['price'], 2, '.', ',') }}
                                         </div>
                                     @endif
@@ -126,7 +126,7 @@
                     <h4 class="text-gray-700" id="current-method">{{ $defaultMethod }}</h4>
                 </div>
                 <button id="change-method-btn" type="button"
-                    class="bg-pink-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-pink-700 transition whitespace-nowrap w-full sm:w-auto">
+                    class="bg-gray-600 text-white px-3 sm:px-4 py-2 rounded hover:bg-gray-700 transition whitespace-nowrap w-full sm:w-auto">
                     {{ __('checkout.change_method') }}
                 </button>
             </div>
@@ -143,7 +143,7 @@
                 <!-- Subtotal after discount -->
                 <div class="flex items-center justify-between flex-wrap gap-2 mb-4 text-xs sm:text-base">
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('checkout.subtotal') }}</h3>
-                    <p class="text-xl font-bold text-pink-600">${{ number_format($total, 2, '.', ',') }}</p>
+                    <p class="text-xl font-bold text-gray-600">${{ number_format($total, 2, '.', ',') }}</p>
                 </div>
                 
                 <!-- Savings -->
@@ -156,11 +156,11 @@
                 
                 <div class="flex items-center justify-between flex-wrap gap-2 mb-4 text-xs sm:text-base">
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('checkout.shipping_fee') }}</h3>
-                    <p class="text-xl font-bold text-pink-600">$8.00</p>
+                    <p class="text-xl font-bold text-gray-600">$8.00</p>
                 </div>
                 <div class="flex items-center justify-between flex-wrap gap-2 mb-4 text-xs sm:text-base border-t pt-4">
                     <h3 class="text-lg font-semibold text-gray-800">{{ __('checkout.total_payment') }}</h3>
-                    <p class="text-xl font-bold text-pink-800">${{ number_format($total + 8, 2, '.', ',') }}</p>
+                    <p class="text-xl font-bold text-gray-800">${{ number_format($total + 8, 2, '.', ',') }}</p>
                 </div>
             </div>
 
@@ -209,7 +209,7 @@
                 <div class="flex flex-wrap justify-center gap-3">
                     @foreach ($paymentMethods as $method)
                         <button type="button"
-                            class="method-option px-4 py-2 border rounded-lg hover:bg-pink-50 transition text-sm sm:text-base flex items-center"
+                            class="method-option px-4 py-2 border rounded-lg hover:bg-gray-50 transition text-sm sm:text-base flex items-center"
                             data-method="{{ $method }}">
                             @if ($method === 'credit_card')
                                 <span class="mr-2">
@@ -291,7 +291,7 @@
 
                 <div class="flex justify-between items-center">
                     <button id="save-address" type="button"
-                        class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition">
+                        class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
                         {{ __('checkout.save_address') }}
                     </button>
                     <button id="close-address-form" class="text-gray-600 hover:underline">

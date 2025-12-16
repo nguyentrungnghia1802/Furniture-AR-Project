@@ -12,12 +12,12 @@
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
                     <h3 class="text-2xl font-bold text-gray-800">{{ $category['name'] }}</h3>
-                    <span class="ml-3 bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-medium">
+                    <span class="ml-3 bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">
                         {{ $category['products']->count() }} {{ __('dashboard.products') }}
                     </span>
                 </div>
                 <a href="{{ route('user.products.index', ['category_name' => $category['slug']]) }}" 
-                   class="text-pink-600 hover:text-pink-700 font-semibold flex items-center">
+                   class="text-gray-600 hover:text-gray-700 font-semibold flex items-center">
                     {{ __('dashboard.view_all') }}
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -54,7 +54,7 @@
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="flex gap-2">
                                 <a href="{{ route('user.products.show', $product->id) }}" 
-                                   class="bg-white text-gray-800 p-2 rounded-full hover:bg-pink-500 hover:text-white transition-colors">
+                                   class="bg-white text-gray-800 p-2 rounded-full hover:bg-gray-500 hover:text-white transition-colors">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -64,7 +64,7 @@
                                     <form id="add-to-cart-form" action="{{ route('cart.add', $product->id) }}" method="POST" class="w-full">
                                         @csrf
                                         <input type="hidden" name="quantity" id="form-quantity" value="1">
-                                        <button type="submit" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center" title="Add to Cart">
+                                        <button type="submit" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-colors duration-300 flex items-center justify-center" title="Add to Cart">
                                             <i class="fas fa-shopping-cart mr-2"></i>
                                         </button>
                                     </form>
@@ -121,7 +121,7 @@
                         <!-- Action Buttons - Push to bottom -->
                         <div class="mt-auto space-y-2">
                             <a href="{{ route('user.products.show', $product->id) }}" 
-                               class="w-full bg-pink-500 hover:bg-pink-600 text-white text-center py-2 px-4 rounded-lg transition-colors flex items-center justify-center">
+                               class="w-full bg-gray-500 hover:bg-gray-600 text-white text-center py-2 px-4 rounded-lg transition-colors flex items-center justify-center">
                                 <i class="fas fa-eye mr-2"></i>{{ __('product.view_details') }}
                             </a>
                             @auth

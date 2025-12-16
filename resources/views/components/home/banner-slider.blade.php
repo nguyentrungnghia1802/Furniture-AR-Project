@@ -15,7 +15,7 @@
                             <p class="text-lg md:text-xl mb-6 max-w-2xl">{{ __($banner['subtitle_key']) }}</p>
                             @if(isset($banner['button_text_key']) && isset($banner['button_link']))
                                 <a href="{{ $banner['button_link'] }}" 
-                                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                                   class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
                                     {{ __($banner['button_text_key']) }}
                                 </a>
                             @endif
@@ -33,7 +33,7 @@
                             <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4">Chào mừng đến với Luna Shop</h2>
                             <p class="text-lg md:text-xl mb-6 max-w-2xl">Nơi mang đến những sản phẩm hoa sáp tuyệt đẹp và các quà tặng ý nghĩa</p>
                             <a href="{{ route('user.products.index') }}" 
-                               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                               class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
                                 Khám phá ngay
                             </a>
                         </div>
@@ -48,7 +48,7 @@
                             <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4">Bộ sưu tập Hoa Sáp</h2>
                             <p class="text-lg md:text-xl mb-6 max-w-2xl">Những bông hoa vĩnh cửu với hương thơm dịu nhẹ</p>
                             <a href="{{ route('user.products.index') }}" 
-                               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                               class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
                                 Xem bộ sưu tập
                             </a>
                         </div>
@@ -63,7 +63,7 @@
                             <h2 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4">Quà tặng đặc biệt</h2>
                             <p class="text-lg md:text-xl mb-6 max-w-2xl">Những món quà ý nghĩa cho người thân yêu</p>
                             <a href="{{ route('user.products.index') }}" 
-                               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                               class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
                                 Tìm quà ngay
                             </a>
                         </div>

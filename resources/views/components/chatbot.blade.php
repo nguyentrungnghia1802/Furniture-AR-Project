@@ -1,7 +1,7 @@
 <!-- Chatbot Widget -->
 <div id="chatbot-widget" class="fixed bottom-4 right-4 z-50 w-auto">
     <!-- Chatbot Toggle Button -->
-    <button id="chatbot-toggle" class="bg-pink-600 hover:bg-pink-700 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-pink-400">
+    <button id="chatbot-toggle" class="bg-gray-600 hover:bg-gray-700 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gray-400">
         <svg id="chat-icon" class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
         </svg>
@@ -13,7 +13,7 @@
     <!-- Chatbot Window -->
     <div id="chatbot-window" class="hidden fixed bottom-16 sm:bottom-20 right-0 w-80 sm:w-96 lg:w-[500px] h-[400px] sm:h-[500px] lg:h-[650px] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col max-w-full" style="max-width:100vw;">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-3 sm:p-4 rounded-t-lg">
+        <div class="bg-gradient-to-r from-gray-600 to-purple-600 text-white p-3 sm:p-4 rounded-t-lg">
             <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
                     <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <h3 class="font-semibold text-sm sm:text-base">{{ __('chatbot.name') }}</h3>
-                    <p class="text-xs sm:text-sm text-pink-100">{{ __('chatbot.status_online') }}</p>
+                    <p class="text-xs sm:text-sm text-gray-100">{{ __('chatbot.status_online') }}</p>
                 </div>
                 <div class="ml-auto">
                     <div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
@@ -33,7 +33,7 @@
         <!-- Messages Container -->
         <div id="chat-messages" class="flex-1 p-2 sm:p-4 overflow-y-auto space-y-3 text-xs sm:text-sm">
             <div class="flex items-start space-x-2">
-                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
                     </svg>
@@ -57,7 +57,7 @@
         <!-- Quick Actions -->
         <div class="px-2 sm:px-4 py-2 bg-gray-50 border-t border-gray-100">
             <div class="flex flex-wrap gap-1">
-                <button class="quick-action text-xs px-2 py-1 bg-pink-100 text-pink-700 rounded-full hover:bg-pink-200 transition-colors" data-message="Find soap flowers">
+                <button class="quick-action text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors" data-message="Find furniture">
                     {{ __('chatbot.soap_flowers') }}
                 </button>
                 <button class="quick-action text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full hover:bg-purple-200 transition-colors" data-message="Check my orders">
@@ -82,8 +82,8 @@
         <div class="p-2 sm:p-4 border-t border-gray-200">
             <div class="flex space-x-2">
                 <input type="text" id="chat-input" placeholder="Type your message..." 
-                       class="flex-1 px-2 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" style="min-width:0;">
-                <button id="send-message" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-2 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                       class="flex-1 px-2 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" style="min-width:0;">
+                <button id="send-message" class="bg-gradient-to-r from-gray-500 to-purple-600 text-white p-2 rounded-lg hover:from-gray-600 hover:to-purple-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400">
                     <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                     </svg>
@@ -94,7 +94,7 @@
         <!-- Typing Indicator -->
         <div id="typing-indicator" class="hidden px-3 sm:px-4 py-2">
             <div class="flex items-center space-x-2">
-                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center">
                     <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
                     </svg>
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (sender === 'user') {
             messageDiv.classList.add('justify-end');
             messageDiv.innerHTML = `
-                <div class="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg px-3 py-2 max-w-xs sm:max-w-sm text-right">
+                <div class="bg-gradient-to-r from-gray-500 to-purple-600 text-white rounded-lg px-3 py-2 max-w-xs sm:max-w-sm text-right">
                     <p>${escapeHtml(text)}</p>
                 </div>
                 <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         } else {
             messageDiv.innerHTML = `
-                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-gray-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
                     </svg>
@@ -236,10 +236,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function formatResponse(text) {
         // Convert URLs to clickable links
-        text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="text-pink-600 hover:text-pink-800 underline">$1</a>');
+        text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="text-gray-600 hover:text-gray-800 underline">$1</a>');
         
         // Convert route links to internal navigation
-        text = text.replace(/🔗 (\/[^\s\n]+)/g, '<a href="$1" class="inline-block mt-1 px-2 py-1 bg-pink-100 text-pink-700 rounded text-xs hover:bg-pink-200 transition-colors">View Now →</a>');
+        text = text.replace(/🔗 (\/[^\s\n]+)/g, '<a href="$1" class="inline-block mt-1 px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs hover:bg-gray-200 transition-colors">View Now →</a>');
         
         // Format line breaks
         text = text.replace(/\n/g, '<br>');

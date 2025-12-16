@@ -41,11 +41,11 @@
             <!-- Japanese -->
             <a href="{{ route('locale.set', 'ja') }}"
                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 
-                      {{ app()->getLocale() === 'ja' ? 'bg-gray-50 text-pink-600 font-medium' : '' }}">
+                      {{ app()->getLocale() === 'ja' ? 'bg-gray-50 text-gray-600 font-medium' : '' }}">
                 <span class="w-6 text-center mr-3">🇯🇵</span>
                 {{ __('common.japanese') }}
                 @if (app()->getLocale() === 'ja')
-                    <svg class="w-4 h-4 ml-auto text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 ml-auto text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd"></path>
@@ -56,11 +56,11 @@
             <!-- English -->
             <a href="{{ route('locale.set', 'en') }}"
                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 
-                      {{ app()->getLocale() === 'en' ? 'bg-gray-50 text-pink-600 font-medium' : '' }}">
+                      {{ app()->getLocale() === 'en' ? 'bg-gray-50 text-gray-600 font-medium' : '' }}">
                 <span class="w-6 text-center mr-3">🇺🇸</span>
                 {{ __('common.english') }}
                 @if (app()->getLocale() === 'en')
-                    <svg class="w-4 h-4 ml-auto text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 ml-auto text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd"></path>
@@ -71,11 +71,11 @@
             <!-- Vietnamese -->
             <a href="{{ route('locale.set', 'vi') }}"
                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 
-                      {{ app()->getLocale() === 'vi' ? 'bg-gray-50 text-pink-600 font-medium' : '' }}">
+                      {{ app()->getLocale() === 'vi' ? 'bg-gray-50 text-gray-600 font-medium' : '' }}">
                 <span class="w-6 text-center mr-3">🇻🇳</span>
                 {{ __('common.vietnamese') }}
                 @if (app()->getLocale() === 'vi')
-                    <svg class="w-4 h-4 ml-auto text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 ml-auto text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd"></path>

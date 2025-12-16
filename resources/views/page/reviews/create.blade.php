@@ -75,7 +75,7 @@
                            name="image" 
                            id="imageInput" 
                            accept="image/jpeg,image/png,image/jpg,image/gif,image/webp" 
-                           class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100 focus:outline-none">
+                           class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 focus:outline-none">
                     
                     <!-- Image preview container -->
                     <div id="imagePreviewContainer" class="mt-4 hidden">
@@ -101,7 +101,7 @@
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t">
                     <button type="submit"
-                        class="flex-1 bg-pink-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-pink-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+                        class="flex-1 bg-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                         <i class="fas fa-star mr-2"></i>
                         {{ __('review.submit_review') }}
                     </button>

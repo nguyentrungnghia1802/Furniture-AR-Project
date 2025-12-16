@@ -101,7 +101,7 @@
                 <a href="{{ route('order.cancel', $orderId) }}" class="bg-gray-200 text-gray-800 px-5 py-2 rounded hover:bg-gray-300 transition text-center">
                     {{ __('checkout.order_cancellation') }}
                 </a>
-                <a href="{{ route('order.show', $orderId) }}" class="bg-pink-600 text-white px-5 py-2 rounded hover:bg-pink-700 transition text-center">
+                <a href="{{ route('order.show', $orderId) }}" class="bg-gray-600 text-white px-5 py-2 rounded hover:bg-gray-700 transition text-center">
                     {{ __('checkout.view_order') }}
                 </a>
             </div>

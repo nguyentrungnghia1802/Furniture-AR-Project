@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="text-center mb-6">
         <h1 class="text-2xl font-bold text-indigo-700 drop-shadow">{{ __('auth.create_account') }}</h1>
-        <p class="mt-2 text-sm text-pink-500">{{ __('auth.create_account_description') }}</p>
+        <p class="mt-2 text-sm text-gray-500">{{ __('auth.create_account_description') }}</p>
     </div>
 
     <form method="POST" action="{{ route('register') }}">

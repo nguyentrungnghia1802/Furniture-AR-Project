@@ -21,7 +21,7 @@
                     id="card_number" 
                     x-model="cardNumber" 
                     @input="formatCardNumber" 
-                    class="w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" 
+                    class="w-full border-gray-300 rounded-md shadow-sm focus:ring-gray-500 focus:border-gray-500" 
                     placeholder="1234 5678 9012 3456" 
                     maxlength="19">
                 <p x-show="errors.cardNumber" x-text="errors.cardNumber" class="mt-1 text-sm text-red-600"></p>
@@ -35,7 +35,7 @@
                         id="expiry" 
                         x-model="expiry" 
                         @input="formatExpiry" 
-                        class="w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" 
+                        class="w-full border-gray-300 rounded-md shadow-sm focus:ring-gray-500 focus:border-gray-500" 
                         placeholder="MM/YY" 
                         maxlength="5">
                     <p x-show="errors.expiry" x-text="errors.expiry" class="mt-1 text-sm text-red-600"></p>
@@ -48,7 +48,7 @@
                         id="cvv" 
                         x-model="cvv" 
                         @input="validateCVV" 
-                        class="w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" 
+                        class="w-full border-gray-300 rounded-md shadow-sm focus:ring-gray-500 focus:border-gray-500" 
                         placeholder="123" 
                         maxlength="4">
                     <p x-show="errors.cvv" x-text="errors.cvv" class="mt-1 text-sm text-red-600"></p>
@@ -61,7 +61,7 @@
                     type="text" 
                     id="card_holder" 
                     x-model="cardHolder" 
-                    class="w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" 
+                    class="w-full border-gray-300 rounded-md shadow-sm focus:ring-gray-500 focus:border-gray-500" 
                     placeholder="{{ __('payment.example_name') }}">
                 <p x-show="errors.cardHolder" x-text="errors.cardHolder" class="mt-1 text-sm text-red-600"></p>
             </div>
@@ -72,7 +72,7 @@
                 type="button"
                 @click="processPayment"
                 :disabled="isProcessing"
-                class="w-full bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 <span x-show="isProcessing">
                     <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

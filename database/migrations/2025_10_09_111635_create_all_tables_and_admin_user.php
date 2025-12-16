@@ -173,10 +173,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('content');
-            $table->string('image_url')->nullable();
-            $table->tinyInteger('status')->default(1); // trạng thái bài viết: 1=hiển thị, 0=ẩn
-            $table->boolean('is_published')->default(false);
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(true);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

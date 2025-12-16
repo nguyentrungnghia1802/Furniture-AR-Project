@@ -35,7 +35,7 @@
             <x-input-label for="email" :value="__('auth.email')" />
             <div class="mt-2">
                 <x-text-input id="email"
-                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
                     type="email" name="email" :value="old('email')" required autofocus :placeholder="__('auth.email_placeholder')" />
             </div>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -43,12 +43,12 @@
 
         <div class="space-y-4">
             <x-primary-button
-                class="w-full justify-center py-3 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                class="w-full justify-center py-3 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 {{ __('auth.send_reset_link') }}
             </x-primary-button>
 
             <div class="text-center">
-                <a class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 rounded-md"
+                <a class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md"
                     href="{{ route('login') }}">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -60,12 +60,12 @@ return [
     'no_results' => '結果が見つかりません',
 
     // Footer
-    'footer_description' => '高品質な花、意味のあるギフト、装飾アクセサリーを専門に扱っています。',
+    'footer_description' => '高品質な家具、意味のあるギフト、装飾アクセサリーを専門に扱っています。',
     'quick_links' => 'クイックリンク',
     'copyright' => '全著作権所有。',
 
     // Shop info
-    'shop_name' => 'HANAYA SHOP',
+    'shop_name' => 'LUNA SHOP',
     'address' => '住所',
     'phone' => '電話',
     'email' => 'メール',

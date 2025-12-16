@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-2 sm:px-4 py-6 sm:py-12">
         <!-- Page Title -->
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">🌸{{ $pageTitle ?? __('product.hanaya_shop_products') }}</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">🛋️{{ $pageTitle ?? __('product.hanaya_shop_products') }}</h2>
 
         <!-- Category Navigation -->
         <x-category-navigation />
@@ -56,10 +56,10 @@
                     <div class="flex-1 relative">
                         <input type="text" name="q" value="{{ $keyword }}"
                             placeholder="{{ $selectedCategoryName ? 'Search in ' . ucfirst(str_replace('-', ' ', $selectedCategoryName)) . ' category...' : __('product.searching_products') }}"
-                            class="w-full px-3 py-2 text-sm sm:text-base rounded border focus:outline-none focus:ring focus:ring-pink-300">
+                            class="w-full px-3 py-2 text-sm sm:text-base rounded border focus:outline-none focus:ring focus:ring-gray-300">
                         @if ($selectedCategoryName)
                             <span
-                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-gray-500 bg-pink-100 px-2 py-1 rounded">
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
                                 {{ ucfirst(str_replace('-', ' ', $selectedCategoryName)) }}
                             </span>
                         @endif
@@ -70,7 +70,7 @@
                     @endif
 
                     <button type="submit"
-                        class="bg-pink-600 text-white px-4 sm:px-6 py-2 text-sm sm:text-base rounded hover:bg-pink-700 transition-colors whitespace-nowrap">
+                        class="bg-gray-600 text-white px-4 sm:px-6 py-2 text-sm sm:text-base rounded hover:bg-gray-700 transition-colors whitespace-nowrap">
                         <i
                             class="fas fa-search mr-2"></i>{{ $selectedCategoryName ? 'Search in Category' : __('product.search_all') }}
                     </button>
@@ -93,9 +93,9 @@
                         <label class="block text-sm font-medium text-gray-700">Price Range</label>
                         <div class="flex gap-2">
                             <input type="number" name="min_price" value="{{ $minPrice }}" placeholder="Min"
-                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-pink-300">
+                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-gray-300">
                             <input type="number" name="max_price" value="{{ $maxPrice }}" placeholder="Max"
-                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-pink-300">
+                                class="w-full px-2 py-1 text-sm border rounded focus:ring-2 focus:ring-gray-300">
                         </div>
                     </div>
 
@@ -112,23 +112,23 @@
                     <span class="block text-sm sm:text-lg font-bold text-gray-700">{{ __('product.sort_by') }}:</span>
                     <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'desc', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'desc' ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'desc' ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.price_high_to_low') }}
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'asc', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'asc' ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'asc' ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.price_low_to_high') }}
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'sale', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'sale' ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'sale' ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.on_sale') }}
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'views', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'views' ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'views' ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.most_viewed') }}
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'bestseller', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'bestseller' ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'bestseller' ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.best_selling') }}
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'ar_first', 'q' => $keyword, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
@@ -136,7 +136,7 @@
                             AR First
                         </a>
                         <a href="{{ route('user.products.index', array_merge(request()->except('sort'), ['sort' => 'latest', 'q' => $keyword, 'category' => $selectedCategory, 'category_name' => $selectedCategoryName, 'ar_only' => $arOnly, 'min_price' => $minPrice, 'max_price' => $maxPrice])) }}"
-                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-pink-600 transition text-center {{ $currentSort === 'latest' || !$currentSort ? 'bg-pink-600 font-bold' : '' }}">
+                            class="bg-gray-700 text-white px-2 sm:px-4 py-2 text-xs sm:text-sm rounded hover:bg-gray-600 transition text-center {{ $currentSort === 'latest' || !$currentSort ? 'bg-gray-600 font-bold' : '' }}">
                             {{ __('product.latest') }}
                         </a>
                     </div>
@@ -241,7 +241,7 @@
                             </div>
 
                             @if ($productItem->category)
-                                <p class="text-xs text-pink-600 font-medium mb-1">
+                                <p class="text-xs text-gray-600 font-medium mb-1">
                                     {{ $productItem->category->name }}</p>
                             @endif
 
@@ -254,7 +254,7 @@
                             <div class="h-12 mb-2">
                                 @if ($productItem->discount_percent > 0)
                                     <div class="space-y-1">
-                                        <div class="text-pink-600 font-bold text-lg">
+                                        <div class="text-gray-600 font-bold text-lg">
                                             ${{ number_format($productItem->discounted_price, 2, '.', ',') }}
                                         </div>
                                         <div class="text-xs text-gray-500 line-through">
@@ -262,7 +262,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="text-pink-600 font-bold text-lg">
+                                    <div class="text-gray-600 font-bold text-lg">
                                         ${{ number_format($productItem->price, 2, '.', ',') }}
                                     </div>
                                 @endif
@@ -311,7 +311,7 @@
                                 
                                 <!-- Regular View Button -->
                                 <a href="{{ route('user.products.show', $productItem->id) }}"
-                                    class="block text-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 {{ $productItem->ar_enabled ? 'sm:py-2' : 'sm:py-3' }} rounded-lg transition-colors duration-300 text-sm">
+                                    class="block text-center bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 {{ $productItem->ar_enabled ? 'sm:py-2' : 'sm:py-3' }} rounded-lg transition-colors duration-300 text-sm">
                                     <i class="fas fa-eye mr-2"></i>{{ __('product.view_details') }}
                                 </a>
                             </div>
