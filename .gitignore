@@ -43,7 +43,7 @@ docker-compose.production.yml
 *_rsa
 *_deploy_key*
 id_rsa*
-hanaya_deploy_key*
+luna_deploy_key*
 putty_ssh_key*
 *.ppk
 production_ssh_key*

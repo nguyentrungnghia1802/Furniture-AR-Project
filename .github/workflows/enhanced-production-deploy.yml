@@ -61,7 +61,7 @@ jobs:
           CURRENT_SHA=""
           
           # Try to get version from health endpoint
-          if curl -f -s --max-time 10 "http://www.hanayashop.com/api/version" > /dev/null 2>&1; then
+          if curl -f -s --max-time 10 "http://www.lunashop.com/api/version" > /dev/null 2>&1; then
             CURRENT_SHA=$(curl -s --max-time 10 "http://www.hanayashop.com/api/version" | jq -r '.git_sha // empty' 2>/dev/null || echo "")
             echo "🌐 Retrieved current SHA from production: ${CURRENT_SHA}"
           else

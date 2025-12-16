@@ -65,7 +65,7 @@ return [
     'copyright' => 'Bảo lưu mọi quyền.',
 
     // Shop info
-    'shop_name' => 'HANAYA SHOP',
+    'shop_name' => 'LUNA SHOP',
     'address' => 'Địa chỉ',
     'phone' => 'Điện thoại',
     'email' => 'Email',
