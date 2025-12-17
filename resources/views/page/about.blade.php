@@ -169,7 +169,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('soap-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/soap_flower.jpg') }}" alt="Seatings"
+                            <img src="{{ asset('fixed_resources/about/seatings.jpg') }}" alt="Seatings"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -198,7 +198,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('fresh-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/fresh_flower.jpg') }}" alt="Tables"
+                            <img src="{{ asset('fixed_resources/about/tables.jpg') }}" alt="Tables"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -227,7 +227,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('special-flowers')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/special_flower.jpg') }}" alt="Storages"
+                            <img src="{{ asset('fixed_resources/about/storages.jpg') }}" alt="Storages"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -256,7 +256,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105"
                         onclick="redirectToProducts('souvenirs')">
                         <div class="relative overflow-hidden">
-                            <img src="{{ asset('fixed_resources/about/souvenir.jpg') }}" alt="Decors"
+                            <img src="{{ asset('fixed_resources/about/decors.jpg') }}" alt="Decors"
                                 class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-300">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

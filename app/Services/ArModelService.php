@@ -54,17 +54,63 @@ class ArModelService
     const STORAGE_PATH = 'ar_models';
 
     /**
+     * Category to Subfolder Mapping
+     * Maps category names/slugs to their corresponding storage subfolders
+     */
+    const CATEGORY_FOLDERS = [
+        'seatings' => 'seatings',
+        'tables' => 'tables',
+        'storages' => 'storages',
+        'decores' => 'decores',
+        // Default fallback
+        'default' => 'others'
+    ];
+
+    /**
+     * Get Category Subfolder
+     *
+     * Determines the appropriate subfolder based on category name.
+     * Supports flexible matching for various category naming formats.
+     *
+     * @param string|null $categoryName The category name or slug
+     * @return string The subfolder name
+     */
+    private function getCategorySubfolder(?string $categoryName): string
+    {
+        if (!$categoryName) {
+            return self::CATEGORY_FOLDERS['default'];
+        }
+
+        // Normalize category name (lowercase, remove special chars)
+        $normalized = strtolower(trim($categoryName));
+        $normalized = preg_replace('/[^a-z0-9]/', '', $normalized);
+
+        // Check for exact match or partial match
+        foreach (self::CATEGORY_FOLDERS as $key => $folder) {
+            if ($key === 'default') continue;
+            
+            if (str_contains($normalized, $key) || str_contains($key, $normalized)) {
+                return $folder;
+            }
+        }
+
+        return self::CATEGORY_FOLDERS['default'];
+    }
+
+    /**
      * Upload AR Model File
      *
      * Handles the upload process for AR model files with validation,
      * secure storage, and proper naming conventions.
+     * Files are organized into category-based subfolders for better management.
      *
      * @param UploadedFile $file The uploaded AR model file
      * @param string $type File type ('glb' or 'usdz')
      * @param string|null $productName Optional product name for file naming
+     * @param string|null $categoryName Optional category name for subfolder organization
      * @return array Result array with success status, filename, and any errors
      */
-    public function uploadArModel(UploadedFile $file, string $type, string $productName = null): array
+    public function uploadArModel(UploadedFile $file, string $type, string $productName = null, string $categoryName = null): array
     {
         try {
             // Validate file
@@ -80,14 +126,25 @@ class ArModelService
             // Generate unique filename
             $filename = $this->generateArModelFilename($file, $type, $productName);
 
-            // Store file in the public disk under ar_models directory
-            $path = $file->storeAs(
-                self::STORAGE_PATH,
-                $filename,
-                'public'
-            );
+            // Determine category subfolder
+            $subfolder = $this->getCategorySubfolder($categoryName);
+            $relativePath = self::STORAGE_PATH . '/' . $subfolder;
 
-            if (!$path) {
+            // Store file directly in public/ar_models/{category}/ directory
+            // This avoids symlink issues on deployment
+            $destinationPath = public_path($relativePath);
+            
+            // Ensure directory exists
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            // Move the file
+            $file->move($destinationPath, $filename);
+            $fullPath = $relativePath . '/' . $filename;
+
+            // Verify file was moved successfully
+            if (!file_exists(public_path($fullPath))) {
                 return [
                     'success' => false,
                     'error' => 'Failed to store AR model file',
@@ -99,15 +156,18 @@ class ArModelService
             Log::info('AR model uploaded successfully', [
                 'filename' => $filename,
                 'type' => $type,
-                'size' => $file->getSize(),
-                'product_name' => $productName
+                'size' => filesize(public_path($fullPath)),
+                'product_name' => $productName,
+                'category' => $categoryName,
+                'subfolder' => $subfolder
             ]);
 
             return [
                 'success' => true,
                 'filename' => $filename,
-                'path' => $path,
-                'url' => asset('storage/' . $path)
+                'subfolder' => $subfolder,
+                'full_path' => $fullPath,
+                'url' => asset($fullPath)
             ];
 
         } catch (\Exception $e) {
@@ -225,41 +285,79 @@ class ArModelService
      * Delete AR Model File
      *
      * Safely removes AR model files from storage with error handling.
+     * Supports both legacy flat structure and category-based subfolder structure.
      *
-     * @param string $filename The filename to delete
+     * @param string $filePathOrName Full path (e.g., "seatings/file.glb") or just filename
      * @return bool True if deletion was successful, false otherwise
      */
-    public function deleteArModel(string $filename): bool
+    public function deleteArModel(string $filePathOrName): bool
     {
         try {
-            if (!$filename) {
+            if (!$filePathOrName) {
                 return true; // Nothing to delete
             }
 
-            $path = self::STORAGE_PATH . '/' . $filename;
-            
-            if (!Storage::disk('public')->exists($path)) {
-                Log::warning('AR model file not found for deletion', ['filename' => $filename]);
+            // Check if it's a full path or just filename
+            if (str_contains($filePathOrName, '/')) {
+                // Full path provided (e.g., "seatings/file.glb")
+                $filePath = public_path(self::STORAGE_PATH . '/' . $filePathOrName);
+            } else {
+                // Just filename - search in all subfolders
+                $filePath = $this->findArModelFile($filePathOrName);
+            }
+
+            if (!$filePath || !file_exists($filePath)) {
+                Log::warning('AR model file not found for deletion', ['file' => $filePathOrName]);
                 return true; // File doesn't exist, consider it "deleted"
             }
 
-            $deleted = Storage::disk('public')->delete($path);
+            $deleted = unlink($filePath);
 
             if ($deleted) {
-                Log::info('AR model deleted successfully', ['filename' => $filename]);
+                Log::info('AR model deleted successfully', ['file' => $filePathOrName]);
             } else {
-                Log::error('Failed to delete AR model', ['filename' => $filename]);
+                Log::error('Failed to delete AR model', ['file' => $filePathOrName]);
             }
 
             return $deleted;
 
         } catch (\Exception $e) {
             Log::error('AR model deletion failed', [
-                'filename' => $filename,
+                'file' => $filePathOrName,
                 'error' => $e->getMessage()
             ]);
             return false;
         }
+    }
+
+    /**
+     * Find AR Model File
+     *
+     * Searches for an AR model file across all category subfolders.
+     * Useful for backwards compatibility and when exact path is unknown.
+     *
+     * @param string $filename The filename to search for
+     * @return string|null Full file path if found, null otherwise
+     */
+    private function findArModelFile(string $filename): ?string
+    {
+        $basePath = public_path(self::STORAGE_PATH);
+        
+        // Check root directory first (legacy files)
+        $rootPath = $basePath . '/' . $filename;
+        if (file_exists($rootPath)) {
+            return $rootPath;
+        }
+
+        // Search in category subfolders
+        foreach (self::CATEGORY_FOLDERS as $folder) {
+            $subfolderPath = $basePath . '/' . $folder . '/' . $filename;
+            if (file_exists($subfolderPath)) {
+                return $subfolderPath;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -276,18 +374,18 @@ class ArModelService
             return null;
         }
 
-        $path = self::STORAGE_PATH . '/' . $filename;
+        $filePath = public_path(self::STORAGE_PATH . '/' . $filename);
         
-        if (!Storage::disk('public')->exists($path)) {
+        if (!file_exists($filePath)) {
             return null;
         }
 
         try {
             return [
                 'filename' => $filename,
-                'size' => Storage::disk('public')->size($path),
-                'url' => asset('storage/' . $path),
-                'last_modified' => Storage::disk('public')->lastModified($path)
+                'size' => filesize($filePath),
+                'url' => asset(self::STORAGE_PATH . '/' . $filename),
+                'last_modified' => filemtime($filePath)
             ];
         } catch (\Exception $e) {
             Log::error('Failed to get AR model info', [
@@ -312,8 +410,8 @@ class ArModelService
             return false;
         }
 
-        $path = self::STORAGE_PATH . '/' . $filename;
-        return Storage::disk('public')->exists($path);
+        $filePath = public_path(self::STORAGE_PATH . '/' . $filename);
+        return file_exists($filePath);
     }
 
     /**
@@ -342,8 +440,14 @@ class ArModelService
     public function cleanupOrphanedModels(): array
     {
         try {
-            // Get all AR model files from storage
-            $allFiles = Storage::disk('public')->files(self::STORAGE_PATH);
+            // Get all AR model files from public directory
+            $publicPath = public_path(self::STORAGE_PATH);
+            $allFiles = [];
+            
+            if (file_exists($publicPath)) {
+                $files = glob($publicPath . '/*');
+                $allFiles = array_map('basename', $files);
+            }
             
             // Get all referenced AR model filenames from database
             $referencedFiles = \App\Models\Product\Product::whereNotNull('ar_model_glb')
@@ -352,19 +456,17 @@ class ArModelService
                 ->flatMap(function ($product) {
                     return array_filter([$product->ar_model_glb, $product->ar_model_usdz]);
                 })
-                ->map(function ($filename) {
-                    return self::STORAGE_PATH . '/' . $filename;
-                })
                 ->toArray();
 
             // Find orphaned files
             $orphanedFiles = array_diff($allFiles, $referencedFiles);
             $deletedCount = 0;
 
-            foreach ($orphanedFiles as $file) {
-                if (Storage::disk('public')->delete($file)) {
+            foreach ($orphanedFiles as $filename) {
+                $filePath = public_path(self::STORAGE_PATH . '/' . $filename);
+                if (file_exists($filePath) && unlink($filePath)) {
                     $deletedCount++;
-                    Log::info('Deleted orphaned AR model', ['file' => $file]);
+                    Log::info('Deleted orphaned AR model', ['file' => $filename]);
                 }
             }
 

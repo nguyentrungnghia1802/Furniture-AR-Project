@@ -233,20 +233,26 @@ class ProductsController extends Controller
          * AR Model Upload Process - Handle AR model file uploads
          * Processes GLB and USDZ files for AR functionality
          * Uses ArModelService for secure upload and validation
+         * Files are organized by category subfolder for better management
          */
         $arModelService = new ArModelService();
-        $glbFileName = null;
-        $usdzFileName = null;
+        $glbFullPath = null;
+        $usdzFullPath = null;
+
+        // Get category name for subfolder organization
+        $category = Category::find($request->input('category_id'));
+        $categoryName = $category ? $category->name : null;
 
         // Handle GLB model upload (Android AR)
         if ($request->hasFile('ar_model_glb')) {
             $glbResult = $arModelService->uploadArModel(
                 $request->file('ar_model_glb'),
                 'glb',
-                $request->input('name')
+                $request->input('name'),
+                $categoryName
             );
             if ($glbResult['success']) {
-                $glbFileName = $glbResult['filename'];
+                $glbFullPath = $glbResult['subfolder'] . '/' . $glbResult['filename'];
             } else {
                 return redirect()->back()->with('error', 'GLB upload failed: ' . $glbResult['error']);
             }
@@ -257,14 +263,15 @@ class ProductsController extends Controller
             $usdzResult = $arModelService->uploadArModel(
                 $request->file('ar_model_usdz'),
                 'usdz',
-                $request->input('name')
+                $request->input('name'),
+                $categoryName
             );
             if ($usdzResult['success']) {
-                $usdzFileName = $usdzResult['filename'];
+                $usdzFullPath = $usdzResult['subfolder'] . '/' . $usdzResult['filename'];
             } else {
                 // Cleanup GLB file if USDZ fails
-                if ($glbFileName) {
-                    $arModelService->deleteArModel($glbFileName);
+                if ($glbFullPath) {
+                    $arModelService->deleteArModel($glbFullPath);
                 }
                 return redirect()->back()->with('error', 'USDZ upload failed: ' . $usdzResult['error']);
             }
@@ -289,8 +296,8 @@ class ProductsController extends Controller
         
         // AR-related fields
         $product->ar_enabled = $request->has('ar_enabled') ? true : false;
-        $product->ar_model_glb = $glbFileName;
-        $product->ar_model_usdz = $usdzFileName;
+        $product->ar_model_glb = $glbFullPath;
+        $product->ar_model_usdz = $usdzFullPath;
         $product->ar_model_size = $request->input('ar_model_size');
         $product->ar_placement_instructions = $request->input('ar_placement_instructions');
         $product->width_cm = $request->input('width_cm');
@@ -421,8 +428,13 @@ class ProductsController extends Controller
          * AR Model Update Process - Handle AR model file uploads and updates
          * Processes GLB and USDZ files for AR functionality
          * Uses ArModelService for secure upload and validation
+         * Files are organized by category subfolder for better management
          */
         $arModelService = new ArModelService();
+
+        // Get category name for subfolder organization
+        $category = Category::find($request->input('category_id'));
+        $categoryName = $category ? $category->name : null;
 
         // Handle GLB model upload (Android AR)
         if ($request->hasFile('ar_model_glb')) {
@@ -434,10 +446,11 @@ class ProductsController extends Controller
             $glbResult = $arModelService->uploadArModel(
                 $request->file('ar_model_glb'),
                 'glb',
-                $request->input('name')
+                $request->input('name'),
+                $categoryName
             );
             if ($glbResult['success']) {
-                $product->ar_model_glb = $glbResult['filename'];
+                $product->ar_model_glb = $glbResult['subfolder'] . '/' . $glbResult['filename'];
             } else {
                 return redirect()->back()->with('error', 'GLB upload failed: ' . $glbResult['error']);
             }
@@ -453,10 +466,11 @@ class ProductsController extends Controller
             $usdzResult = $arModelService->uploadArModel(
                 $request->file('ar_model_usdz'),
                 'usdz',
-                $request->input('name')
+                $request->input('name'),
+                $categoryName
             );
             if ($usdzResult['success']) {
-                $product->ar_model_usdz = $usdzResult['filename'];
+                $product->ar_model_usdz = $usdzResult['subfolder'] . '/' . $usdzResult['filename'];
             } else {
                 return redirect()->back()->with('error', 'USDZ upload failed: ' . $usdzResult['error']);
             }

@@ -278,12 +278,12 @@ class Product extends Model
         switch (strtolower($platform)) {
             case 'ios':
             case 'usdz':
-                return $this->ar_model_usdz ? asset('storage/ar_models/' . $this->ar_model_usdz) : null;
+                return $this->ar_model_usdz ? asset('ar_models/' . $this->ar_model_usdz) : null;
             case 'android':
             case 'web':
             case 'glb':
             default:
-                return $this->ar_model_glb ? asset('storage/ar_models/' . $this->ar_model_glb) : null;
+                return $this->ar_model_glb ? asset('ar_models/' . $this->ar_model_glb) : null;
         }
     }
 

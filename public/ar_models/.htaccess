@@ -1,0 +1,46 @@
+<IfModule mod_headers.c>
+    # Enable CORS for AR models
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+</IfModule>
+
+<IfModule mod_expires.c>
+    # Enable expirations
+    ExpiresActive On
+    
+    # GLB files - Cache for 1 year
+    <FilesMatch "\.(glb)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, immutable"
+    </FilesMatch>
+    
+    # USDZ files - Cache for 1 year
+    <FilesMatch "\.(usdz)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, immutable"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+    # Compress AR model files
+    AddOutputFilterByType DEFLATE model/gltf-binary
+    AddOutputFilterByType DEFLATE model/vnd.usdz+zip
+    AddOutputFilterByType DEFLATE application/octet-stream
+    AddOutputFilterByType DEFLATE application/zip
+</IfModule>
+
+<IfModule mod_mime.c>
+    # Set correct MIME types for AR files
+    AddType model/gltf-binary .glb
+    AddType model/vnd.usdz+zip .usdz
+    AddType application/octet-stream .glb .usdz
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Allow only GET and HEAD requests
+<LimitExcept GET HEAD OPTIONS>
+    Deny from all
+</LimitExcept>

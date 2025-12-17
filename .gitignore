@@ -12,6 +12,13 @@
 bootstrap/cache/
 /public/images/*
 
+# AR Models - Large binary files should not be in git
+/public/ar_models/**/*.glb
+/public/ar_models/**/*.usdz
+# But keep the structure and config files
+!/public/ar_models/.gitkeep
+!/public/ar_models/.htaccess
+
 
 
 # Debug & IDE

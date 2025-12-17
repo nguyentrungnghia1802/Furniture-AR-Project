@@ -1,0 +1,58 @@
+# AR Models Directory
+
+This directory stores 3D model files for Augmented Reality features.
+
+## 📁 Folder Structure:
+```
+ar_models/
+├── seatings/      # Ghế, sofa, armchair, chair models
+├── tables/        # Bàn, coffee table, desk, dining table models
+├── storages/      # Tủ, kệ, cabinet, shelf models
+├── decores/       # Đồ trang trí, decorations, accessories
+└── others/        # Miscellaneous items
+```
+
+## 📝 Supported Formats:
+- `.glb` - GL Transmission Format Binary (Android/WebXR)
+- `.usdz` - Universal Scene Description (iOS Quick Look)
+
+## 🔧 How It Works:
+1. When you create/edit a product and upload AR models
+2. Files are automatically saved to the appropriate category subfolder
+3. Database stores the full path: `seatings/sofa-modern-123.glb`
+4. Product model uses this path to generate URLs
+
+## ✅ Advantages:
+- **No symlink required** - Works seamlessly on Docker/Ubuntu
+- **Category organization** - Easy to manage and find models
+- **Better performance** - Direct access, proper caching
+- **Clean structure** - Organized by product type
+
+## 🚀 Performance Features:
+- Browser caching (1 year)
+- Gzip compression enabled
+- CORS headers for cross-origin requests
+- Proper MIME types configured
+
+## 📊 File Size Guidelines:
+- **Recommended**: 3-10MB per model
+- **Maximum**: 50MB (enforced by upload validation)
+- **Optimization**: Use gltf-pipeline for compression
+
+## 🔒 Permissions:
+```bash
+# Required permissions
+chmod 755 ar_models/
+chmod 755 ar_models/*/
+chmod 644 ar_models/*/*.glb
+chmod 644 ar_models/*/*.usdz
+```
+
+## 🛠️ Maintenance:
+- Files are automatically cleaned up when product is deleted
+- Run cleanup command periodically: `php artisan app:cleanup-orphaned-models`
+- Monitor folder size to manage storage costs
+
+---
+
+**Important:** This folder is publicly accessible. Do not store sensitive files here.
