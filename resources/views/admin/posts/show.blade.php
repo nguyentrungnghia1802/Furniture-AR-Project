@@ -9,7 +9,9 @@
     <div class="bg-white rounded-lg shadow p-6">
         <h2 class="text-2xl font-bold text-gray-700 mb-4">{{ $post->title }}</h2>
         @if($post->image)
-            <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->title }}" class="h-64 w-full object-cover rounded mb-6">
+            <div class="h-64 w-full bg-gray-100 rounded mb-6 flex items-center justify-center overflow-hidden">
+                <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->title }}" class="h-full w-auto object-contain">
+            </div>
         @endif
         <div class="text-sm text-gray-600 mb-2">{{ $post->created_at->format('d/m/Y') }} {{ __('admin.by') }} {{ $post->author->name ?? 'Admin' }}</div>
         <div class="prose max-w-none text-gray-800" style="font-size:inherit;">

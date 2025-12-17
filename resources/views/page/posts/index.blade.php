@@ -28,8 +28,10 @@
                         <div class="flex-grow">
                             <a href="{{ route('posts.show', $post->id) }}">
                                 @if ($post->image)
-                                    <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->title }}"
-                                        class="h-48 w-full object-cover rounded mb-4">
+                                    <div class="h-48 w-full bg-gray-100 rounded mb-4 flex items-center justify-center overflow-hidden">
+                                        <img src="{{ asset('images/posts/' . $post->image) }}" alt="{{ $post->title }}"
+                                            class="h-full w-auto object-contain">
+                                    </div>
                                 @endif
                                 <h3 class="text-lg font-bold mb-2 text-gray-700">{{ $post->title }}</h3>
                             </a>

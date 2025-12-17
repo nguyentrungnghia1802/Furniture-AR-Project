@@ -21,11 +21,11 @@
             @foreach($posts as $post)
                 <a href="{{ route('posts.show', $post->id) }}" class="group cursor-pointer bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-400 flex flex-col h-full">
                     <!-- Fixed Image Area -->
-                    <div class="relative overflow-hidden rounded-t-xl">
-                        <div class="aspect-w-16 aspect-h-9 h-48">
+                    <div class="relative overflow-hidden rounded-t-xl bg-gray-100">
+                        <div class="aspect-w-16 aspect-h-9 h-48 flex items-center justify-center">
                             <img src="{{ $post->image ? asset('images/posts/' . $post->image) : asset('fixed_resources/no_image.png') }}" 
                                 alt="{{ $post->title }}" 
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                class="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="absolute top-3 left-3">
                             <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-full shadow-lg font-medium">

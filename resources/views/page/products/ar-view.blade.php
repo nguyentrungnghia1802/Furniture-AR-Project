@@ -35,6 +35,10 @@
                         loadingIndicator.style.display = 'none';
                     }
                     
+                    // Force very small scale for AR
+                    modelViewer.scale = '0.001 0.001 0.001';
+                    console.log('✅ AR Scale set to 0.001 (very small)');
+                    
                     // Apply subtle darkening to make edges and details more visible
                     applyModelEnhancement(modelViewer);
                 });
@@ -295,11 +299,10 @@
                         shadow-softness="0.85"
                         exposure="0.95"
                         tone-mapping="neutral"
+                        ar-scale="0.001"
+                        scale="0.001 0.001 0.001"
                         data-product-id="{{ $product->id }}"
                         data-product-name="{{ $product->name }}"
-                        @if($dimensions)
-                        ar-scale="{{ $dimensions['scale'] ?? 'auto' }}"
-                        @endif
                     >
                         <!-- Loading Indicator -->
                         <div id="loading-indicator" slot="poster" class="flex items-center justify-center h-full">
