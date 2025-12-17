@@ -34,7 +34,47 @@
                     if (loadingIndicator) {
                         loadingIndicator.style.display = 'none';
                     }
+                    
+                    // Apply subtle darkening to make edges and details more visible
+                    applyModelEnhancement(modelViewer);
                 });
+                
+                // Apply natural wood color for better visibility
+                function applyModelEnhancement(viewer) {
+                    try {
+                        // Optimal settings for wood appearance
+                        viewer.exposure = 1.0;
+                        viewer.shadowIntensity = 0.9;
+                        viewer.shadowSoftness = 0.8;
+                        
+                        // Apply Natural Oak Wood color: RGB(210, 180, 140)
+                        // This gives furniture a realistic warm wood tone
+                        const model = viewer.model;
+                        if (model && model.materials) {
+                            model.materials.forEach(material => {
+                                if (material.pbrMetallicRoughness) {
+                                    // Natural oak wood color
+                                    material.pbrMetallicRoughness.setBaseColorFactor([
+                                        210/255, // R: Warm tan
+                                        180/255, // G: Medium tone
+                                        140/255, // B: Natural brown
+                                        1.0
+                                    ]);
+                                    // Wood properties: low metallic, medium-high roughness
+                                    material.pbrMetallicRoughness.setMetallicFactor(0.05);
+                                    material.pbrMetallicRoughness.setRoughnessFactor(0.75);
+                                }
+                            });
+                        }
+                        
+                        console.log('✅ Natural Oak Wood color applied');
+                        console.log('- Wood color: RGB(210, 180, 140)');
+                        console.log('- Metallic: 0.05 (non-metallic wood)');
+                        console.log('- Roughness: 0.75 (natural wood texture)');
+                    } catch (error) {
+                        console.error('Error applying wood color:', error);
+                    }
+                }
                 
                 modelViewer.addEventListener('error', (event) => {
                     console.error('❌ Model failed to load:', event.detail);
@@ -251,6 +291,10 @@
                         camera-controls
                         touch-action="pan-y"
                         auto-rotate
+                        shadow-intensity="0.8"
+                        shadow-softness="0.85"
+                        exposure="0.95"
+                        tone-mapping="neutral"
                         data-product-id="{{ $product->id }}"
                         data-product-name="{{ $product->name }}"
                         @if($dimensions)
