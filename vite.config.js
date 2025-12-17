@@ -34,8 +34,7 @@ export default defineConfig({
             input: [
                 "resources/css/app.css", 
                 "resources/js/app.js", 
-                "resources/js/components.js",
-                "resources/js/ar-viewer.js"
+                "resources/js/components.js"
             ],
             refresh: true,
         }),
