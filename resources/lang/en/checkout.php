@@ -54,7 +54,7 @@ return [
     'completed' => 'Completed',
     'failed' => 'Failed',
     'transaction_id' => 'Transaction ID:',
-    'thank_you' => 'Thank you for your order at',
+    'thank_you' => 'Thank you for your order at ',
     'thank_you_message' => 'You will pay when you receive the goods.',
     'thank_you_message_completed' => 'Your payment has been processed successfully.',
     'order_confirmation' => 'We will contact you as soon as possible to confirm your order and delivery information.',

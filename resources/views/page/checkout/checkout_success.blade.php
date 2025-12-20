@@ -27,7 +27,7 @@
                     // Fallback if payment is not found
                     $payment = new \App\Models\Order\Payment([
                         'payment_method' => 'cash_on_delivery',
-                        'payment_status' => 'pending',
+                        'status' => 'pending',
                         'transaction_id' => 'N/A'
                     ]);
                 }
@@ -40,8 +40,8 @@
                         <p class="text-gray-600">
                             @if($payment->payment_method == 'credit_card')
                                 {{ __('checkout.credit_card') }}
-                            @elseif($payment->payment_method == 'paypal')
-                                {{ __('checkout.paypal') }}
+                            @elseif($payment->payment_method == 'bank_transfer')
+                                {{ __('checkout.bank_transfer') }}
                             @elseif($payment->payment_method == 'cash_on_delivery')
                                 {{ __('checkout.cash_on_delivery') }}
                             @endif
@@ -49,11 +49,11 @@
                     </div>
                     <div class="mt-2 sm:mt-0">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
-                            {{ $payment->payment_status == 'completed' ? 'bg-green-100 text-green-800' : 
-                              ($payment->payment_status == 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800') }}">
-                            @if($payment->payment_status == 'completed')
+                            {{ $payment->status == 'completed' ? 'bg-green-100 text-green-800' : 
+                              ($payment->status == 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800') }}">
+                            @if($payment->status == 'completed')
                                 {{ __('checkout.completed') }}
-                            @elseif($payment->payment_status == 'pending')
+                            @elseif($payment->status == 'pending')
                                 {{ __('checkout.pending') }}
                             @else
                                 {{ __('checkout.failed') }}

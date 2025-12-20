@@ -24,10 +24,22 @@ return [
     'paypal_secure' => 'Secure payment with PayPal',
 
     // Cash on Delivery
+    'cash_on_delivery_title' => 'Cash on Delivery',
     'cod_title' => 'Cash on Delivery',
     'cod_description' => 'Pay when you receive your order',
     'cod_fee' => 'COD Fee',
     'cod_note' => 'Please prepare exact cash amount',
+
+    // Bank Transfer
+    'bank_account_info' => 'Bank Account Information',
+    'bank_name' => 'Bank Name',
+    'account_number' => 'Account Number',
+    'account_holder' => 'Account Holder',
+    'transfer_content' => 'Transfer Content',
+    'bank_transfer_instructions' => 'Please transfer money to the above bank account. Your order will be processed after we receive payment.',
+    'confirm_order' => 'Confirm Order',
+    'bank_transfer_note' => 'After transferring, please keep the transaction confirmation and contact us if you have any questions.',
+    'place_order_now' => 'Place Order Now',
 
     // Order Summary
     'order_summary' => 'Order Summary',

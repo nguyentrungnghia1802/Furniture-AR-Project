@@ -15,8 +15,8 @@ class PaymentService
     public function processPayment(string $paymentMethod, Order $order, array $paymentData = []): array
     {
         try {
-            // Validate payment method - chỉ chấp nhận đúng enum DB
-            $allowedMethods = ['cod', 'credit_card', 'paypal'];
+            // Validate payment method - only accept valid enum from database
+            $allowedMethods = ['cash_on_delivery', 'bank_transfer', 'credit_card'];
             if (!in_array($paymentMethod, $allowedMethods)) {
                 throw new Exception('Invalid payment method: '.$paymentMethod);
             }
@@ -24,10 +24,10 @@ class PaymentService
             switch ($paymentMethod) {
                 case 'credit_card':
                     return $this->processCreditCard($order, $paymentData);
-                case 'paypal':
-                    return $this->processPayPal($order, $paymentData);
-                case 'cod':
-                    return $this->processCOD($order);
+                case 'bank_transfer':
+                    return $this->processBankTransfer($order, $paymentData);
+                case 'cash_on_delivery':
+                    return $this->processCashOnDelivery($order);
                 default:
                     throw new Exception('Invalid payment method');
             }
@@ -50,8 +50,6 @@ class PaymentService
     protected function processCreditCard(Order $order, array $paymentData): array
     {
         // In a real application, this would validate card details and call a payment gateway
-
-        // Simulate credit card payment processing
         $transactionId = 'CC_'.uniqid().'_'.$order->id;
 
         try {
@@ -63,12 +61,14 @@ class PaymentService
             // Create payment record
             $payment = Payment::create([
                 'order_id' => $order->id,
+                'amount' => $order->total_amount,
                 'payment_method' => 'credit_card',
                 'status' => 'completed',
                 'transaction_id' => $transactionId,
+                'payment_date' => now(),
             ]);
 
-            // Update order status to processing
+            // Update order status
             $order->update(['status' => 'pending']);
         } catch (\Exception $e) {
             Log::error('Credit card payment processing error: '.$e->getMessage(), [
@@ -88,37 +88,27 @@ class PaymentService
     }
 
     /**
-     * Process PayPal payment
+     * Process Bank Transfer payment
      */
-    protected function processPayPal(Order $order, array $paymentData): array
+    protected function processBankTransfer(Order $order, array $paymentData): array
     {
-        // In a real application, this would call the PayPal API
-
-        // Simulate PayPal payment processing
-        $transactionId = 'PP_'.uniqid().'_'.$order->id;
+        // In a real application, this would validate bank transfer details
+        $transactionId = 'BT_'.uniqid().'_'.$order->id;
 
         try {
-            // Ensure the payment method is explicitly set to the string 'paypal'
-            $paymentMethod = 'paypal';
-
-            // Validate that the payment method is valid according to the enum definition
-            $validMethods = ['credit_card', 'paypal', 'cash_on_delivery'];
-            if (! in_array($paymentMethod, $validMethods)) {
-                throw new \Exception('Invalid payment method value: '.$paymentMethod);
-            }
-
-            // Create payment record with validated payment method
+            // Create payment record
             $payment = Payment::create([
                 'order_id' => $order->id,
-                'payment_method' => 'paypal',
-                'status' => 'completed',
+                'amount' => $order->total_amount,
+                'payment_method' => 'bank_transfer',
+                'status' => 'pending',
                 'transaction_id' => $transactionId,
             ]);
 
-            // Update order status to processing
+            // Update order status
             $order->update(['status' => 'pending']);
         } catch (\Exception $e) {
-            Log::error('PayPal payment processing error: '.$e->getMessage(), [
+            Log::error('Bank transfer payment processing error: '.$e->getMessage(), [
                 'order_id' => $order->id,
                 'payment_data' => $paymentData,
                 'trace' => $e->getTraceAsString(),
@@ -128,7 +118,7 @@ class PaymentService
 
         return [
             'success' => true,
-            'message' => 'Thanh toán PayPal thành công',
+            'message' => 'Đơn hàng đã được tạo. Vui lòng chuyển khoản theo thông tin đã cung cấp.',
             'transaction_id' => $transactionId,
             'payment_id' => $payment->id,
         ];
@@ -137,22 +127,23 @@ class PaymentService
     /**
      * Process Cash on Delivery payment
      */
-    protected function processCOD(Order $order): array
+    protected function processCashOnDelivery(Order $order): array
     {
         try {
             // Create payment record with pending status
             $payment = Payment::create([
                 'order_id' => $order->id,
-                'payment_method' => 'cod',
+                'amount' => $order->total_amount,
+                'payment_method' => 'cash_on_delivery',
                 'status' => 'pending',
                 'transaction_id' => 'COD_'.$order->id,
             ]);
 
-            // Update order status to processing
+            // Update order status
             $order->update(['status' => 'pending']);
 
         } catch (\Exception $e) {
-            Log::error('COD payment processing error: '.$e->getMessage(), [
+            Log::error('Cash on Delivery payment processing error: '.$e->getMessage(), [
                 'order_id' => $order->id,
                 'trace' => $e->getTraceAsString(),
             ]);
@@ -179,7 +170,7 @@ class PaymentService
                 throw new Exception('Invalid payment status');
             }
 
-            $payment->payment_status = $status;
+            $payment->status = $status;
 
             return $payment->save();
         } catch (Exception $e) {

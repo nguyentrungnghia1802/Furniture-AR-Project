@@ -91,7 +91,7 @@ class Payment extends Model
      * - payment_status: 'pending' (initial payment state)
      */
     protected $attributes = [
-        'payment_method' => 'cod', // Đúng enum trong migration
+        'payment_method' => 'cash_on_delivery', // Default payment method matching migration enum
         'status' => 'pending',     // Default to pending status
     ];
 
@@ -164,9 +164,9 @@ class Payment extends Model
      * Used for payment method validation, form options, and system configuration.
      *
      * Payment Method Details:
-     * - cash_on_delivery: Cash payment upon delivery (COD)
+     * - cash_on_delivery: Cash on Delivery
+     * - bank_transfer: Bank Transfer payment
      * - credit_card: Credit/debit card payment processing
-     * - paypal: PayPal payment gateway integration
      *
      * Usage:
      * - Form dropdown options: Payment::getAvailableMethods()
@@ -177,6 +177,6 @@ class Payment extends Model
      */
     public static function getAvailableMethods(): array
     {
-        return ['cod', 'credit_card', 'paypal'];
+        return ['cash_on_delivery', 'bank_transfer', 'credit_card'];
     }
 }

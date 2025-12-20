@@ -24,7 +24,7 @@ class PaymentCastServiceProvider extends ServiceProvider
         Payment::creating(function ($payment) {
             // Validate and sanitize payment_method before saving
             if (isset($payment->payment_method)) {
-                $allowedMethods = ['credit_card', 'paypal', 'cash_on_delivery'];
+                $allowedMethods = ['cash_on_delivery', 'bank_transfer', 'credit_card'];
                 $method = trim((string) $payment->payment_method);
 
                 if (! in_array($method, $allowedMethods)) {

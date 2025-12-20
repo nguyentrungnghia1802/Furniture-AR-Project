@@ -408,7 +408,7 @@ CREATE TABLE `payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `order_id` bigint unsigned NOT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `payment_method` enum('cod','bank_transfer','credit_card') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` enum('cash_on_delivery','bank_transfer','credit_card') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('pending','completed','failed') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `payment_date` timestamp NULL DEFAULT NULL,
   `transaction_id` text COLLATE utf8mb4_unicode_ci,

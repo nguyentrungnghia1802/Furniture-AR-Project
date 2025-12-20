@@ -168,7 +168,7 @@
                 @csrf
                 <input type="hidden" name="payment_method" id="payment_method_input"
                     value="{{ $paymentMethods[0] ?? 'cash_on_delivery' }}">
-                <input type="hidden" name="payment_data" id="payment_data" value="{}">
+                <input type="hidden" name="payment_data" id="payment_data" value="{}">>
 
                 <input type="hidden" name="selected_items_json" value='@json($selectedItems)'>
 
@@ -181,7 +181,7 @@
                 <div class="mt-6">
                     <div id="payment-methods-container" class="space-y-4">
                         <x-payment.credit-card />
-                        <x-payment.paypal />
+                        <x-payment.bank-transfer />
                         <x-payment.cash-on-delivery />
                     </div>
                 </div>
@@ -219,14 +219,12 @@
                                             d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                     </svg>
                                 </span>
-                            @elseif($method === 'paypal')
+                            @elseif($method === 'bank_transfer')
                                 <span class="mr-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-                                        fill="#00457c">
-                                        <path
-                                            d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.384a.99.99 0 0 1 .984-.822h6.712c3.16 0 4.23 1.542 3.891 3.825-.482 3.253-2.608 4.218-5.257 4.218h-.32a.654.654 0 0 0-.648.553l-.784 4.987a.841.841 0 0 1-.837.697H7.076v4.495z" />
-                                        <path
-                                            d="M14.588 7.643a.64.64 0 0 0 .634-.74L13.114 3.74a.64.64 0 0 0-.633-.74H6.768a.64.64 0 0 0-.633.74l2.107 13.165a.64.64 0 0 0 .633.74h5.712a.64.64 0 0 0 .634-.74l-.784-4.987a.64.64 0 0 0-.633-.74h-1.237a.64.64 0 0 1-.634-.74l.123-.772a.64.64 0 0 1 .634-.74h2.498v-.273z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
                                     </svg>
                                 </span>
                             @elseif($method === 'cash_on_delivery')
@@ -441,7 +439,7 @@
                 const selectedMethod = document.getElementById('payment_method_input').value;
 
                 // Check if payment is required and not completed for certain methods
-                if (selectedMethod === 'credit_card' || selectedMethod === 'paypal') {
+                if (selectedMethod === 'credit_card' || selectedMethod === 'bank_transfer') {
                     // Check if payment has been completed (you can add specific checks here)
                     const paymentCompleted = checkPaymentStatus(selectedMethod);
                     
@@ -456,7 +454,7 @@
                     }
                 }
 
-                // If COD or payment completed, submit the form
+                // If cash_on_delivery or payment completed, submit the form
                 if (selectedMethod === 'cash_on_delivery') {
                     document.getElementById('payment_data').value = JSON.stringify({
                         terms_accepted: true
@@ -483,16 +481,9 @@
                     return false;
                 }
                 
-                // For PayPal, check if PayPal payment is completed
-                if (method === 'paypal') {
-                    // You can add specific PayPal completion check here
-                    // For now, just check if PayPal form is visible and email is provided
-                    const form = document.getElementById('paypal-form');
-                    if (form) {
-                        const email = form.querySelector('input[name="paypal_email"]');
-                        return email && email.value;
-                    }
-                    return false;
+                // For Bank Transfer, always return true as user will transfer later
+                if (method === 'bank_transfer') {
+                    return true;
                 }
                 
                 return true; // For other methods like COD
