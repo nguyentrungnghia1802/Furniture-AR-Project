@@ -16,10 +16,13 @@ class Address extends Model
 
     protected $fillable = [
         'user_id',
-        'phone_number',
+        'full_name',
+        'phone',
         'address',
-        'latitude',
-        'longitude',
+        'city',
+        'district',
+        'ward',
+        'is_default',
         'created_at',
         'updated_at',
     ];

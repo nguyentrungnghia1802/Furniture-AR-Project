@@ -322,6 +322,25 @@ class CheckoutController extends Controller
         DB::beginTransaction();
 
         try {
+            // Calculate Total Amount
+            /**
+             * Total Calculation - Calculate order total from selected items
+             * Uses discounted_price if available, otherwise uses regular price
+             * Adds shipping fee from configuration
+             */
+            $totalAmount = 0;
+            foreach ($selectedItems as $item) {
+                $itemPrice = $item['discounted_price'] ?? $item['price'] ?? 0;
+                $itemQuantity = $item['quantity'] ?? 0;
+                $totalAmount += $itemPrice * $itemQuantity;
+            }
+            $totalAmount += config('constants.checkout.shipping_fee', 8);
+            
+            // Validate total amount
+            if ($totalAmount <= 0) {
+                throw new \Exception('Invalid total amount calculated');
+            }
+            
             // Create New Order Record
             /**
              * Order Creation - Create main order record with calculated totals
@@ -330,7 +349,7 @@ class CheckoutController extends Controller
              */
             $order = Order::create([
                 'user_id' => $user->id,
-                'total_price' => array_sum(array_column($selectedItems, 'subtotal')) + config('constants.checkout.shipping_fee', 8),
+                'total_amount' => $totalAmount,
                 'status' => 'pending',
                 'address_id' => $address,
                 'message' => $message,
@@ -345,16 +364,18 @@ class CheckoutController extends Controller
             foreach ($selectedItems as $item) {
                 // Get product and update inventory
                 $product = Product::find($item['id']);
-
-                $product->stock_quantity -= $item['quantity']; // Reduce available stock
+                $product->stock_quantity -= $item['quantity'];
                 $product->save();
 
-                // Create order detail record for this item
+                $itemPrice = $item['discounted_price'] ?? $item['price'];
+                $itemSubtotal = $itemPrice * $item['quantity'];
+
                 OrderDetail::create([
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'quantity' => $item['quantity'],
-                    'price' => $item['price'], // Preserve price at time of order
+                    'price' => $itemPrice,
+                    'subtotal' => $itemSubtotal,
                 ]);
             }
 

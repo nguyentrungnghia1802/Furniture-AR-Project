@@ -78,6 +78,7 @@ class OrderDetail extends Model
         'product_id', // Foreign key to products table - specific product being ordered
         'quantity',   // Number of units of this product in the order (must be positive integer)
         'price',      // Unit price of the product at time of order (preserves historical pricing)
+        'subtotal',   // Subtotal for this line (price * quantity)
     ];
 
     // ===== RELATIONSHIP DEFINITIONS =====

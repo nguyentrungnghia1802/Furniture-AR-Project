@@ -10,7 +10,7 @@
 /storage/logs/
 /storage/framework/
 bootstrap/cache/
-/public/images/*
+# /public/images/*
 
 # AR Models - Large binary files should not be in git
 /public/ar_models/**/*.glb

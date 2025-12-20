@@ -74,7 +74,8 @@ class Order extends Model
      */
     protected $fillable = [
         'user_id',     // Foreign key to users table - customer who placed the order
-        'total_price', // Total order amount including taxes and fees
+        'total_amount', // Total order amount including taxes and fees (primary field)
+        'total_price', // Alias for total_amount for backwards compatibility
         'status',      // Current order status (pending, processing, shipped, completed, cancelled)
         'message',     // Customer message or special instructions for the order
         'address_id',  // Foreign key to addresses table - shipping/billing address
@@ -86,29 +87,41 @@ class Order extends Model
      * Total Amount Accessor
      *
      * Provides an alternative attribute name for accessing the total order amount.
-     * This accessor allows views and other code to use 'total_amount' instead
-     * of 'total_price' for better semantic meaning and consistency with financial terminology.
+     * This accessor allows views and other code to use 'total_price' as an alias
+     * for 'total_amount' for backwards compatibility.
      *
      * @return float The total order amount
      */
-    public function getTotalAmountAttribute()
+    public function getTotalPriceAttribute()
     {
-        return $this->total_price;
+        return $this->total_amount;
     }
 
     /**
      * Total Amount Mutator
      *
-     * Allows setting the total order amount using 'total_amount' attribute name.
-     * This mutator provides flexibility in how the total amount is set while
-     * maintaining the underlying 'total_price' database field structure.
+     * Allows setting the total order amount using either 'total_amount' or 'total_price'.
+     * This mutator provides flexibility while maintaining the underlying 'total_amount' database field.
      *
      * @param  float  $value  The total amount value to set
      * @return void
      */
     public function setTotalAmountAttribute($value)
     {
-        $this->attributes['total_price'] = $value;
+        $this->attributes['total_amount'] = $value;
+    }
+    
+    /**
+     * Total Price Mutator (Alias)
+     *
+     * Allows setting using 'total_price' attribute name for backwards compatibility.
+     *
+     * @param  float  $value  The total price value to set
+     * @return void
+     */
+    public function setTotalPriceAttribute($value)
+    {
+        $this->attributes['total_amount'] = $value;
     }
 
     /**

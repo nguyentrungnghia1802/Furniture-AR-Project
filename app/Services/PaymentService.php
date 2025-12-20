@@ -15,9 +15,9 @@ class PaymentService
     public function processPayment(string $paymentMethod, Order $order, array $paymentData = []): array
     {
         try {
-            // Validate payment method to ensure it's one of the allowed values
-            $allowedMethods = ['credit_card', 'paypal', 'cash_on_delivery'];
-            if (! in_array($paymentMethod, $allowedMethods)) {
+            // Validate payment method - chỉ chấp nhận đúng enum DB
+            $allowedMethods = ['cod', 'credit_card', 'paypal'];
+            if (!in_array($paymentMethod, $allowedMethods)) {
                 throw new Exception('Invalid payment method: '.$paymentMethod);
             }
 
@@ -26,7 +26,7 @@ class PaymentService
                     return $this->processCreditCard($order, $paymentData);
                 case 'paypal':
                     return $this->processPayPal($order, $paymentData);
-                case 'cash_on_delivery':
+                case 'cod':
                     return $this->processCOD($order);
                 default:
                     throw new Exception('Invalid payment method');
@@ -64,7 +64,7 @@ class PaymentService
             $payment = Payment::create([
                 'order_id' => $order->id,
                 'payment_method' => 'credit_card',
-                'payment_status' => 'completed', // We're assuming successful payment for simplicity
+                'status' => 'completed',
                 'transaction_id' => $transactionId,
             ]);
 
@@ -110,8 +110,8 @@ class PaymentService
             // Create payment record with validated payment method
             $payment = Payment::create([
                 'order_id' => $order->id,
-                'payment_method' => $paymentMethod,
-                'payment_status' => 'completed', // We're assuming successful payment for simplicity
+                'payment_method' => 'paypal',
+                'status' => 'completed',
                 'transaction_id' => $transactionId,
             ]);
 
@@ -143,8 +143,8 @@ class PaymentService
             // Create payment record with pending status
             $payment = Payment::create([
                 'order_id' => $order->id,
-                'payment_method' => 'cash_on_delivery',
-                'payment_status' => 'pending', // Payment will be completed when delivery is done
+                'payment_method' => 'cod',
+                'status' => 'pending',
                 'transaction_id' => 'COD_'.$order->id,
             ]);
 

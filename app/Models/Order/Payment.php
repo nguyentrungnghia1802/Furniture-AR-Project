@@ -73,9 +73,11 @@ class Payment extends Model
      */
     protected $fillable = [
         'payment_method',  // Payment method used (COD, credit card, PayPal)
-        'payment_status',  // Current payment status (pending, completed, failed, refunded)
+        'status',          // Current payment status (pending, completed, failed)
         'transaction_id',  // External payment system transaction reference
         'order_id',        // Associated order reference
+        'amount',          // Payment amount
+        'payment_date',    // Payment date
     ];
 
     /**
@@ -89,8 +91,8 @@ class Payment extends Model
      * - payment_status: 'pending' (initial payment state)
      */
     protected $attributes = [
-        'payment_method' => 'cash_on_delivery', // Default to COD for accessibility
-        'payment_status' => 'pending',          // Default to pending status
+        'payment_method' => 'cod', // Đúng enum trong migration
+        'status' => 'pending',     // Default to pending status
     ];
 
     /**
@@ -175,6 +177,6 @@ class Payment extends Model
      */
     public static function getAvailableMethods(): array
     {
-        return ['cash_on_delivery', 'credit_card', 'paypal'];
+        return ['cod', 'credit_card', 'paypal'];
     }
 }

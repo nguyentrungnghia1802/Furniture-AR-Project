@@ -60,11 +60,11 @@ class AddressController extends Controller
             // Input Validation
             /**
              * Address Data Validation - Ensures required fields are provided
-             * phone_number: Essential for delivery contact and communication
+             * phone: Essential for delivery contact and communication
              * address: Complete shipping address for accurate delivery
              */
             $validated = $request->validate([
-                'phone_number' => 'required',  // Required phone number for delivery contact
+                'phone' => 'required',  // Required phone number for delivery contact
                 'address' => 'required',       // Required complete address for shipping
             ]);
 
@@ -76,8 +76,13 @@ class AddressController extends Controller
              */
             $address = Address::create([
                 'user_id' => Auth::id(),                        // Associate with current authenticated user
-                'phone_number' => $validated['phone_number'],   // Validated phone number
+                'full_name' => $request->full_name ?? Auth::user()->name,  // User's name
+                'phone' => $validated['phone'],                 // Validated phone number
                 'address' => $validated['address'],             // Validated address string
+                'city' => $request->city ?? '',                 // City information
+                'district' => $request->district ?? '',         // District information
+                'ward' => $request->ward ?? '',                 // Ward information
+                'is_default' => $request->is_default ?? false,  // Default address flag
             ]);
 
             // Success Response

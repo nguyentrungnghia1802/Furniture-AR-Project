@@ -37,14 +37,14 @@
                 <span class="block font-medium">{{ $userName }}</span>
 
                 @if ($firstAddress)
-                    <span id="selected-phone" class="block text-sm text-gray-600">{{ $firstAddress->phone_number }}</span>
+                    <span id="selected-phone" class="block text-sm text-gray-600">{{ $firstAddress->phone ?? 'N/A' }}</span>
                     <span id="selected-address" class="block text-sm text-gray-600">
-                        {{ $firstAddress->address }}
+                        {{ $firstAddress->address ?? 'N/A' }}
                     </span>
                 @else
-                    <span id="selected-phone" class="block text-sm text-gray-600">NA</span>
+                    <span id="selected-phone" class="block text-sm text-gray-600">N/A</span>
                     <span id="selected-address" class="block text-sm text-gray-600">
-                        NA
+                        N/A
                     </span>
                 @endif
             </h4>
@@ -363,15 +363,22 @@
 
                 <!-- Scrollable area for the address list -->
                 <div id="address-list" class="space-y-4 px-6 overflow-y-auto max-h-[60vh]">
-                    @foreach ($addresses as $address)
-                        <a href="#" class="address-item" data-id="{{ $address->id }}"
-                            data-phone="{{ $address->phone_number }}" data-address="{{ $address->address }}">
-                            <div class="border border-gray-300 rounded-lg p-4 bg-gray-50 shadow-sm">
-                                <p class="text-gray-800"><strong>{{ __('checkout.phone') }}</strong> {{ $address->phone_number }}</p>
-                                <p class="text-gray-800"><strong>{{ __('checkout.address') }}</strong> {{ $address->address }}</p>
-                            </div>
-                        </a>
-                    @endforeach
+                    @if($addresses && count($addresses) > 0)
+                        @foreach ($addresses as $address)
+                            <a href="#" class="address-item" data-id="{{ $address->id }}"
+                                data-phone="{{ $address->phone ?? 'N/A' }}" data-address="{{ $address->address ?? 'N/A' }}">
+                                <div class="border border-gray-300 rounded-lg p-4 bg-gray-50 shadow-sm hover:bg-gray-100 transition">
+                                    <p class="text-gray-800"><strong>{{ __('checkout.phone') }}:</strong> {{ $address->phone ?? 'N/A' }}</p>
+                                    <p class="text-gray-800"><strong>{{ __('checkout.address') }}:</strong> {{ $address->address ?? 'N/A' }}</p>
+                                </div>
+                            </a>
+                        @endforeach
+                    @else
+                        <div class="text-center text-gray-500 py-8">
+                            <p>{{ __('checkout.no_addresses') }}</p>
+                            <p class="text-sm mt-2">{{ __('checkout.please_add_address') }}</p>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="mt-6 flex justify-center px-6 pb-6">
@@ -423,6 +430,14 @@
             // Handle direct submit button
             document.getElementById('direct-submit-btn').addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Validate address is selected
+                const addressId = document.getElementById('selected_address_id').value;
+                if (!addressId || addressId === '') {
+                    alert('Please select a delivery address before placing your order.');
+                    return;
+                }
+                
                 const selectedMethod = document.getElementById('payment_method_input').value;
 
                 // Check if payment is required and not completed for certain methods
@@ -562,15 +577,15 @@
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
                     const id = this.dataset.id;
-                    const phone = this.dataset.phone;
-                    const address = this.dataset.address;
+                    const phone = this.dataset.phone || 'N/A';
+                    const address = this.dataset.address || 'N/A';
                     
                     console.log("Selected address:", id, phone, address);
                     
-                    // Cập nhật thông tin
+                    // Cập nhật thông tin hiển thị
                     document.getElementById('selected_address_id').value = id;
                     document.getElementById('selected-phone').textContent = phone;
-                    document.getElementById('selected-address').innerHTML = address.replace(/\n/g, '<br>');
+                    document.getElementById('selected-address').textContent = address;
                     
                     // Ẩn danh sách địa chỉ
                     addressListContainer.classList.add('hidden');
@@ -605,50 +620,71 @@
                                 .getAttribute('content')
                         },
                         body: JSON.stringify({
-                            phone_number: phone,
-                            address: fullAddress
+                            phone: phone,
+                            address: fullAddress,
+                            city: province,
+                            ward: ward
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
-                        const id = data.address?.id;
-                        const phone = data.address?.phone_number;
-                        const addressText = data.address?.address;
-                        
-                        const a = document.createElement('a');
-                        a.href = '#';
-                        a.className = 'address-item';
-                        a.dataset.id = id;
-                        a.dataset.phone = phone;
-                        a.dataset.address = addressText;
-                        
-                        a.innerHTML = `
-                            <div class="border border-gray-300 rounded-lg p-4 bg-gray-50 shadow-sm">
-                                <p class="text-gray-800"><strong>Phone:</strong> ${phone}</p>
-                                <p class="text-gray-800"><strong>Address:</strong> ${addressText}</p>
-                            </div>
-                        `;
-                        
-                        const addressList = document.getElementById('address-list');
-                        addressList.appendChild(a);
-                        
-                        // Thêm event listener cho địa chỉ mới
-                        a.addEventListener('click', function(e) {
-                            e.preventDefault();
+                        if (data.status === 'success') {
+                            const id = data.address?.id || '';
+                            const phone = data.address?.phone || 'N/A';
+                            const addressText = data.address?.address || 'N/A';
+                            
+                            // Cập nhật địa chỉ được chọn ngay lập tức
                             document.getElementById('selected_address_id').value = id;
                             document.getElementById('selected-phone').textContent = phone;
-                            document.getElementById('selected-address').innerHTML = addressText
-                                .replace(/\n/g, '<br>');
-                            addressListContainer.classList.add('hidden');
-                        });
-                        
-                        // Ẩn modal và reset form
-                        addressFormModal.classList.add('hidden');
-                        document.getElementById('phone_number').value = '';
-                        document.getElementById('address_detail').value = '';
+                            document.getElementById('selected-address').textContent = addressText;
+                            
+                            // Thêm vào danh sách địa chỉ
+                            const a = document.createElement('a');
+                            a.href = '#';
+                            a.className = 'address-item';
+                            a.dataset.id = id;
+                            a.dataset.phone = phone;
+                            a.dataset.address = addressText;
+                            
+                            a.innerHTML = `
+                                <div class="border border-gray-300 rounded-lg p-4 bg-gray-50 shadow-sm hover:bg-gray-100 transition">
+                                    <p class="text-gray-800"><strong>Phone:</strong> ${phone}</p>
+                                    <p class="text-gray-800"><strong>Address:</strong> ${addressText}</p>
+                                </div>
+                            `;
+                            
+                            const addressList = document.getElementById('address-list');
+                            // Xóa message "no addresses" nếu có
+                            const noAddressMsg = addressList.querySelector('.text-center');
+                            if (noAddressMsg) {
+                                noAddressMsg.remove();
+                            }
+                            addressList.appendChild(a);
+                            
+                            // Thêm event listener cho địa chỉ mới
+                            a.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                document.getElementById('selected_address_id').value = id;
+                                document.getElementById('selected-phone').textContent = phone;
+                                document.getElementById('selected-address').textContent = addressText;
+                                addressListContainer.classList.add('hidden');
+                            });
+                            
+                            // Ẩn modal và reset form
+                            addressFormModal.classList.add('hidden');
+                            document.getElementById('phone_number').value = '';
+                            document.getElementById('province').value = '';
+                            document.getElementById('ward').value = '';
+                            document.getElementById('address_detail').value = '';
+                            
+                            alert("Address saved successfully!");
+                        } else {
+                            alert("Error: " + (data.message || 'Unknown error'));
+                        }
                     })
                     .catch(err => {
-                        alert("Error: " + err.message);
+                        console.error("Error saving address:", err);
+                        alert("Error saving address. Please try again.");
                     });
                 });
             }
