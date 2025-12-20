@@ -23,8 +23,28 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+# Check for port conflicts
+echo -e "${YELLOW}Checking for port conflicts...${NC}"
+USED_PORTS=$(docker ps --format '{{.Ports}}' | grep -oP '\d+(?=->)' | sort -u)
+if echo "$USED_PORTS" | grep -q "^80$"; then
+    echo -e "${RED}WARNING: Port 80 is already in use by another container!${NC}"
+    DEFAULT_PORT="9080"
+else
+    DEFAULT_PORT="80"
+fi
+
 # Get user input for configuration
 read -p "Enter your domain or IP address (e.g., example.com or 192.168.1.100): " APP_URL
+read -p "Enter HTTP port [$DEFAULT_PORT]: " HTTP_PORT
+HTTP_PORT=${HTTP_PORT:-$DEFAULT_PORT}
+
+# Validate port is not in use
+if echo "$USED_PORTS" | grep -q "^${HTTP_PORT}$"; then
+    echo -e "${RED}ERROR: Port ${HTTP_PORT} is already in use!${NC}"
+    echo -e "${YELLOW}Used ports: ${USED_PORTS}${NC}"
+    exit 1
+fi
+
 read -p "Enter MySQL root password: " MYSQL_ROOT_PASSWORD
 read -p "Enter MySQL database name [furniture_shop_ar]: " DB_DATABASE
 DB_DATABASE=${DB_DATABASE:-furniture_shop_ar}
@@ -120,7 +140,7 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "80:80"
+      - "${HTTP_PORT}:80"
     environment:
       # Application
       APP_NAME: "Furniture AR Shop"
@@ -297,6 +317,7 @@ cat > $PROJECT_DIR/.env <<EOF
 # Application Settings
 APP_URL=${APP_URL}
 APP_KEY=${APP_KEY}
+HTTP_PORT=${HTTP_PORT}
 
 # Database Settings
 DB_DATABASE=${DB_DATABASE}
@@ -453,7 +474,7 @@ echo -e "${YELLOW}Next Steps:${NC}"
 echo -e "1. Review and update mail configuration in docker-compose.yml"
 echo -e "2. Add your database backup SQL file to: $PROJECT_DIR/sql/"
 echo -e "3. Start the application: ${GREEN}$PROJECT_DIR/start.sh${NC}"
-echo -e "4. Run database migrations: ${GREEN}$PROJECT_DIR/artisan.sh migrate${NC}"
+echo -e "4. Run database migrations: ${GREEN}$PROJECT_DIR/artis:$HTTP_PORTan.sh migrate${NC}"
 echo -e "5. Access your application at: ${GREEN}http://$APP_URL${NC}"
 echo ""
 echo -e "${YELLOW}Important Files:${NC}"
